@@ -11,8 +11,9 @@ header.masthead {
 }
 
 .backgroundImge {
+  height:100%;
   padding-top: 9rem;
-  background: url("../image/index/bg-masthead.png");
+  background: url("../../image/index/bg-masthead2.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

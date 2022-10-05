@@ -58,10 +58,16 @@
         </div>
         </div>
         </nav>
+  <!-- Bootstrap core JS-->
+  <script src="${contextRoot}/vender/bootstrap/5.1.3/bootstrap.bundle.min.js"></script>
+  <!-- SimpleLightbox plugin JS-->
+  <script src="${contextRoot}/js/index/plugin/simpleLightbox.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="${contextRoot}/js/index/scripts.js"></script>
+        
 
-
-<script src="${contextRoot}/js/jquery-3.6.1.min.js" type="text/javascript"></script>
-<script src="${contextRoot}/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<%-- <script src="${contextRoot}/js/jquery-3.6.1.min.js" type="text/javascript"></script> --%>
+<%-- <script src="${contextRoot}/js/bootstrap.bundle.min.js" type="text/javascript"></script> --%>
 
 
 </body>

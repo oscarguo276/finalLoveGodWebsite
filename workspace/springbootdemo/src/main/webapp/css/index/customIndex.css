@@ -1,0 +1,115 @@
+/* 背景 */
+header.masthead {
+  padding-top: 10rem;
+  /* padding-bottom: calc(10rem - 4.5rem);  */
+  padding-bottom: calc(30rem - 4.5rem);
+  background: url("../image/index/bg-masthead.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.backgroundImge {
+  padding-top: 9rem;
+  background: url("../image/index/bg-masthead.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+
+/* 監聽到滑鼠移到bar要變甚麼顏色 */
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: #495057;
+  background-color: #495057;
+  border-color: #495057;
+  font-size: 220%;
+
+}
+
+#mainNav .navbar-nav .nav-item .nav-link:hover {
+  color: #1a5086;
+  font-size: 220%;
+}
+
+
+/* 首頁置中logo圖 */
+.imgcenter {
+  /* mix-blend-mode: multiply; */
+  /* max-width: 80vw; */
+  width: 60vw;
+  padding-bottom: 4rem;
+  /* margin: auto; */
+}
+
+/* 底部欄位 */
+.small {
+  font-size: 0.875em;
+  color: black;
+  background: rgba(0, 0, 0, 0);
+}
+
+/* 首頁導航欄 */
+#indexmainNav .navbar-nav .nav-item .nav-link {
+  color: black;
+  font-family: masafont-Regular;
+  /* "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+  /* 字體粗度 */
+  font-weight: 900;
+  font-size: 210%;
+  padding: 0rem;
+  margin: auto 4vw;
+}
+
+#indexmainNav {
+  background-image: url(../../image/index/bar.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  width: auto;
+
+}
+
+/* 各頁面導航欄位 */
+#mainNav .navbar-nav .nav-item .nav-link {
+  color: black;
+  font-family: masafont-Regular;
+  /* "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+  font-weight: 900;
+  font-size: 210%;
+  margin: 0px;
+}
+
+/* 導航欄背景 */
+#mainNav {
+  background-image: url(../../image/index/bar.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  width: auto;
+
+}
+
+/* 左上logo返回首頁 */
+.barimg {
+  width: 9rem;
+  height: auto;
+}
+
+#login,
+#register {
+  color: black;
+  font-family: masafont-Regular;
+  /* "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+  /* 字體粗度 */
+  font-weight: 500;
+  font-size: 3vw;
+  padding: 0rem;
+  margin: auto 5vw;
+
+}

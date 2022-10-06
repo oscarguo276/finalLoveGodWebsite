@@ -40,7 +40,7 @@
       <div class="collapse navbar-collapse"	 id="navbarResponsive">
         <ul class="navbar-nav ms-auto my-2 my-lg-0">
           <li class="nav-item">
-          		<a class="nav-link" href="#">香油錢</a>
+          		<a class="nav-link" href="${contextRoot}/donation">香油錢</a>
           </li>
           <li class="nav-item">
           		<a class="nav-link" href="#">求籤</a>

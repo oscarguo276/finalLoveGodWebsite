@@ -43,10 +43,10 @@
           		<a class="nav-link" href="${contextRoot}/donation">香油錢</a>
           </li>
           <li class="nav-item">
-          		<a class="nav-link" href="#">求籤</a>
+          		<a class="nav-link" href="${contextRoot}/drawlots">求籤</a>
           	</li>
           <li class="nav-item">
-          		<a class="nav-link" href="#">求姻緣</a>
+          		<a class="nav-link" href="${contextRoot}/marriage">求姻緣</a>
           	</li>
           <li class="nav-item">
           		<a class="nav-link" href="${contextRoot}/shop/more">線上商城</a>

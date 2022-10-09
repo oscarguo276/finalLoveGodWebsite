@@ -112,7 +112,7 @@ by 清樺
                         <div class="flip-card-front">
 
 
-                            <form:form class="user" action="registersubmit" method="post">
+                            <form:form class="user" action="registersubmit" method="post" modelAttribute="registersubmit">
                             
                             
                                 <div class="row">
@@ -132,7 +132,7 @@ by 清樺
                                                         placeholder="請輸入帳號..." 
                                                         pattern=".{6,12}"
                                                         pattern="[a-zA-Z0-9]{6,12}" title="（請最少輸入 6 - 12 位英文與數字）"
-                                                        name="registerInput" required>
+                                                        name="memberId" required>
                                                     <span>（請最少輸入 6 - 12 位英文與數字）</span> <!-- minlength="6" maxlength="12" -->
                                                 </div>
                                                 <!-- 註冊密碼 -->
@@ -140,14 +140,14 @@ by 清樺
                                                     <input type="password" class="form-control form-control-lg"
                                                         placeholder="請輸入密碼..." pattern=".{6,12}"
                                                         pattern="[a-zA-Z0-9]{6,12}" title="（請最少輸入 6 - 12 位英文與數字）"
-                                                        name="registerInput" required>
+                                                        name="password" required>
                                                     <span>（請最少輸入 6 - 12 位英文與數字）</span>
                                                 </div>
 
                                                 <!-- 註冊姓名 -->
                                                 <div class="form-group col-lg-12">
                                                     <input type="text" class="form-control form-control-lg"
-                                                        placeholder="請輸入您的姓名..." name="registerInput" required>
+                                                        placeholder="請輸入您的姓名..." name="name" required>
                                                 </div>
 
                                                 <!-- 註冊性別 -->
@@ -159,7 +159,7 @@ by 清樺
                                                 <div class="form-group col-lg-2"
                                                     style="text-align: left; font-size:1.5rem;">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="sexRadio"
+                                                        <input class="form-check-input" type="radio" name="sex" value="1"
                                                             id="sexRadio1" checked>
                                                         <label class="form-check-label" for="sexRadio1">
                                                             男
@@ -169,7 +169,7 @@ by 清樺
                                                 <div class="form-group col-lg-2"
                                                     style="text-align: left; font-size:1.5rem;">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="sexRadio"
+                                                        <input class="form-check-input" type="radio" name="sex" value="0"
                                                             id="sexRadio0">
                                                         <label class="form-check-label" for="sexRadio0">
                                                             女
@@ -187,33 +187,33 @@ by 清樺
                                                 <div class="form-group col-lg-9"
                                                     style="text-align: left; font-size:1.5rem;">
                                                     <input class="form-control form-control-lg" type="date"
-                                                        name="registerInput" required>
+                                                        name="birthday" required>
                                                 </div>
 
                                                 <!-- 註冊地址 -->
                                                 <div class="form-group col-lg-12">
                                                     <input type="text" class="form-control form-control-lg"
-                                                        placeholder="請輸入您的地址..." name="registerInput" maxlength="30">
+                                                        placeholder="請輸入您的地址..." name="address" maxlength="30">
                                                 </div>
 
                                                 <!-- 註冊手機 -->
                                                 <div class="form-group col-lg-12">
                                                     <input type="tel" class="form-control form-control-lg"
                                                         pattern="/^09\d{2}-?\d{3}-?\d{3}$/" placeholder="請輸入您的手機號碼..."
-                                                        name="registerInput" pattern=".{6,12}" ><!-- minlength="10" maxlength="11" -->
+                                                        name="phone" pattern=".{6,12}" ><!-- minlength="10" maxlength="11" -->
                                                 </div>
 
                                                 <!-- 註冊信箱 -->
                                                 <div class="form-group col-lg-12">
                                                     <input type="tel" class="form-control form-control-lg"
                                                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                                                        placeholder="請輸入您的E-mail..." name="registerInput">
+                                                        placeholder="請輸入您的E-mail..." name="mail">
                                                 </div>
                                                 <div class="form-check col-lg-10 h2 text-gray-900 mb-4 font">
                                                     <label class="form-check-label" for="flexCheckDefault">
                                                         開啟姻緣功能：
                                                     </label>
-                                                    <input class="form-check-input" type="checkbox"
+                                                    <input class="form-check-input" type="checkbox" name="mach"
                                                         style="float:none;margin-left: 0.1em; margin-top: 0.1em;"
                                                         onclick="openShutManager(this,'extraData',false,'内容')">
                                                 </div>
@@ -226,7 +226,7 @@ by 清樺
                                                         <label for="exampleFormControlTextarea1"
                                                             style="font-size:1.5rem;">簽名欄：</label>
                                                         <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                            rows="5"></textarea>
+                                                            rows="5" name="text"></textarea>
                                                     </div>
                                                     <div class="form-group col-lg-12">
                                                         <label style="font-size:1.5rem;">聯絡方式二擇一(必填)：</label>
@@ -252,7 +252,7 @@ by 清樺
                                                         style="font-size:1.5rem;  margin-top: 0.1em; text-align:left;">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="radio"
-                                                                name="contactRadio" id="contactRadio2">
+                                                                name="Line" id="contactRadio2" value="Line">
                                                             <label class="form-check-label" for="contactRadio2">
                                                                 Line：
                                                             </label>
@@ -267,7 +267,7 @@ by 清樺
                                                         style="font-size:1.5rem;  margin-top: 0.1em; text-align:left;">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="radio"
-                                                                name="contactRadio" id="contactRadio3">
+                                                                name="IG" id="contactRadio3" value="IG">
                                                             <label class="form-check-label" for="contactRadio3">
                                                                 IG：
                                                             </label>

@@ -128,16 +128,16 @@ by 清樺
                                                 <!-- 註冊帳號 -->
                                                 <div class="form-group col-lg-12">
                                                                                                 
-                                                    <input type="text" class="form-control form-control-lg"
+                                                    <input type="text" class="form-control form-control-lg" id="memberId"
                                                         placeholder="請輸入帳號..." 
                                                         pattern=".{6,12}"
                                                         pattern="[a-zA-Z0-9]{6,12}" title="（請最少輸入 6 - 12 位英文與數字）"
                                                         name="memberId" required>
-                                                    <span>（請最少輸入 6 - 12 位英文與數字）</span> <!-- minlength="6" maxlength="12" -->
+                                                    <span id='result0c'>（請最少輸入 6 - 12 位英文與數字）</span> <!-- minlength="6" maxlength="12" -->
                                                 </div>
                                                 <!-- 註冊密碼 -->
                                                 <div class="form-group col-lg-12">
-                                                    <input type="password" class="form-control form-control-lg"
+                                                    <input type="password" class="form-control form-control-lg" id="password"
                                                         placeholder="請輸入密碼..." pattern=".{6,12}"
                                                         pattern="[a-zA-Z0-9]{6,12}" title="（請最少輸入 6 - 12 位英文與數字）"
                                                         name="password" required>
@@ -232,22 +232,6 @@ by 清樺
                                                         <label style="font-size:1.5rem;">聯絡方式二擇一(必填)：</label>
                                                     </div>
 
-<!--                                                     <div class="form-group col-lg-12" -->
-<!--                                                         style="font-size:1.5rem;  margin-top: 0.1em; text-align:left;"> -->
-<!--                                                         <div class="form-check"> -->
-<!--                                                             <input class="form-check-input" type="radio" -->
-<!--                                                                 name="contactRadio" id="contactRadio1"> -->
-<!--                                                             <label class="form-check-label" for="contactRadio1"> -->
-<!--                                                                 Facebook： -->
-<!--                                                             </label> -->
-<!--                                                         </div> -->
-<!--                                                     </div> -->
-<!--                                                     <div class="form-group col-lg-12"> -->
-<!--                                                         <input type="text" class="form-control form-control-lg" -->
-<!--                                                             placeholder="請輸入您Facebook" name="registerInput" -->
-<!--                                                             maxlength="50"> -->
-<!--                                                     </div> -->
-
                                                     <div class="form-group col-lg-12"
                                                         style="font-size:1.5rem;  margin-top: 0.1em; text-align:left;">
                                                         <div class="form-check">
@@ -324,11 +308,36 @@ by 清樺
     <script src="${contextRoot}/vender/bootstrap/4.6.0/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="${contextRoot}/vender/jquery-easing/jquery.easing.min.js"></script>
-    <!-- JavaScript-->
-    <!-- <script src="js/login/loveClick.js"></script> -->
 
-    <!-- Custom scripts for all pages-->
-    <!-- <script src="js/login.js"></script> -->
+	<script>
+		function validatorloginName(){
+			alert("進入程序");  
+			 var loginName = document.getElementById("memberId").value;  
+				   // 登入名 = 
+					   alert("抓到ID");  
+			 if (loginName == "")
+			 {  
+				 alert("使用者名稱不能為空!");  
+				 return;  
+			 }
+			 $.ajax({ 
+				 type: "POST",      
+				 url: "http://localhost:8080/my-app/register",      
+				 data: "loginName="+loginName, 
+				 success: function(data){ 
+					 if(data=="true"){  
+						 alert("恭喜您！使用者名稱沒有被使用！");    
+					 }else{ 
+						 alert("抱歉！使用者名稱已存在！");     
+					 }
+				 }
+			 }	
+
+		}
+	
+	</script>
+
+
 
 <%-- <jsp:include page="../layout/footer.jsp"></jsp:include> --%>
 

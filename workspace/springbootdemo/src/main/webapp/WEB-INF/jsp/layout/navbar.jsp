@@ -40,12 +40,15 @@
       <div class="collapse navbar-collapse"	 id="navbarResponsive">
         <ul class="navbar-nav ms-auto my-2 my-lg-0">
           <li class="nav-item">
+          		<a class="nav-link" href="#"></a>
           		<a class="nav-link" href="${contextRoot}/donation">香油錢</a>
           </li>
           <li class="nav-item">
+          		<a class="nav-link" href="#"></a>
           		<a class="nav-link" href="${contextRoot}/drawlots">求籤</a>
           	</li>
           <li class="nav-item">
+          		<a class="nav-link" href="#"></a>
           		<a class="nav-link" href="${contextRoot}/marriage">求姻緣</a>
           	</li>
           <li class="nav-item">
@@ -54,6 +57,9 @@
           <li class="nav-item">
           		<a class="nav-link" href="#">關於月老</a>
           	</li>
+          <li class="nav-item">
+          		<a class="nav-link" href="${contextRoot}/management/allManagement">後台管理</a>
+          </li>
         </ul>
         </div>
         </div>

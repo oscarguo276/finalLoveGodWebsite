@@ -31,8 +31,6 @@
     <!--     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" -->
     <!--         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
 </head>
-
-
 <body class="bg-gradient-primary">
 
 <div class="backgroundImge">
@@ -160,7 +158,10 @@ by 清樺
                                                             title="（請最少輸入 6 - 12 位英文與數字）"
                                                             required>
                                                     </div>
-                                                    
+                                                    <br>
+                                                    <div id='message' style="height: 10px;"></div>
+                                                    memberId:${memberId}<br>
+                                                    password:${password}<br>
                                                     <!-- <div class="form-group">
     <a href="" class="row">忘記密碼</a>
 </div> -->

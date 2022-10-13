@@ -10,4 +10,12 @@ public interface RegisterDao extends JpaRepository<RegisterModel, Long> {
 	@Query("select r from RegisterModel r where r.memberId = ?1 and r.password = ?2 ")
 	RegisterModel findLogin(String memberId, String password);
 
+	
+	
+//	// 業務邏輯
+//		public MemberAccountVO login(MemberAccount memberAccount);
+//		public Optional<String> register(MemberAccountVO memberAccountVO);
+//	RegisterModel findRegisterModelByMemberId(String memberId);
+
+	
 }

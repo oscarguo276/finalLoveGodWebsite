@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ShopController {
-		//產生商城頁面
-	@GetMapping("/shop/more")
-	public String moreShop() {
-		return "shop/shop";
-	}
+//		//產生商城頁面
+//	@GetMapping("/shop/more")
+//	public String moreShop() {
+//		return "shop/shop";
+//	}
 }

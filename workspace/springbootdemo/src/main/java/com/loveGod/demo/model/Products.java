@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -13,24 +14,28 @@ public class Products {
 		
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		@Column(name="prodId")
-		private Long prodId;
+		@Column(name="prod_id")
+		private Integer prodId;
 		
-		@Column(name="prodName")
+		@Column(name="prod_name")
 		private String prodName;
 		
-		@Column(name="prodPrice")
+		@Column(name="prod_price")
 		private Integer prodPrice;
+		
+		@Lob //Large Object 檔案
+		@Column(name=" prod_photo")
+		private byte[] prodPhoto;
 	
 		public Products() {
 			
 		}
 	
-		public Long getProdId() {
+		public Integer getProdId() {
 			return prodId;
 		}
 	
-		public void setProdId(Long prodId) {
+		public void setProdId(Integer prodId) {
 			this.	prodId = prodId;
 		}
 	
@@ -49,6 +54,15 @@ public class Products {
 		public void setProdPrice(Integer prodPrice) {
 			this.prodPrice = prodPrice;
 		}
+
+		public byte[] getProdPhoto() {
+			return prodPhoto;
+		}
+
+		public void setProdPhoto(byte[] prodPhoto) {
+			this.prodPhoto = prodPhoto;
+		}
+
 		
 	
 

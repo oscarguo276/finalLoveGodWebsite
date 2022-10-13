@@ -37,7 +37,7 @@
         aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
         </button>
         
-      <div class="collapse navbar-collapse"	 id="navbarResponsive">
+<div class="collapse navbar-collapse"	 id="navbarResponsive">
         <ul class="navbar-nav ms-auto my-2 my-lg-0">
           <li class="nav-item">
           		<a class="nav-link" href="#"></a>
@@ -60,15 +60,27 @@
           <li class="nav-item">
           		<a class="nav-link" href="${contextRoot}/management/allManagement">後台管理</a>
           </li>
+<!--      -------------------------------------------------------------------------- -->
+          <li class="nav-item">
+          		<a class="nav-link" href="${contextRoot}/newProducts">新增商品</a>
+          	</li>
+<!--       -------------------------------------------------------------------------- -->          	
         </ul>
-        </div>
-        </div>
-        </nav>
-  <!-- Bootstrap core JS-->
+<!--   這個div只有在商城有效，是和購物車連接       -->
+    <div style="cursor: pointer">
+      <span class="glyphicon glyphicon-shopping-cart my-cart-icon badge badge-notify my-cart-badge"></span>
+      <!-- 購物車小圖 -->
+      <i class="fa-sharp fa-solid fa-cart-shopping" style="font-size: 25px;"></i>
+   </div>
+<!--  --  -->
+   </div>
+  </div>
+ </nav>
+  <!-- Bootstrap core JS -->
   <script src="${contextRoot}/vender/bootstrap/5.1.3/bootstrap.bundle.min.js"></script>
-  <!-- SimpleLightbox plugin JS-->
+  <!-- SimpleLightbox plugin JS -->
   <script src="${contextRoot}/js/index/plugin/simpleLightbox.min.js"></script>
-  <!-- Core theme JS-->
+  <!-- Core theme JS -->
   <script src="${contextRoot}/js/index/scripts.js"></script>
         
 

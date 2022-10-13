@@ -66,16 +66,18 @@
           	</li>
 <!--       -------------------------------------------------------------------------- -->       
 		 <li class="nav-item">
-          		<a class="nav-link" href="${contextRoot}/management/allManagement">
 					<c:choose>
 						<c:when test="${empty memberId}">
+						<a class="nav-link" href="${contextRoot}/login">
 							訪客 		
+						</a>
 						</c:when>    
 						<c:otherwise>
+						<a class="nav-link" href="${contextRoot}/management/allManagement">
 							使用者${memberId} 
+						</a>
 						</c:otherwise>
 					</c:choose>
-          		</a>
           </li>   	
         </ul>
 <!--   這個div只有在商城有效，是和購物車連接       -->

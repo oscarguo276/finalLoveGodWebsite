@@ -35,7 +35,7 @@ public class RegisterModel {
 	@JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
-	@Column(name="birthday", columnDefinition="int")
+	@Column(name="birthday") //columnDefinition="int"
 	private Date birthday;	// 生日	
 	
 	private String phone;     			// 電話

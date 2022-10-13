@@ -229,7 +229,7 @@ by 清樺
                                                             rows="5" name="text"></textarea>
                                                     </div>
                                                     <div class="form-group col-lg-12">
-                                                        <label style="font-size:1.5rem;">聯絡方式二擇一(必填)：</label>
+                                                        <label style="font-size:1.5rem;">聯絡方式(建議填寫)：</label>
                                                     </div>
 
                                                     <div class="form-group col-lg-12"

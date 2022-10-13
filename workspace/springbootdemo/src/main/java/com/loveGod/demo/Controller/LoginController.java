@@ -40,10 +40,10 @@ public class LoginController {
 	public String login(HttpServletRequest request) {		// 進入方法(login)
 		HttpSession session = request.getSession();
 		Object memberId = session.getAttribute("memberId");
-		if(memberId != null) {
-			return "redirect:index";
+		if(memberId != null) {			// 如果已有登入未登入
+			return "redirect:index";	// 強制給我滾回來
 		}else {
-			return "login/login";   // 找  /login.jsp  顯示畫面：登入畫面
+			return "login/login";  		// 找  /login.jsp  顯示畫面：登入畫面
 		}
 	}
 	//================================== 註冊頁面 ==================================	
@@ -76,12 +76,12 @@ public class LoginController {
 		List<RegisterModel> x = rService.findLogin(rM); 	
 		if(x != null) {									   // 不是空的表示抓到啦~
 			// 如果登入成功帳密存到Session
-			//第一步：获取session
+			// 第一步：获取session
 			HttpSession session = request.getSession();
-			//第二步：将想要保存到数据存入session中
+			// 第二步：将想要保存到数据存入session中
 			session.setAttribute("memberId",x.get(0).getMemberId());
 			session.setAttribute("password",x.get(0).getPassword());
-			//这样就完成了用户名和密码保存到session的操作
+			// 这样就完成了用户名和密码保存到session的操作
 			return "redirect:index";					  						   // 正確返回首頁
 		}else {
 			System.out.println("帳密錯誤!!");  	

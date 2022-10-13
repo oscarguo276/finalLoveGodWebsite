@@ -1,151 +1,132 @@
 package com.loveGod.demo.Controller;
 
-import java.lang.reflect.Member;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.loveGod.demo.model.RegisterDao;
 import com.loveGod.demo.model.RegisterModel;
 import com.loveGod.demo.service.RegisterService;
+
 @Controller
 public class LoginController {
-	
-	@Autowired		
+
+	@Autowired
 	private RegisterService rService; // Service部分
 	@Autowired
 	private RegisterDao rDao;
 
 	// jsp 分別為：login(登入)、register(註冊)、registerSuccess(註冊成功)
-	
-	//================================== 登入頁面 ==================================	
-	@GetMapping("/login")       // 網址http://localhost:8080/my-app/login
-	public String login(HttpServletRequest request) {		// 進入方法(login)
+
+	// ================================== 登入頁面 ==================================
+	@GetMapping("/login") 								// 網址http://localhost:8080/my-app/login
+	public String login(HttpServletRequest request) {   // 進入方法(login)
 		HttpSession session = request.getSession();
 		Object memberId = session.getAttribute("memberId");
-		if(memberId != null) {			// 如果已有登入未登入
-			return "redirect:index";	// 強制給我滾回來
-		}else {
-			return "login/login";  		// 找  /login.jsp  顯示畫面：登入畫面
+		if (memberId != null) { 						// 如果已有登入未登入
+			return "redirect:index"; 					// 強制給我滾回來
+		} else {
+			return "login/login"; 						// 找 /login.jsp 顯示畫面：登入畫面
 		}
 	}
-	//================================== 註冊頁面 ==================================	
-	@GetMapping("/register") 	   // 網址http://localhost:8080/my-app/register
-	public String register() {	   // 進入方法(register)
-		return "login/register";   // 找  /register.jsp  顯示畫面：註冊畫面
+
+	// ================================== 登出頁面 ==================================
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request) { // 進入方法(login)
+		HttpSession session = request.getSession();
+		session.removeAttribute("memberId");		   // 刪掉
+		session.removeAttribute("password");
+		return "redirect:index";
 	}
-	//================================== 註冊成功 ==================================
+
+	// ================================== 註冊頁面 ==================================
+	@GetMapping("/register") 			// 網址http://localhost:8080/my-app/register
+	public String register() { 			// 進入方法(register)
+		return "login/register"; 		// 找 資料夾/register.jsp 顯示畫面：註冊畫面
+	}
+	
+	// ================================== 註冊成功/失敗 ==================================
+
+		// ------------ 生日換算成年齡 -------------------------//
+	public int CalculateAge(Date Birthday) {
+		// ------------ 當前年份 - 生日 = 年齡 ------------------//
+		Calendar cal = Calendar.getInstance();
+		Calendar bir = Calendar.getInstance();
+		bir.setTime(Birthday);
+		/* 取出當前年月日 */
+		int yearNow = cal.get(Calendar.YEAR);
+		int monthNow = cal.get(Calendar.MONTH);
+		int dayNow = cal.get(Calendar.DAY_OF_MONTH);
+		/* 取出出生年月日 */
+		int yearBirth = bir.get(Calendar.YEAR);
+		int monthBirth = bir.get(Calendar.MONTH);
+		int dayBirth = bir.get(Calendar.DAY_OF_MONTH);
+		/* 大概年齡是當前年減去出生年 */
+		int age = yearNow - yearBirth;
+		/* 如果出當前月小與出生月，或者當前月等於出生月但是當前日小於出生日，那麽年齡age就減一歲 */
+		if (monthNow < monthBirth || (monthNow == monthBirth && dayNow < dayBirth)) {
+			age--;
+		}
+		return age;
+	}
 
 //	@RequestMapping(value = "/registersubmit", method = RequestMethod.POST)
 	@PostMapping("/registersubmit")
-	public String registersubmit(
-			@ModelAttribute(name="registersubmit")RegisterModel rM, 
-			Model model) {	
-	    //------------------- 資料傳到SQL --------------------------------
-//		System.out.println("帳號： "+ rM.getMemberId());      // 確認裡面有無帳號資料
-		rService.insertRegister(rM);		      // 把資料放進去(插入)
-//		rDao.save(rM);
-		RegisterModel r1 = new RegisterModel();	  // 資料表RegisterModel 	
-		model.addAttribute("registersubmit",r1);
-		return "login/registerSuccess"; 		  // 找  /registerSuccess.jsp 顯示畫面：註冊成功畫面
-		}
+	public String registersubmit(@ModelAttribute(name = "registersubmit") RegisterModel rM, Model model) {
 
-	//================================== 使用者登入判斷帳密是否正確 ========================
+		List<RegisterModel> resultList = rService.findMemberId(rM);
+		if (resultList.size() > 0) { 					 // 他有找到
+//			System.out.println("帳號已經有重複的");
+			model.addAttribute("Msg", "*帳號已經有重複的");
+			return "login/register";
+//			return "redirect:register";
+		} else {
+// ------- 資料傳到SQL -----------------------
+			int age = CalculateAge(rM.getBirthday());    // 把生日放進 轉換成年齡的方法 裡面執行再把結果放變數裡面
+			rM.setAge(age);				  				 // 放到年齡欄位裡面	
+			rService.insertRegister(rM); 				 // 把資料放進去(插入)
+//			RegisterModel r1 = new RegisterModel();	     // 資料表RegisterModel 	
+//			model.addAttribute("registersubmit",r1);
+			return "login/registerSuccess"; 			 //  顯示畫面：註冊成功畫面
+		}
+	}
+
+	
+	// ================================== 使用者登入判斷帳密是否正確 ========================
 	@PostMapping("/loginsubmit")
-	public String loginsubmit(HttpServletRequest request,
-		@ModelAttribute(name="loginsubmit")RegisterModel rM, 
-		Model model) {	
-			//---- 資料傳到SQL ----------
-		List<RegisterModel> x = rService.findLogin(rM); 	
-		if(x != null) {									   // 不是空的表示抓到啦~
+	public String loginsubmit(HttpServletRequest request, @ModelAttribute(name = "loginsubmit") RegisterModel rM,
+			Model model) {
+// ---- 資料傳到SQL ----------
+		List<RegisterModel> resultList = rService.findLogin(rM);
+		if (resultList.size() > 0) { 					 // 登入：不存在資料庫的帳密 => 帳密錯誤
 			// 如果登入成功帳密存到Session
 			// 第一步：获取session
 			HttpSession session = request.getSession();
 			// 第二步：将想要保存到数据存入session中
-			session.setAttribute("memberId",x.get(0).getMemberId());
-			session.setAttribute("password",x.get(0).getPassword());
+			session.setAttribute("memberId", resultList.get(0).getMemberId());	// 取得那欄位的帳號,從0(陣列)開始,放入session
+			session.setAttribute("password", resultList.get(0).getPassword());
 			// 这样就完成了用户名和密码保存到session的操作
-			return "redirect:index";					  						   // 正確返回首頁
-		}else {
-			System.out.println("帳密錯誤!!");  	
-			return "login/login";
+			return "redirect:index"; 					// 正確返回首頁
+		} else {
+//			System.out.println("帳密錯誤!!");  	
+			model.addAttribute("Msg", "*帳密錯誤!!");		// 畫面顯示：*帳密錯誤!!	
+			return "login/login";						// 返回登入畫面
 		}
 	}
-}
-
-	
-	
-//	@RequestMapping(value = "/login", method = RequestMethod.POST)
-//	public String doLogin(
-//			@ModelAttribute RegisterModel registerModel ,
-//			HttpSession session, 
-//			RedirectAttributes redirectAttributes) {
-//		
-//		RegisterModel RegisterModel = RegisterModel.login(memberAccount);
-//		if(memberAccountVO == null) {
-//			String message = memberAccountVO == null ? "帳號或密碼錯誤" : "";	
-//			redirectAttributes.addFlashAttribute("MESSAGE", message);
-//			return "redirect:login";
-//		}
-//		session.setAttribute("member", memberAccountVO);	
-//		return "redirect:information";
-//	}
-//	
-	
-	//================================== 判斷使用者的帳密是否存在資料庫 ========================
-	// ====== Ajax ====  如果輸入資料有錯誤，送回前端，請使用者修正 ============================
-//	   
-//	   @PostMapping("/login")
-//		public @ResponseBody Map<String, String> addMember(
-//				@RequestParam(value = "memberId", required = false) String memberId,
-//				@RequestParam(value = "password", required = false) String password) {
-//
-//			Map<String, String> messageMap = new HashMap<>();
-//			
-//			//  檢查輸入資料
-//			if (memberId == null || memberId.trim().length() == 0) {
-//				messageMap.put("idError", "請輸入帳號");
-//			}
-//			if (password == null || password.trim().length() == 0) {
-//				messageMap.put("nameError", "請輸入密碼");
-//			}
-//			
-//			//  如果輸入資料有錯誤，送回前端，請使用者修正
-//			if (!messageMap.isEmpty()) {
-//				return messageMap;
-//			}
-//
-//			Member member = new Member(null, memberId, password);
-//			try {
-//				rService.save(member);
-//			} catch (RuntimeException ex) {
-//				messageMap.put("fail", "帳號已經存在，請更換帳號");
-//			} catch (Exception ex) {
-//				messageMap.put("fail", ex.getMessage());
-//			}
-//
-//			//  依照企業邏輯運算的結果送回適當的訊息
-//			messageMap.put("success", "新增成功");
-//			return messageMap;
-//		}
-//
-
-
-
+}   
+// 登入：不存在資料庫的帳密 => 帳密錯誤 => 報紅字顯示錯誤訊息
+// SQL 年齡
+// 使用者登出
+// 使用者修改介面
+// 關於月老的連結
+// 購物車的連結

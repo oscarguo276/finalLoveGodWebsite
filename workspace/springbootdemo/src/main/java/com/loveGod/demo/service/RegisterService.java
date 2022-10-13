@@ -23,17 +23,12 @@ import com.loveGod.demo.model.RegisterModel;
 		}
 	//----------- 確認資料庫是否存在此帳戶，有就登入.... -------------------		
 		public List<RegisterModel> findLogin(RegisterModel reg) {
-
 			return rDao.findLogin(reg.getMemberId(), reg.getPassword());
 		}
 		
-	
-//		public RegisterModel login(RegisterModel reg) {
-//			// 檢查帳號是否存在
-//			RegisterModel data = rDao.findRegisterModelByMemberId(reg.getMemberId());
-//			if(data == null) return null;
-//			return data;
-//		}
+		public List<RegisterModel> findMemberId(RegisterModel reg) {
+			return rDao.findMemberId(reg.getMemberId());
+		}
 		
 		//----------- 確認帳戶是否重複.... -------------------	
 		

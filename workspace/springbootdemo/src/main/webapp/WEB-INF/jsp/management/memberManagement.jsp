@@ -21,13 +21,13 @@
                 <option value="2">電話</option>
                 </select>              
             </div>      
-            <div class="box2" >
+           	<div class="box2" >
                 <div class="input-group">
-                <input type="text"  class="form-control input-md">
-                <input type="submit" class="btn btn-primary" value="搜索" />
-            </div>
-        </div> 
-
+                	<input type="text"  class="form-control input-md">
+                	<input type="submit" class="btn btn-primary" value="搜索" />
+            	</div>
+        	</div> 
+		</div>
         <table class="table table-hover">
             <thead>
               <tr>

@@ -3,6 +3,7 @@ package com.loveGod.demo.Controller;
 import java.lang.reflect.Member;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,8 +37,14 @@ public class LoginController {
 	
 	//================================== 登入頁面 ==================================	
 	@GetMapping("/login")       // 網址http://localhost:8080/my-app/login
-	public String login() {		// 進入方法(login)
-		return "login/login";   // 找  /login.jsp  顯示畫面：登入畫面
+	public String login(HttpServletRequest request) {		// 進入方法(login)
+		HttpSession session = request.getSession();
+		Object memberId = session.getAttribute("memberId");
+		if(memberId != null) {
+			return "redirect:index";
+		}else {
+			return "login/login";   // 找  /login.jsp  顯示畫面：登入畫面
+		}
 	}
 	//================================== 註冊頁面 ==================================	
 	@GetMapping("/register") 	   // 網址http://localhost:8080/my-app/register
@@ -62,22 +69,27 @@ public class LoginController {
 
 	//================================== 使用者登入判斷帳密是否正確 ========================
 	@PostMapping("/loginsubmit")
-	public String loginsubmit(
+	public String loginsubmit(HttpServletRequest request,
 		@ModelAttribute(name="loginsubmit")RegisterModel rM, 
 		Model model) {	
 			//---- 資料傳到SQL ----------
-		RegisterModel x = rService.findLogin(rM);
-		if(x == rM) {
-			System.out.println(x.getMemberId());  // 確認是否抓到帳號	
-			System.out.println(x.getPassword());  // 確認是否抓到密碼
-			return "/index";					  // 正確返回首頁
-		}else if (x == null){
+		List<RegisterModel> x = rService.findLogin(rM); 	
+		if(x != null) {									   // 不是空的表示抓到啦~
+			// 如果登入成功帳密存到Session
+			//第一步：获取session
+			HttpSession session = request.getSession();
+			//第二步：将想要保存到数据存入session中
+			session.setAttribute("memberId",x.get(0).getMemberId());
+			session.setAttribute("password",x.get(0).getPassword());
+			//这样就完成了用户名和密码保存到session的操作
+			return "redirect:index";					  						   // 正確返回首頁
+		}else {
 			System.out.println("帳密錯誤!!");  	
-			return "login/registerSuccess";
+			return "login/login";
 		}
-		System.out.println("帳密錯誤!");  	
-			return "login/registerSuccess";					
 	}
+}
+
 	
 	
 //	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -137,16 +149,3 @@ public class LoginController {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-}

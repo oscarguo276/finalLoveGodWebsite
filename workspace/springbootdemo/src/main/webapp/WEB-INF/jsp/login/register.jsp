@@ -198,8 +198,8 @@ by 清樺
 
                                                 <!-- 註冊手機 -->
                                                 <div class="form-group col-lg-12">
-                                                    <input type="tel" class="form-control form-control-lg"
-                                                        pattern="/^09\d{2}-?\d{3}-?\d{3}$/" placeholder="請輸入您的手機號碼..."
+                                                    <input type="tel" class="form-control form-control-lg"        
+                                                        placeholder="請輸入您的手機號碼..."
                                                         name="phone" pattern=".{6,12}" ><!-- minlength="10" maxlength="11" -->
                                                 </div>
 

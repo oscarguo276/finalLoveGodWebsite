@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <c:set var="contextRoot"  value="${pageContext.request.contextPath }"/>
-
+ <c:set scope="session" var="memberId" value="${sessionScope.memberId}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +64,19 @@
           <li class="nav-item">
           		<a class="nav-link" href="${contextRoot}/newProducts">新增商品</a>
           	</li>
-<!--       -------------------------------------------------------------------------- -->          	
+<!--       -------------------------------------------------------------------------- -->       
+		 <li class="nav-item">
+          		<a class="nav-link" href="${contextRoot}/management/allManagement">
+					<c:choose>
+						<c:when test="${empty memberId}">
+							訪客 		
+						</c:when>    
+						<c:otherwise>
+							使用者${memberId} 
+						</c:otherwise>
+					</c:choose>
+          		</a>
+          </li>   	
         </ul>
 <!--   這個div只有在商城有效，是和購物車連接       -->
     <div style="cursor: pointer">
@@ -82,7 +94,7 @@
   <script src="${contextRoot}/js/index/plugin/simpleLightbox.min.js"></script>
   <!-- Core theme JS -->
   <script src="${contextRoot}/js/index/scripts.js"></script>
-        
+  
 
 <%-- <script src="${contextRoot}/js/jquery-3.6.1.min.js" type="text/javascript"></script> --%>
 <%-- <script src="${contextRoot}/js/bootstrap.bundle.min.js" type="text/javascript"></script> --%>

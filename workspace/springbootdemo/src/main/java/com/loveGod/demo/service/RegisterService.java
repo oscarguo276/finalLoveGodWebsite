@@ -1,5 +1,7 @@
 package com.loveGod.demo.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,8 @@ import com.loveGod.demo.model.RegisterModel;
 			return rDao.save(reg);
 		}
 	//----------- 確認資料庫是否存在此帳戶，有就登入.... -------------------		
-		public RegisterModel findLogin(RegisterModel reg) {
+		public List<RegisterModel> findLogin(RegisterModel reg) {
+
 			return rDao.findLogin(reg.getMemberId(), reg.getPassword());
 		}
 		

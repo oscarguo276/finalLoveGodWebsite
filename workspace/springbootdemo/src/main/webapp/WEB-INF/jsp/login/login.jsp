@@ -160,8 +160,8 @@ by 清樺
                                                     </div>
                                                     <br>
                                                     <div id='message' style="height: 10px;"></div>
-                                                    memberId:${memberId}<br>
-                                                    password:${password}<br>
+<%--                                                     memberId:${memberId}<br> --%>
+<%--                                                     password:${password}<br> --%>
                                                     <!-- <div class="form-group">
     <a href="" class="row">忘記密碼</a>
 </div> -->

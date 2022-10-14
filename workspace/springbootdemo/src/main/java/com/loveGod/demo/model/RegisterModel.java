@@ -2,7 +2,6 @@ package com.loveGod.demo.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -28,24 +27,24 @@ public class RegisterModel {
 	private Integer Id;
 	private String memberId; // 帳號
 	private String password; // 密碼
-	private String name; // 姓名
-	private String sex; // 性別
+	private String name;     // 姓名
+	private String sex;  	 // 性別
 
 	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	@Column(name = "birthday") // columnDefinition="int"
-	private Date birthday; // 生日
+	private Date birthday;     // 生日
 
-	private String phone; // 電話
-	private String mail; // 信箱
-	private String address; // 地址
-	private String mach; // 是否開啟配對
+	private String phone;      // 電話
+	private String mail; 	   // 信箱
+	private String address;    // 地址
+	private String mach; 	   // 是否開啟配對
 	private java.sql.Timestamp registerDate; // 會員登錄日期
-	private Integer age; // 年齡
-	private String text; // 簽名欄
-	private String line; // LINE
-	private String ig; // IG
+	private Integer age; 	   // 年齡
+	private String text; 	   // 簽名欄
+	private String line; 	   // LINE
+	private String ig; 	 	   // IG
 
 	public RegisterModel() {
 	}
@@ -172,100 +171,4 @@ public class RegisterModel {
 	public void setIg(String ig) {
 		this.ig = ig;
 	}
-
-//	public RegisterModel(String memberId, String password, String name, String sex, Date birthday, String phone,
-//			String mail, String address, String mach, Timestamp registerDate) {
-//		super();
-//		this.memberId = memberId;
-//		this.password = password;
-//		this.name = name;
-//		this.sex = sex;
-//		this.birthday = birthday;
-//		this.phone = phone;
-//		this.mail = mail;
-//		this.address = address;
-//		this.mach = mach;
-//		this.registerDate = registerDate;
-//	}
-//
-//	public String getMemberId() {
-//		return memberId;
-//	}
-//
-//	public void setMemberId(String memberId) {
-//		this.memberId = memberId;
-//	}
-//
-//	public String getPassword() {
-//		return password;
-//	}
-//
-//	public void setPassword(String password) {
-//		this.password = password;
-//	}
-//
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//
-//	public String getSex() {
-//		return sex;
-//	}
-//
-//	public void setSex(String sex) {
-//		this.sex = sex;
-//	}
-//
-//	public java.util.Date getBirthday() {
-//		return birthday;
-//	}
-//
-//	public void setBirthday(java.util.Date birthday) {
-//		this.birthday = birthday;
-//	}
-//
-//	public String getPhone() {
-//		return phone;
-//	}
-//
-//	public void setPhone(String phone) {
-//		this.phone = phone;
-//	}
-//
-//	public String getMail() {
-//		return mail;
-//	}
-//
-//	public void setMail(String mail) {
-//		this.mail = mail;
-//	}
-//
-//	public String getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(String address) {
-//		this.address = address;
-//	}
-//
-//	public String getMach() {
-//		return mach;
-//	}
-//
-//	public void setMach(String mach) {
-//		this.mach = mach;
-//	}
-//
-//	public java.sql.Timestamp getRegisterDate() {
-//		return registerDate;
-//	}
-//
-//	public void setRegisterDate(java.sql.Timestamp registerDate) {
-//		this.registerDate = registerDate;
-//	}
-
 }

@@ -77,6 +77,11 @@ by 清樺
 		<div class="container">
 			<!-- Outer Row -->
 			<div class="row justify-content-center">
+
+				<div class="col-md-6 mb-md-0 p-md-4">
+					<img src="${contextRoot}/image/index/logo.png" class="w-100" alt="...">
+				</div>
+
 				<div class="col-xl-10 col-lg-12 col-md-9">
 					<!-- 切換部分的卡片 -->
 					<div class="row" style="margin-bottom: -2.5rem; padding-top: -2rem">
@@ -182,7 +187,7 @@ by 清樺
 		<script type="text/javascript" src="json.js">
 			
 		</script>
-		
+
 		<!-- 姻緣開啟 -->
 		<script src="${contextRoot}/js/login/marriage.js"></script>
 		<!-- 翻轉、愛心 -->

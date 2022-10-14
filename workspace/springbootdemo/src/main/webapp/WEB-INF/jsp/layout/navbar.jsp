@@ -47,38 +47,38 @@
 
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto my-2 my-lg-0">
-					<li class="nav-item"><a class="nav-link" href="#"></a> <a
-						class="nav-link" href="${contextRoot}/donation">香油錢</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"></a> <a
-						class="nav-link" href="${contextRoot}/drawlots">求籤</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"></a> <a
-						class="nav-link" href="${contextRoot}/marriage">求姻緣</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"></a> <a
-						class="nav-link" href="${contextRoot}/shop">線上商城</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"></a> <a
-						class="nav-link" href="${contextRoot}/about">關於月老</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${contextRoot}/donation">香油錢</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${contextRoot}/drawlots">求籤</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${contextRoot}/marriage">求姻緣</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${contextRoot}/shop">線上商城</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${contextRoot}/about">關於月老</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="${contextRoot}/management/allManagement">後台管理</a></li>
 					<!--      -------------------------------------------------------------------------- -->
 					<li class="nav-item"><a class="nav-link"
 						href="${contextRoot}/newProducts">新增商品</a></li>
 					<!--       -------------------------------------------------------------------------- -->
-					<c:choose>
-						<c:when test="${empty memberId}">
-							<li class="nav-item"><a class="nav-link"
-								href="${contextRoot}/login"> 訪客 </a></li>
-						</c:when>
-						<c:otherwise>
-							<li class="nav-item"><a class="nav-link"
-								href="${contextRoot}/management/allManagement">
-									使用者${memberId} </a></li>
-							<li class="nav-item"><a class="nav-link" href="#"
-								data-toggle="modal" data-target="#logoutModal"> <i
-									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									登出
-							</a></li>
-						</c:otherwise>
-					</c:choose>
+					<li class="nav-item"><c:choose>
+							<c:when test="${empty memberId}">
+								<li class="nav-item"><a class="nav-link"
+									href="${contextRoot}/login"> 訪客 </a></li>
+							</c:when>
+							<c:otherwise>
+								<li class="nav-item"><a class="nav-link"
+									href="${contextRoot}/management/allManagement">
+										使用者${memberId} </a></li>
+								<li class="nav-item"><a class="nav-link" href="#"
+									data-toggle="modal" data-target="#logoutModal"> <i
+										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+										登出
+								</a></li>
+							</c:otherwise>
+						</c:choose>
 				</ul>
 				<!--   這個div只有在商城有效，是和購物車連接       -->
 				<div style="cursor: pointer">
@@ -92,8 +92,8 @@
 			</div>
 		</div>
 	</nav>
-
-	<!-- Logout Modal-->
+	
+		<!-- Logout Modal-->
 	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -114,7 +114,6 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- Jquery Core -->
 	<script src="${contextRoot}/vender/jquery/3.6.0/jquery.min.js"></script>
 	<!-- Bootstrap Modal JS -->
@@ -126,7 +125,6 @@
 	<script src="${contextRoot}/js/index/plugin/simpleLightbox.min.js"></script>
 	<!-- Core theme JS -->
 	<script src="${contextRoot}/js/index/scripts.js"></script>
-
 
 	<%-- <script src="${contextRoot}/js/jquery-3.6.1.min.js" type="text/javascript"></script> --%>
 	<%-- <script src="${contextRoot}/js/bootstrap.bundle.min.js" type="text/javascript"></script> --%>

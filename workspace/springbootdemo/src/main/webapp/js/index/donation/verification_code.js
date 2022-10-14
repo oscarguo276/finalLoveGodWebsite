@@ -26,6 +26,9 @@ function createCode(){
   var AA=aa[r1];
   var BB=bb[r2];
   var CC=cc[r3];
+  console.log(AA);
+  console.log(BB);
+  console.log(CC);
   DD="";
   DD=AA+CC+BB;//數字字串
   Md=eval(DD);//透過eval強制運算
@@ -34,6 +37,9 @@ function createCode(){
   var A2=a2[r1];
   var B2=b2[r2];
   var C2=c2[r3];
+  console.log(A2);
+  console.log(B2);
+  console.log(C2);
   D2="";
   D2=A2+C2+B2;//大寫數字字串
   //alert(D2);
@@ -45,24 +51,29 @@ function createCode(){
 //驗證
 var validate=document.getElementById('validate');
 let na = document.getElementById('CheckId');
-validate.addEventListener("click",function(){
+validate.addEventListener("click",checkForm);
+
+function checkForm(){
 	var inputCode = document.getElementById("Check").value.toUpperCase(); //取得輸入的驗證碼並轉化為大寫 
 	if(inputCode.length <= 0) { //若輸入的驗證碼長度為0 
 		na.innerHTML=("不可為空白"); //則彈出請輸入驗證碼 
+		
 	} 
 	else if(parseInt(inputCode,10) !== Md ) { //若輸入的驗證碼與產生的驗證碼不一致時 //將輸入的字串轉成10進位的整數
     //alert(parseInt(inputCode,10));
     //alert(eval(DD));
     na.innerHTML=("驗證碼輸入錯誤")//則彈出驗證碼輸入錯誤 
     createCode();//重新整理驗證碼 
-	  document.getElementById("Check").value = "";//清空文字框 
+	  document.getElementById("Check").value = "";//清空文字框
+	   return false;
 	} 
 	else { //輸入正確時 
-		alert("^-^"); //彈出^-^ 
+	alert("^-^"); //彈出^-^
     createCode();//重新整理驗證碼
-    document.getElementById("Check").value = "";//清空文字框 
+    document.getElementById("Check").value = "";//清空文字框
+    	return true;
 	} 
-});
+};
 
 //更新驗證碼
 var recode=document.getElementById('recode');

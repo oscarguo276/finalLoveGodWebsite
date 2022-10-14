@@ -1,4 +1,4 @@
-/* 背景 */
+/* �� */
 header.masthead {
   padding-top: 10rem;
   /* padding-bottom: calc(10rem - 4.5rem);  */
@@ -12,16 +12,16 @@ header.masthead {
 
 .backgroundImge {
   height:100%;
+/*   height:95vh; */
   padding-top: 9rem;
   background: url("../../image/index/bg-masthead2.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-
 }
 
-/* 監聽到滑鼠移到bar要變甚麼顏色 */
+/* ���皛�宏�bar閬��獐憿 */
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
@@ -37,7 +37,7 @@ header.masthead {
 }
 
 
-/* 首頁置中logo圖 */
+/* 擐�蔭銝衍ogo��� */
 .imgcenter {
   /* mix-blend-mode: multiply; */
   /* max-width: 80vw; */
@@ -46,19 +46,19 @@ header.masthead {
   /* margin: auto; */
 }
 
-/* 底部欄位 */
+/* 摨甈�� */
 .small {
   font-size: 0.875em;
   color: black;
   background: rgba(0, 0, 0, 0);
 }
 
-/* 首頁導航欄 */
+/* 擐��甈� */
 #indexmainNav .navbar-nav .nav-item .nav-link {
   color: black;
   font-family: masafont-Regular;
   /* "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
-  /* 字體粗度 */
+  /* 摮��漲 */
   font-weight: 900;
   font-size: 210%;
   padding: 0rem;
@@ -75,7 +75,7 @@ header.masthead {
 
 }
 
-/* 各頁面導航欄位 */
+/* ���撠甈�� */
 #mainNav .navbar-nav .nav-item .nav-link {
   color: black;
   font-family: masafont-Regular;
@@ -85,7 +85,7 @@ header.masthead {
   margin: 0px;
 }
 
-/* 導航欄背景 */
+/* 撠甈� */
 #mainNav {
   background-image: url(../../image/index/bar.png);
   background-position: center;
@@ -96,7 +96,7 @@ header.masthead {
 
 }
 
-/* 左上logo返回首頁 */
+/* 撌虫�ogo餈���� */
 .barimg {
   width: 9rem;
   height: auto;
@@ -107,7 +107,7 @@ header.masthead {
   color: black;
   font-family: masafont-Regular;
   /* "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
-  /* 字體粗度 */
+  /* 摮��漲 */
   font-weight: 500;
   font-size: 3vw;
   padding: 0rem;

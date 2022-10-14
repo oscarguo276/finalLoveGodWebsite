@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.loveGod.demo.model.Order;
 import com.loveGod.demo.model.OrderDetail;
 import com.loveGod.demo.model.OrderDetailDao;
 

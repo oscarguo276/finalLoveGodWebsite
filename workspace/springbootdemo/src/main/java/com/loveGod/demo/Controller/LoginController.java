@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.loveGod.demo.model.RegisterDao;
 import com.loveGod.demo.model.RegisterModel;
 import com.loveGod.demo.service.RegisterService;
 
@@ -23,8 +22,8 @@ public class LoginController {
 
 	@Autowired
 	private RegisterService rService; // Service部分
-	@Autowired
-	private RegisterDao rDao;
+//	@Autowired
+//	private RegisterDao rDao;
 
 	// jsp 分別為：login(登入)、register(註冊)、registerSuccess(註冊成功)
 

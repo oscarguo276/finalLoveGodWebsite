@@ -21,10 +21,10 @@ public class ManagementController {
 		return "management/donateManagement";
 	}
 	
-	@GetMapping("/management/memberManagement")
-	public String memberManagement() {
-		return "management/memberManagement";
-	}
+//	@GetMapping("/management/memberManagement")
+//	public String memberManagement() {
+//		return "management/memberManagement";
+//	}
 	
 	@GetMapping("/management/orderManagement")
 	public String orderManagement() {

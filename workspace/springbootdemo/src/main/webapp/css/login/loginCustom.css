@@ -54,3 +54,21 @@
 .table {
   padding-right: 20px;
 }
+
+
+/* 背景顏色 */
+.bg-gradient-primary {
+  /* background-color: #4e73df;
+  background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+  background-color: #FFE4E1;
+  background-image: linear-gradient(180deg, #FFE4E1 10%, #FFE4E1 100%);
+  background-size: cover; */
+  /* padding-top: 9rem; */
+  background: url("../../image/index/bg-masthead2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 0;
+  margin-top: 0;
+}

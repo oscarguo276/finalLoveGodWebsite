@@ -1,9 +1,12 @@
 package com.loveGod.demo.service;
 
 import java.util.List;
+
 import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.loveGod.demo.model.RegisterDao;
 import com.loveGod.demo.model.RegisterModel;
 
@@ -27,7 +30,10 @@ import com.loveGod.demo.model.RegisterModel;
 			return rDao.findMemberId(reg.getMemberId());
 		}
 		
-		//----------- 確認帳戶是否重複.... -------------------	
+		//----------- 管理者帳戶 -------------------	
+	
+	
+		
 		
 		
 		

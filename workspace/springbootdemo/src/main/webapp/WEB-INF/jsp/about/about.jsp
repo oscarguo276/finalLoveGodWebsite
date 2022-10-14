@@ -27,6 +27,8 @@
 <link href="${contextRoot}/css/index/styles.css" rel="stylesheet" />
 <!-- Custom -->
 <link href="${contextRoot}/css/index/customIndex.css" rel="stylesheet" />
+<!-- Custom -->
+<link href="${contextRoot}/css/about/customAbout.css" rel="stylesheet" />
 
 </head>
 <jsp:include page="../layout/navbar.jsp"></jsp:include>
@@ -62,11 +64,11 @@
 ⣿⡿⣿⢿⣯⣿⢿⣯⣿⢿⣯⣿⣟⣿⣟⣯⣄⣤⣷⣷⣴⣶⣴⣤⣤⣀⣀⣀⣠⣀⣠⣀⣄⠀⢇⠝⡜⠠⣥⣦⣷⣾⢿⣷⢿⣯⣿⣟⣿⣟⣿⣿
 ⣿⢿⡿⣿⣻⣽⣿⢿⣽⣿⣯⣷⣿⢿⣽⣿⣻⣿⣻⣾⣷⢿⣯⣿⣯⣿⢿⣻⣟⣿⣻⣿⣽⣿⣾⡷⣟⣿⣯⣿⡾⣿⣻⣿⣻⣯⣷⣿⢿⣽⣿⣾ -->
 
-<body id="page-top">
+<body id="page-top"  class="bg-gradient-primary">
 	<div class="backgroundImge">
 		<div
 			class="align-items-center justify-content-center text-center">
-			<h1 style="font-size:80px">關 於 月 老</h1>
+			<h1 style="font-size:80px ;margin-top: 0;">關 於 月 老</h1>
 <!-- 			<div class="container px-4 px-lg-5 h-100"></div> -->
 			<div class="row">
 				<div class="col-lg-1"></div>
@@ -87,8 +89,7 @@
 	</div>
 <%-- 	<jsp:include page="../layout/footer.jsp"></jsp:include> --%>
 	<!-- Bootstrap core JS-->
-	<script
-		src="${contextRoot}/vender/bootstrap/5.1.3/bootstrap.bundle.min.js"></script>
+	<script src="${contextRoot}/vender/bootstrap/5.1.3/bootstrap.bundle.min.js"></script>
 	<!-- SimpleLightbox plugin JS-->
 	<script src="${contextRoot}/js/index/plugin/simpleLightbox.min.js"></script>
 	<!-- Core theme JS-->

@@ -18,7 +18,7 @@
                 <div class="col-lg-8 align-self-end imgSize">
                 </div>
                 <div class="col-lg-8 align-self-baseline">
-                    <p class="text-black-75 mb-5" style="font-size:24px">郎才佳人聚於此，情云初話結親誼，
+                    <p class="text-black-75" style="font-size:25px">郎才佳人聚於此，情云初話結親誼，
                         月老有意線相牽，更在相情把機會。</p>
                  <a id="login" href="${contextRoot}/login ">登入/註冊</a>
 <%--                     <a id="login" href="${contextRoot}/register "></a> --%>

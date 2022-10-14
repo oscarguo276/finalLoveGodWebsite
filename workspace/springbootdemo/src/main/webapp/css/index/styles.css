@@ -764,8 +764,9 @@ progress {
   display: flex;
   flex-wrap: wrap;
   margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-0.5 * var(--bs-gutter-x));
-  margin-left: calc(-0.5 * var(--bs-gutter-x));
+  /* 註解這部分 避免About頁面文字會超出螢幕範圍*/
+  /*margin-right: calc(-0.5 * var(--bs-gutter-x));*/
+  /*margin-left: calc(-0.5 * var(--bs-gutter-x));*/
 }
 
 .row>* {

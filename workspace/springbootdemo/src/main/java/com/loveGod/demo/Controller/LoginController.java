@@ -79,6 +79,7 @@ public class LoginController {
 		return age;
 	}
 
+	// ---------------------------------- 註冊成功畫面 -------------------------------------
 //	@RequestMapping(value = "/registersubmit", method = RequestMethod.POST)
 	@PostMapping("/registersubmit")
 	public String registersubmit(@ModelAttribute(name = "registersubmit") RegisterModel rM, Model model) {
@@ -101,7 +102,7 @@ public class LoginController {
 	}
 
 	
-	// ================================== 使用者登入判斷帳密是否正確 ========================
+	// ================================== 使用者登入：判斷帳密是否正確 ========================
 	@PostMapping("/loginsubmit")
 	public String loginsubmit(HttpServletRequest request, @ModelAttribute(name = "loginsubmit") RegisterModel rM,
 			Model model) {
@@ -115,6 +116,10 @@ public class LoginController {
 			session.setAttribute("memberId", resultList.get(0).getMemberId());	// 取得那欄位的帳號,從0(陣列)開始,放入session
 			session.setAttribute("password", resultList.get(0).getPassword());
 			// 这样就完成了用户名和密码保存到session的操作
+			
+
+			
+			
 			return "redirect:index"; 					// 正確返回首頁
 		} else {
 //			System.out.println("帳密錯誤!!");  	
@@ -122,10 +127,28 @@ public class LoginController {
 			return "login/login";						// 返回登入畫面
 		}
 	}
-}   
-// 登入：不存在資料庫的帳密 => 帳密錯誤 => 報紅字顯示錯誤訊息
-// SQL 年齡
-// 使用者登出
+   
+	//================================== 使用者登入：判斷是否是後臺管理人員帳密 ========================
+
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 // 使用者修改介面
-// 關於月老的連結
-// 購物車的連結
+// 後台管理人員帳密
+
+
+	
+	
+	
+	
+	
+	
+	
+	

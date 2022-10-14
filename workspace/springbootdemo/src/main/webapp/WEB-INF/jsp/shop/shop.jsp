@@ -28,7 +28,7 @@
 <body id="page-top">
 
 <jsp:include page="../layout/navbar.jsp"></jsp:include>
-<jsp:include page="../layout/footer.jsp"></jsp:include>
+<%-- <jsp:include page="../layout/footer.jsp"></jsp:include> --%>
 
  
 

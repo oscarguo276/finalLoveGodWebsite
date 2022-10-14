@@ -30,7 +30,7 @@
                     <div id="controlBigCard" class="nobigCard inZoom">
                         <div class="card-profile">
                             <div class="card-profile_visual">
-                                <img class="cardImg" src="${contextRoot}/image/marriage/catcat.gif" alt="">
+                                <img class="cardImg" src="${contextRoot}/image/catcat.gif" alt="">
                             </div>
                             <div class="card-profile_user-infos">
                                 <span class="infos_name">水樣喵喵</span>

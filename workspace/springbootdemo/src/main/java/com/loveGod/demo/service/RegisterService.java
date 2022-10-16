@@ -29,12 +29,5 @@ import com.loveGod.demo.model.RegisterModel;
 		public List<RegisterModel> findMemberId(RegisterModel reg) {
 			return rDao.findMemberId(reg.getMemberId());
 		}
-		
-		//----------- 管理者帳戶 -------------------	
-	
-	
-		
-		
-		
-		
+
 }

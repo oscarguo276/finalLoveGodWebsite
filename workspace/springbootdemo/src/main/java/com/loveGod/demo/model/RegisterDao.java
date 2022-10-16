@@ -15,7 +15,5 @@ public interface RegisterDao extends JpaRepository<RegisterModel, Integer> {
 	@Query("select r from RegisterModel r where r.memberId = ?1 ")
 	List<RegisterModel> findMemberId(String memberId);
 	
-	// ================================== 管理者 =====================================
 
-	
 }

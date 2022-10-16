@@ -79,7 +79,9 @@ by 清樺
 			<div class="row justify-content-center">
 
 				<div class="col-md-6 mb-md-0 p-md-4">
+				<a href="${contextRoot}/index">
 					<img src="${contextRoot}/image/index/logo.png" class="w-100" alt="...">
+				</a>
 				</div>
 
 				<div class="col-xl-10 col-lg-12 col-md-9">

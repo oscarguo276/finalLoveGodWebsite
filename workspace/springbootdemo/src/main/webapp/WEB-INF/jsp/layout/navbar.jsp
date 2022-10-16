@@ -134,8 +134,7 @@
 	<!-- Bootstrap Modal JS -->
 	<script src="${contextRoot}/vender/bootstrap/4.6.2/bootstrap.min.js"></script>
 	<!-- Bootstrap core JS -->
-	<script
-		src="${contextRoot}/vender/bootstrap/5.1.3/bootstrap.bundle.min.js"></script>
+	<!-- <script src="${contextRoot}/vender/bootstrap/5.1.3/bootstrap.bundle.min.js"></script> -->
 	<!-- SimpleLightbox plugin JS -->
 	<script src="${contextRoot}/js/index/plugin/simpleLightbox.min.js"></script>
 	<!-- Core theme JS -->

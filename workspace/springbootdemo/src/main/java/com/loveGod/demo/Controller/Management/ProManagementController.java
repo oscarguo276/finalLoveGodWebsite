@@ -75,7 +75,7 @@ public class ProManagementController {
 	
 	
 	//上傳圖片成功導入 另外一個頁面
-	@PostMapping("/management/fileUpload")
+	@PostMapping("/product/fileUpload")
 	public String postNewProducts(@RequestParam("pName")String name,
 								  @RequestParam("file") MultipartFile photo,
 								  @RequestParam("pPrice")Integer price,

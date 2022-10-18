@@ -1,84 +1,84 @@
-package com.loveGod.demo.Controller;
-
-import java.io.IOException;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-
-import com.loveGod.demo.model.Products;
-import com.loveGod.demo.service.ProductService;
-
-@Controller
-public class ProductController {
-	
-	@Autowired
-	private ProductService pService;
-//--------------------------------------------	
-	//跳轉到上傳圖片的頁面
-	@GetMapping("/newProducts")
-	public String newProducts() {
-		return "shop/uploadPage";
-		
-	}	
-	
-	//上傳圖片成功導入 另外一個頁面
-	@PostMapping("/fileUpload")
-	public String postNewProducts(@RequestParam("pName")String name,
-								  @RequestParam("file") MultipartFile photo,
-								  @RequestParam("pPrice")Integer price) {
-		Products addP=new Products(); //資料庫的table 名稱
-		try {
-			//到資料庫取得 放入使用者輸入的名稱
-			addP.setProdName(name);
-			// 放入價格
-			addP.setProdPrice(price);
-			// 放入照片
-			addP.setProdPhoto(photo.getBytes());
-			// 透過 Service 的  (老師命名的方法insertProducts) 這個方法 主要是在存入save 到資料庫 addP=把名稱、價格、照片放入
-			pService.insertProducts(addP);
-			
-			return "/shop/uploadSuccessPage" ;
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-			return "redirect:/";
-		}
-	}
-	
-	
-//-------------------------------------
-	//headers 這個回傳是HTML
-	@GetMapping("/shop")
-	public String listProducts(Model model) {
-		List<Products> list=pService.listProducts();
-		model.addAttribute("productsList",list);
-		return "shop/shop";
-	}
-	
-	//回傳圖片
-	@GetMapping("/downloadImg/{id}")
-	public ResponseEntity<byte[]> downloadImg(@PathVariable("id")Integer id){
-		Products p1=pService.getProducts(id);
-		
-		byte[] pPhoto=p1.getProdPhoto();
-		
-		//改變contextType
-		HttpHeaders headers=new HttpHeaders();
-		headers.setContentType(MediaType.IMAGE_JPEG);
-		
-		return new ResponseEntity<byte[]> (pPhoto,headers,HttpStatus.OK);
-	}
+//package com.loveGod.demo.Controller;
+//
+//import java.io.IOException;
+//import java.util.List;
+//
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.http.HttpHeaders;
+//import org.springframework.http.HttpStatus;
+//import org.springframework.http.MediaType;
+//import org.springframework.http.ResponseEntity;
+//import org.springframework.stereotype.Controller;
+//import org.springframework.ui.Model;
+//import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.multipart.MultipartFile;
+//
+//import com.loveGod.demo.model.Products;
+//import com.loveGod.demo.service.ProductService;
+//
+//@Controller
+//public class ProductController {
+//	
+//	@Autowired
+//	private ProductService pService;
+////--------------------------------------------	
+//	//跳轉到上傳圖片的頁面
+//	@GetMapping("/newProducts")
+//	public String newProducts() {
+//		return "shop/uploadPage";
+//		
+//	}	
+//	
+//	//上傳圖片成功導入 另外一個頁面
+//	@PostMapping("/fileUpload")
+//	public String postNewProducts(@RequestParam("pName")String name,
+//								  @RequestParam("file") MultipartFile photo,
+//								  @RequestParam("pPrice")Integer price) {
+//		Products addP=new Products(); //資料庫的table 名稱
+//		try {
+//			//到資料庫取得 放入使用者輸入的名稱
+//			addP.setProdName(name);
+//			// 放入價格
+//			addP.setProdPrice(price);
+//			// 放入照片
+//			addP.setProdPhoto(photo.getBytes());
+//			// 透過 Service 的  (老師命名的方法insertProducts) 這個方法 主要是在存入save 到資料庫 addP=把名稱、價格、照片放入
+//			pService.insertProducts(addP);
+//			
+//			return "/shop/uploadSuccessPage" ;
+//			
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//			return "redirect:/";
+//		}
+//	}
+//	
+//	
+////-------------------------------------
+//	//headers 這個回傳是HTML
+//	@GetMapping("/shop")
+//	public String listProducts(Model model) {
+//		List<Products> list=pService.listProducts();
+//		model.addAttribute("productsList",list);
+//		return "shop/shop";
+//	}
+//	
+//	//回傳圖片
+//	@GetMapping("/downloadImg/{id}")
+//	public ResponseEntity<byte[]> downloadImg(@PathVariable("id")Integer id){
+//		Products p1=pService.getProducts(id);
+//		
+//		byte[] pPhoto=p1.getProdPhoto();
+//		
+//		//改變contextType
+//		HttpHeaders headers=new HttpHeaders();
+//		headers.setContentType(MediaType.IMAGE_JPEG);
+//		
+//		return new ResponseEntity<byte[]> (pPhoto,headers,HttpStatus.OK);
+//	}
 //----------------------	
 	
 	
@@ -128,4 +128,4 @@ public class ProductController {
 //	}
 		
 
-}
+//}

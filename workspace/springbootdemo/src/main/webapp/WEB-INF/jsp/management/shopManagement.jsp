@@ -25,13 +25,51 @@
                 </div>
             </div>
         </div> 
+        
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">新增商品</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #F8F9F9">
+      <div class="modal-header" >
+        <h2 class="modal-title" id="exampleModalLabel">商品上架</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <form class="form-inline" action="fileUpload" method="post" enctype="multipart/form-data">
+		  <div class="form-group">
+		    <label for="">商品名稱:</label>
+		    <input type="text" name="pName" class="form-control mx-sm-1">
+		  </div>
+		  <div class="form-group">
+		    <label for="">商品照片:</label>
+		    <input type="file" name="file" class="form-control mx-sm-1">
+		  </div>
+		  <div class="form-group">
+		    <label for="">商品價格:</label>
+		    <input type="text" name="pPrice" class="form-control mx-sm-1">
+		  </div>
+		  <div class="form-group">
+		    <label for="">商品庫存:</label>
+		    <input type="text" name="pStock" class="form-control mx-sm-1">
+		  </div>
+		<div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+	        <input type="submit" class="btn btn-primary" value="送出">
+      	</div>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
+     
 
         <table class="table table-hover">
             <thead>
               <tr>
                 <th scope="col">商品編號</th>
-                <th scope="col">商品</th>
                 <th scope="col">商品名稱</th>
+                <th scope="col">商品照片</th>
                 <th scope="col">商品價格</th>
                 <th scope="col">商品庫存</th>
                 <th scope="col">編輯</th>
@@ -39,46 +77,60 @@
               </tr>
             </thead>
             <tbody>
+            <c:forEach var="Products" items="${page.content}">
               <tr>
-                <th scope="row">1</th>
-                <td>xxxxxxx</td>
-                <td>
-                    <button>圖片上傳</button>
+                <td scope="row">${Products.prodId}</td>
+         		<td >${Products.prodName}</td>
+         		<td><img src="${pageContext.request.contextPath }/downloadImg/${Products.prodId}" height="50px"></td>
+         		<td >${Products.prodPrice}</td>
+         		<td >${Products.prodStock}</td>
+           		<td >
+                    <a href="${contextRoot}/product/editProduct?id=${Products.prodId}"><img src="${contextRoot}/image/management/edit.png"></a>
                 </td>
-                <td>50</td>
-                <td>50</td>
-                <td>
-                    <a href="#about"><img src="${contextRoot}/image/management/edit.png"></a>
-                </td>
-                <td>
-                    <a href="#about"><img src="${contextRoot}/image/management/delete.png"></a>
+                 <td>
+                    <a onclick="return confirm('確定刪除商品?')" href="${contextRoot}/product/deleteProduct?id=${Products.prodId}"><img src="${contextRoot}/image/management/delete.png"></a>
                 </td>
               </tr>
-              
+              </c:forEach>
             </tbody>
           </table>
+          
 
-            <div id="pageindex">
-                <nav aria-label="Page navigation example" >
-                <ul class="pagination">
-                    <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                    </li>
-                </ul>
-                </nav>
-            </div>
+  			<nav aria-label="Page navigation example">
+			 	<ul class="pagination justify-content-center fixed-bottom" >
+			    	<li class="page-item">
+			    		<c:choose>
+				    		<c:when test="${page.number!=0}">
+				      		<a class="page-link" href="${contextRoot}/product/page?p=${page.number}">Previous</a>
+				      		</c:when>
+				      		<c:otherwise>
+				      		<a class="page-link" href="">Previous</a>
+				      		</c:otherwise>
+			      		</c:choose> 
+			    	</li>
+			    	<c:forEach var="pageNumber" begin="1" end="${page.totalPages}">
+						<c:choose>
+			    			<c:when test="${page.number != pageNumber-1}">
+			   					 <li class="page-item"><a class="page-link" href="${contextRoot}/product/page?p=${pageNumber}">${pageNumber}</a></li>
+			   				 </c:when>
+				    		<c:otherwise>
+				    			<li class="page-item"><a class="page-link" style="background-color: #F2F3F4">${pageNumber}</a></li>
+				    		</c:otherwise>
+			 			</c:choose>     
+					</c:forEach>
+					<li class="page-item">
+						<c:choose>
+				    		<c:when test="${page.number!=page.totalPages-1}">
+				      			<a class="page-link" href="${contextRoot}/product/page?p=${page.number+2}">Next</a>
+				      		</c:when>
+				      		<c:otherwise>
+				      			<a class="page-link" href="">Next</a>
+				      		</c:otherwise>
+			      		</c:choose> 
+			    	</li>
+			  	</ul>
+			</nav>
+          
 
     </header>
 

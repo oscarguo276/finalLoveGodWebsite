@@ -27,6 +27,16 @@ public class Products {
 		@Column(name=" prod_photo")
 		private byte[] prodPhoto;
 	
+		@Column(name="prod_stock")
+		private Integer prodStock;
+	
+		public Integer getProdStock() {
+			return prodStock;
+		}
+
+		public void setProdStock(Integer prodStock) {
+			this.prodStock = prodStock;
+		}
 		public Products() {
 			
 		}

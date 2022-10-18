@@ -10,14 +10,17 @@
 <jsp:include page="../layout/navbar.jsp"></jsp:include>
 <jsp:include page="../layout/footer.jsp"></jsp:include>
 
+<header class="masthead">
 <div class="backgroundImge">
 <div class="container">
-<h1>照片上傳成功</h1>
+<h1>商品新增成功</h1>
 
-<a href="${pageContext.request.contextPath}/">回首頁</a>
+
+<a href="${pageContext.request.contextPath}/product/page">回商品管理</a>
 
 </div>
 </div>
 
+</header>
 </body>
 </html>

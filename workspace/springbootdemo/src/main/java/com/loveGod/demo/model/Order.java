@@ -2,9 +2,15 @@ package com.loveGod.demo.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -18,8 +24,8 @@ import com.sun.istack.NotNull;
 @Table(name = "orders_y")
 public class Order {
 	@Id
-	@Column(name="order_id")
-	private String orderId;			//訂單編號
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long orderId;			//訂單編號
 	
 	@NotNull
 	@Column(name="con_address")
@@ -42,8 +48,12 @@ public class Order {
 	@Column(name="order_sum")
 	private Integer orderSum; 			//訂單總金額
 	
-	@Column(name="buyer_id")
-	private Integer buyerId;
+//	@Column(name="buyer_id")
+//	private Integer buyerId;
+//	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "memberId" , foreignKey=@ForeignKey(name = "fkc_mmm_mid"))
+	private RegisterModel buyerId;
 	
 	
 	@PrePersist
@@ -56,11 +66,11 @@ public class Order {
 	public Order() {
 	}
 	
-	public String getOrderId() {
+	public Long getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(String orderId) {
+	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
 	}
 
@@ -94,10 +104,10 @@ public class Order {
 	public void setOrderSum(Integer orderSum) {
 		this.orderSum = orderSum;
 	}
-	public Integer getBuyerId() {
+	public RegisterModel getBuyerId() {
 		return buyerId;
 	}
-	public void setBuyerId(Integer buyerId) {
+	public void setBuyerId(RegisterModel buyerId) {
 		this.buyerId = buyerId;
 	}
 	

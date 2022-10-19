@@ -1,5 +1,7 @@
 package com.loveGod.demo.model;
 
+import java.util.Arrays;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -72,6 +74,25 @@ public class Products {
 		public void setProdPhoto(byte[] prodPhoto) {
 			this.prodPhoto = prodPhoto;
 		}
+		
+		public Products(Integer prodId, String prodName, Integer prodPrice, byte[] prodPhoto, Integer prodStock) {
+	 		this.prodId = prodId;
+	 		this.prodName = prodName;
+	 		this.prodPrice = prodPrice;
+	 		this.prodPhoto = prodPhoto;
+	 		this.prodStock = prodStock;
+	 	}
+
+	 	@Override
+	 	public String toString() {
+	 		return "Products{" +
+	 				"prodId=" + prodId +
+	 				", prodName='" + prodName + '\'' +
+	 				", prodPrice=" + prodPrice +
+	 				", prodPhoto=" + Arrays.toString(prodPhoto) +
+	 				", prodStock=" + prodStock +
+	 				'}';
+	 	}
 
 		
 	

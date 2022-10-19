@@ -23,23 +23,21 @@
 
   	
 	    <div>
-		     <form:form action="${contextRoot}/product/postEditProduct" method="post" modelAttribute="products" enctype="multipart/form-data">
-		       
-		       <form:input type="hidden" path="prodId"/>
-		       
-		       商品名稱：<form:input type="text" path="prodName"/>
-		       <br/>
-		       商品價格：<form:input type="text" path="prodPrice"/>
-		       <br/>
-		       商品庫存：<form:input type="text" path="prodStock"/>
-		       <br/>
- 		       商品圖片：<form:input type="image" alt="picture" path="prodPhoto" src="${pageContext.request.contextPath }/downloadImg/${products.prodId}" height="100px"/> 
-		       
-		       
-		       <div>
-		       <input type="submit" name="submit" value="送出">
-		       </div>
-		     </form:form>     
+                <form action="${contextRoot}/product/postEditProduct" method="post" enctype="multipart/form-data">
+                     <input type="hidden" value="${products.prodId}" name="prodId"> <br>
+                     商品名稱：<input type="text" value="${products.prodName}" name="productName">
+                     <br>
+                     商品價格：<input type="text" value="${products.prodPrice}"name="productPrice">
+                     <br>
+                     商品庫存：<input type="text" value="${products.prodStock}" name="productStock">
+                     <br>
+                     商品圖片 : <input type="image" src="${pageContext.request.contextPath }/downloadImg/${products.prodId}" height="100px" >
+                     <br>
+                     更新商品圖片：<input type="file" name="photo" >
+                     <br>
+                     <input type="submit" name="submit" value="送出">
+
+                 </form>    
 		       </div>
 		 
 	  	

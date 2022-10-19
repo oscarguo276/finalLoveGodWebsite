@@ -54,17 +54,37 @@ public class ProManagementController {
 //		return "management/editphoto";
 //	}
 	
-	@PostMapping("/product/postEditProduct")
-	public String postEditProduct(@ModelAttribute("products") Products pro) {
-		pmService.insert(pro);
-		return "redirect:/product/page";
-	}
-	
-//	@PostMapping("/product/postEditPicture")
-//	public String postEditPicture(@ModelAttribute("picture") MultipartFile photo) {
-//		pmService.insert(photo);
+//	@PostMapping("/product/postEditProduct")
+//	public String postEditProduct(@ModelAttribute("products") Products pro) {
+//		pmService.insert(pro);
 //		return "redirect:/product/page";
 //	}
+	
+    @PostMapping("/product/postEditProduct")
+    public String postEditProduct(
+            @RequestParam("prodId") Integer prodId,
+            @RequestParam("productName") String productName,
+            @RequestParam("productPrice") Integer productPrice,
+            @RequestParam("productStock") Integer productStock,
+            @RequestParam(value = "photo", required = false) MultipartFile prodPhoto) {
+
+        byte[] photo;
+        if(!prodPhoto.isEmpty()){
+            try {
+                photo = prodPhoto.getBytes();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            Products product = pmService.findById(prodId);
+            photo = product.getProdPhoto();
+        }
+        Products products = new Products(prodId, productName, productPrice, photo, productStock);
+        pmService.insert(products);
+        return "redirect:/product/page";
+    }
+	
+
 	
 //	//跳轉到上傳圖片的頁面
 	@GetMapping("/newProducts")

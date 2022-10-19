@@ -22,12 +22,11 @@ public class OrderController {
 	}
 		
 	@PostMapping("/shop/oconfirm")
-	public String postnewOrder(@RequestParam("orderId") String orderid ,
+	public String postnewOrder(@RequestParam("orderId") Long orderid ,
 							@RequestParam("address") String address,
 							@RequestParam("conName") String name,
 							@RequestParam("conPhone") String phone,
-							@RequestParam("orderSum") Integer sum ,
-							@RequestParam("buyerId") Integer buyerId) {
+							@RequestParam("orderSum") Integer sum) {
 		Order addO=new Order();
 		
 		addO.setOrderId(orderid);
@@ -35,7 +34,7 @@ public class OrderController {
 		addO.setConPhone(phone);
 		addO.setConName(name);
 		addO.setOrderSum(sum);
-		addO.setBuyerId(buyerId);
+		addO.getBuyerId();
 		oService.insertOrder(addO);
 		return "/shop/confirmSuccess" ;
 		

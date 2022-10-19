@@ -54,7 +54,7 @@
     </div>
 </div>
 
-
+<script src="${contextRoot}/vender/bootstrap/5.1.3/bootstrap.bundle.min.js"></script> 
   <!--shop js-->
   <script src="${pageContext.request.contextPath }/js/index/shop/jquery-2.2.3.min.js"></script>
   <script type='text/javascript' src="${pageContext.request.contextPath }/js/index/shop/bootstrap.min.js"></script>
@@ -97,19 +97,30 @@
         },
         clickOnCartIcon: function ($cartIcon, products, totalPrice, totalQuantity) {
         },
-        checkoutCart: function (products, totalPrice, totalQuantity, method='post') {
+        checkoutCart: function (products, totalPrice, totalQuantity) {
           var checkoutString = "Total Price: " + totalPrice + "\nTotal Quantity: " + totalQuantity;
           checkoutString += "\n\n id \t name \t summary \t price \t quantity \t image path";
           $.each(products, function () {
            checkoutString += ("\n " + this.id + " \t " + this.name + " \t " + this.summary + " \t " + this.price + " \t " + this.quantity + " \t " + this.image);
           });
-          alert(checkoutString)
+//           alert(checkoutString)
           console.log("checking out", products, totalPrice, totalQuantity);
           
-          
-          $.each(products, function () {
-              checkoutString += ("\n " + this.id + " \t " + this.name + " \t " + this.summary + " \t " + this.price + " \t " + this.quantity + " \t " + this.image);
-             });
+
+//        ---------------1015---------- 網址列傳值
+   	
+   		var totalitem = ""; 
+    		$.each(products, function () {
+    			totalitem += (this.id + "," + this.price*this.quantity + "," + this.quantity + "&");
+         	});
+       	var order_herf = "${pageContext.request.contextPath}/shop/newOrder?" + totalitem;
+       
+//        ------------------------------
+        if (window.confirm(order_herf))
+        {
+        window.open(order_herf, '_blank');
+        };
+
           
         },
         getDiscountPrice: function (products, totalPrice, totalQuantity) {
@@ -346,6 +357,7 @@
       });
     }
 
+    
     $cartBadge.text(ProductManager.getTotalQuantity());
 //---------------------------------------------------------//
     if (!$("#" + idCartModal).length) {
@@ -362,12 +374,34 @@
         '</div>' +
         '<div class="modal-footer">' +
         '<button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>' +
-        '<button type="submit" class="btn btn-p ' + classCheckoutCart + '"><a href="${pageContext.request.contextPath}/shop/newOrder">Checkout</a></button>' +
+        '<button type="submit" class="btn btn-p ' + classCheckoutCart + '">Checkout</button>' +
         '</div>' +
         '</div>' +
         '</div>' +
         '</div>'
       );
+
+      
+//       if (!$("#" + idCartModal).length) {
+//           $('body').append(
+//             '<div class="modal fade" id="' + idCartModal + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
+//             '<div class="modal-dialog" role="document">' +
+//             '<div class="modal-content">' +
+//             '<div class="modal-header">' +
+//             '<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+//             '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span> </h4>' +
+//             '</div>' +
+//             '<div class="modal-body">' +
+//             '<table class="table table-hover table-responsive" id="' + idCartTable + '"></table>' +
+//             '</div>' +
+//             '<div class="modal-footer">' +
+//             '<button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>' +
+//             '<button type="submit" class="btn btn-p ' + classCheckoutCart + '"><a href="${pageContext.request.contextPath}/shop/newOrder">Checkout</a></button>' +
+//             '</div>' +
+//             '</div>' +
+//             '</div>' +
+//             '</div>'
+//           );
     }
 
     var drawTable = function () {
@@ -529,6 +563,6 @@
   
   
   </script>
-</header>
+
 </body>
 </html>

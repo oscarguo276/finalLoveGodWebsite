@@ -25,7 +25,8 @@ import com.sun.istack.NotNull;
 public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long orderId;			//訂單編號
+	@Column(name="orderid")
+	private Integer orderId;			//訂單編號
 	
 	@NotNull
 	@Column(name="con_address")
@@ -55,6 +56,14 @@ public class Order {
 	@JoinColumn(name = "memberId" , foreignKey=@ForeignKey(name = "fkc_mmm_mid"))
 	private RegisterModel buyerId;
 	
+
+	@Column(name="orderDetail")
+	private String orderDetail;
+	
+	@Column(name="userId")
+	private String userId;
+	
+	
 	
 	@PrePersist
 	public void onCreate() {
@@ -66,11 +75,11 @@ public class Order {
 	public Order() {
 	}
 	
-	public Long getOrderId() {
+	public Integer getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(Long orderId) {
+	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
 
@@ -104,11 +113,28 @@ public class Order {
 	public void setOrderSum(Integer orderSum) {
 		this.orderSum = orderSum;
 	}
+
+	public String getOrderDetail() {
+		return orderDetail;
+	}
+	public void setOrderDetail(String orderDetail) {
+		this.orderDetail = orderDetail;
+	}
+	
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 	public RegisterModel getBuyerId() {
 		return buyerId;
 	}
 	public void setBuyerId(RegisterModel buyerId) {
 		this.buyerId = buyerId;
 	}
+
+	
+	
 	
 }

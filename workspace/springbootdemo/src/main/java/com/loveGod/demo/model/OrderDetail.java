@@ -24,12 +24,18 @@ public class OrderDetail {
 	private Integer prodId;			//商品id(FK)(PK)
 	
 
+	/**
+	 * 商品數量
+	 */
 	@Column(name="quantity")
-	private Integer quantity;			//商品數量
+	private Integer quantity;			
 	
 
 	@Column(name="subtotal")
 	private Integer subtotal;			//商品小計
+	
+	
+	
 	
 	public OrderDetail() {
 	}
@@ -76,6 +82,7 @@ public class OrderDetail {
 		this.orderDetailId = orderDetailId;
 	}
 
+	
 	
 
 }

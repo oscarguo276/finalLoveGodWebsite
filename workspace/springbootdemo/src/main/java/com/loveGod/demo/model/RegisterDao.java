@@ -21,5 +21,7 @@ public interface RegisterDao extends JpaRepository<RegisterModel, Integer> {
 	public List<RegisterModel> findCustomerBoy();
 	@Query(value="from RegisterModel r where r.sex = 0")
 	public List<RegisterModel> findCustomerGirl();
+	
+	
 
 }

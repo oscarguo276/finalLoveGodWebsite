@@ -60,6 +60,7 @@
   <script type='text/javascript' src="${pageContext.request.contextPath }/js/index/shop/bootstrap.min.js"></script>
   <script type='text/javascript' src="${pageContext.request.contextPath }/js/index/shop/jquery.mycart.js"></script>
   <script type="text/javascript">
+
   $(function () {
 
       var goToCartIcon = function ($addTocartBtn) {
@@ -111,12 +112,13 @@
    	
    		var totalitem = ""; 
     		$.each(products, function () {
-    			totalitem += (this.id + "," + this.price*this.quantity + "," + this.quantity + "&");
+    			totalitem += ("i" + this.id + "p" + this.price*this.quantity + "q" + this.quantity + "&");
          	});
-       	var order_herf = "${pageContext.request.contextPath}/shop/newOrder?" + totalitem;
+       	var order_herf1 = "${pageContext.request.contextPath}/shop/newOrder?" + totalitem;
+       	var order_herf = order_herf1.substring(0,order_herf1.length - 1);
        
 //        ------------------------------
-        if (window.confirm(order_herf))
+        if (window.confirm('確定購買?'))
         {
         window.open(order_herf, '_blank');
         };

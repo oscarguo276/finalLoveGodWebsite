@@ -33,5 +33,9 @@ public class OrderService {
 		}
 		return null;
 	}
-	
+
+	public List<Order> findUserId(String UserId) {
+		return oDao.findByUserId(UserId);
+	}
+
 }

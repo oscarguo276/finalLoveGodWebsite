@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>歸心寺</title>
 </head>
 <body>
 <jsp:include page="../layout/navbar.jsp"></jsp:include>
@@ -13,10 +13,12 @@
 <div class="container px-4 px-lg-5 h-100">
 
 <div class="container">
+ <header class="masthead">
 <span>感謝您的結緣，歡迎再次光臨!</span>
+<a href="${pageContext.request.contextPath}/">回首頁</a>
+</header>
 </div>
 
-<a href="${pageContext.request.contextPath}/">回首頁</a>
 
 </div>
 </div>

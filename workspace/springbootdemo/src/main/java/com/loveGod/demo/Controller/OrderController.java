@@ -20,21 +20,24 @@ public class OrderController {
 	public String newOrder() {
 		return "shop/shopconfirm";
 	}
-		
+	
+	//--------------------------存入orders_y table 	
 	@PostMapping("/shop/oconfirm")
-	public String postnewOrder(@RequestParam("orderId") Long orderid ,
-							@RequestParam("address") String address,
+	public String postnewOrder(@RequestParam("address") String address,
 							@RequestParam("conName") String name,
 							@RequestParam("conPhone") String phone,
-							@RequestParam("orderSum") Integer sum) {
+							@RequestParam("orderSum") Integer sum,
+							@RequestParam("orderDetail") String orderd,
+							@RequestParam("userId") String uid) {
+//		@RequestParam("userId") String uid
 		Order addO=new Order();
 		
-		addO.setOrderId(orderid);
 		addO.setaddress(address);
 		addO.setConPhone(phone);
 		addO.setConName(name);
 		addO.setOrderSum(sum);
-		addO.getBuyerId();
+		addO.setOrderDetail(orderd);
+		addO.setUserId(uid);
 		oService.insertOrder(addO);
 		return "/shop/confirmSuccess" ;
 		

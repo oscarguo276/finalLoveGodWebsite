@@ -21,6 +21,10 @@ public class OrderDetailService {
 		return oDDao.save(od);
 	}
 	
+	public List<OrderDetail> saveAllOrderDetail(List<OrderDetail> od) {
+		return oDDao.saveAll(od);
+	}
+	
 	public List<OrderDetail> listOrderDetail(){
 		return oDDao.findAll();
 	}

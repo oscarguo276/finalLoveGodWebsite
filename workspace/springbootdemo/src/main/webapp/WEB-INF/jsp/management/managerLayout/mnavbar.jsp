@@ -47,7 +47,7 @@
                     <li class="nav-item" id="barname"><a class="nav-link" href="${contextRoot}/management/coupleManagement">配對管理</a></li>
                     <li class="nav-item" id="barname"><a class="nav-link" href="${contextRoot}/management/orderManagement">訂單管理</a></li>
                     <li class="nav-item" id="barname"><a class="nav-link" href="${contextRoot}/product/page">商品管理</a></li>
-                    <li class="nav-item" id="barname"><a class="nav-link" href="${contextRoot}/management/poemManagement">詩籤管理</a></li>
+                    <li class="nav-item" id="barname"><a class="nav-link" href="${contextRoot}/poem/page">詩籤管理</a></li>
                     <li class="nav-item" id="barname"><a class="nav-link" href="${contextRoot}/management/donateManagement">香油錢管理</a></li>
                     <li class="nav-item" id="barname"><a class="nav-link" href="#about">登出</a></li>
                 </ul>

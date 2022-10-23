@@ -1,10 +1,20 @@
 package com.loveGod.demo.Controller;
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.loveGod.demo.model.DrawlotsModel;
+import com.loveGod.demo.service.DrawService;
 
 @Controller
 public class ManagementController {
+	
 	
 	@GetMapping("/management/allManagement")
 	public String allManagement() {
@@ -35,6 +45,7 @@ public class ManagementController {
 	public String poemManagement() {
 		return "management/poemManagement";
 	}
+
 	
 	@GetMapping("/management/shopManagement")
 	public String shopManagement() {

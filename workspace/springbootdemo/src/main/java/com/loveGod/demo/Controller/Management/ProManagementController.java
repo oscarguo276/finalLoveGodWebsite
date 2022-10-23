@@ -87,11 +87,11 @@ public class ProManagementController {
 
 	
 //	//跳轉到上傳圖片的頁面
-	@GetMapping("/newProducts")
-	public String newProducts() {
-		return "shop/uploadPage";
-		
-	}	
+//	@GetMapping("/newProducts")
+//	public String newProducts() {
+//		return "shop/uploadPage";
+//		
+//	}	
 	
 	
 	//上傳圖片成功導入 另外一個頁面

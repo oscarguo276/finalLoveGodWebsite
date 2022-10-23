@@ -244,7 +244,7 @@ by 清樺
 														</div>
 														<div class="form-group col-lg-12">
 															<input type="text" class="form-control form-control-lg"
-																placeholder="請輸入您Line" name="registerInput"
+																placeholder="請輸入您Line" name="line"
 																maxlength="50">
 														</div>
 
@@ -259,7 +259,7 @@ by 清樺
 														</div>
 														<div class="form-group col-lg-12">
 															<input type="text" class="form-control form-control-lg"
-																placeholder="請輸入您IG" name="registerInput" maxlength="50">
+																placeholder="請輸入您IG" name="ig" maxlength="50">
 														</div>
 													</div>
 

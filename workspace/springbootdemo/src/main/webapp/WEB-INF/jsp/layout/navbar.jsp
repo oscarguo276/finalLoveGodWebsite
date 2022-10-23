@@ -67,7 +67,7 @@
 						href="${contextRoot}/management/allManagement">後台管理</a></li>
 					<!--      -------------------------------------------------------------------------- -->
 					<li class="nav-item"><a class="nav-link"
-						href="${contextRoot}/newProducts">查看訂單</a></li>
+						href="${contextRoot}/newProducts">訂單資訊</a></li>
 					<!--       -------------------------------------------------------------------------- -->
 					<li class="nav-item"><c:choose>
 							<c:when test="${empty memberId}">

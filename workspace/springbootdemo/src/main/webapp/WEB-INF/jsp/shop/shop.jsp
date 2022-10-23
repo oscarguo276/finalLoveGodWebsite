@@ -123,7 +123,6 @@
         window.open(order_herf, '_blank');
         };
 
-          
         },
         getDiscountPrice: function (products, totalPrice, totalQuantity) {
           return totalPrice;

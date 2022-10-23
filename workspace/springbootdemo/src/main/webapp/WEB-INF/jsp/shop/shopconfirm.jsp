@@ -121,7 +121,6 @@
 <!-- 					<td>3</td> -->
 <!-- 					</tr> -->
 <!-- 					</table> -->
-<input type="text" name="quality" id="quality" value="">
 				
 
 <script>
@@ -129,7 +128,6 @@ function show() {
 	
 	var Myelement = document.querySelector('input[id="Sum"]');
 	var MyOrderDetail = document.querySelector('input[id="orderD"]');
-	var Quality = document.querySelector('input[id="quality"]');
 	var url = location.href;
 	var temp = url.split("?");
 	var vars = temp[1].split("&");
@@ -150,7 +148,7 @@ function show() {
 	var total_price = 0;
 
 
-	for (var i = 0; i < vars.length - 1; i++) {
+	for (var i = 0; i < vars.length; i++) {
 		temp2 = vars[i].split("i");
 		pid = temp2[1].split("p")[0];
 		price = temp2[1].split("p")[1].split("q")[0];
@@ -162,7 +160,6 @@ function show() {
 			'<tr><td style="height: 20px;"></td></tr><tr><td></td>';
 
 		total_price = total_price + Number(price);
-		Quality.value = quality ;
 	}
 
 	context += '<td></td>' +
@@ -175,11 +172,7 @@ function show() {
 window.onload = show;
 
 
-
-
 			</script>
-
-
 
 
 		</body>

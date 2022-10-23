@@ -9,33 +9,56 @@
 <%-- 	<c:redirect url="/login/login.jsp" /> --%>
 <%-- </c:if> --%>
 <title>歸心寺</title>
+    <style type="text/css">
+	.fillIn {
+		font-size: 20px;
+		width: 40%; 
+		margin: 35px;
+		text-align: center;
+		border-bottom: 2px solid #D0D0D0;
+	}
+
+
+ table thead th {
+		color: #ffffff;
+		background: #7B7B7B;
+		height: 20 px
+	}
+
+	
+	</style>
     </head>
     <body>
         <jsp:include page="../layout/navbar.jsp"></jsp:include>
-        <jsp:include page="../layout/footer.jsp"></jsp:include>
    <header class="masthead">
         <div class="backgroundImge">
-			
-                <h1>訂單</h1>
-<!--                 <form action="fileUpload" method="post" enctype="multipart/form-data"> -->
-<!--                     商品名稱: <input type="text" name="pName" > -->
-<!--                     <br /> -->
-<!--                     商品照片: <input type="file" name="file"> -->
-<!--                     <br /> -->
-<!--                     商品價格: <input type="text" name="pPrice"> -->
-<!--                     <br /> -->
-<!--                     <input type="submit" value="送出"> -->
-<!--                 </form> -->
+			<div class="container px-4 px-lg-5 h-100">                
 	<c:forEach items="${memberOrders}" var="oneOrder">
-		   訂單編號:  ${oneOrder.orderId}<br/>
-	       訂單姓名: ${oneOrder.userId}<br/>
-	       訂單明細: ${oneOrder.orderDetail }<br/>
-	       收件人手機: ${oneOrder.conPhone }<br/>
-<%-- 	        <img src="${pageContext.request.contextPath }/downloadImg/${oneProduct.prodId}" height="200px"> --%>
+	       
+	
+    	  <table class="fillIn">
+    	  <thead>
+    	  <tr style="height: 50px;">
+    	  <th>訂單編號</th>
+    	  <th>訂購日期</th>
+    	  <th>訂購總額</th>
+    	  </tr>
+    	  </thead>
+    	  <tbody>
+    	  <tr style="height: 60px;">
+    	  <td> ${oneOrder.orderId}</td>
+    	  <td>${oneOrder.orderDate}</td>
+    	  <td>$${oneOrder.orderSum}</td>
+    	  </tr>
+    	  </tbody>
+    	
+    
+    	  </table>
       
     	  </c:forEach>
-
-
+    
+    	  
+    	  </div>
          </div>
          </header>
     </body>

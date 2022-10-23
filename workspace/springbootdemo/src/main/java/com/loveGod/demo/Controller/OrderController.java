@@ -1,5 +1,8 @@
 package com.loveGod.demo.Controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,23 +26,29 @@ public class OrderController {
 	
 	//--------------------------存入orders_y table 	
 	@PostMapping("/shop/oconfirm")
-	public String postnewOrder(@RequestParam("address") String address,
+	public String postnewOrder(HttpServletRequest request,@RequestParam("address") String address,
 							@RequestParam("conName") String name,
 							@RequestParam("conPhone") String phone,
 							@RequestParam("orderSum") Integer sum,
 							@RequestParam("orderDetail") String orderd,
 							@RequestParam("userId") String uid) {
-//		@RequestParam("userId") String uid
-		Order addO=new Order();
-		
-		addO.setaddress(address);
-		addO.setConPhone(phone);
-		addO.setConName(name);
-		addO.setOrderSum(sum);
-		addO.setOrderDetail(orderd);
-		addO.setUserId(uid);
-		oService.insertOrder(addO);
-		return "/shop/confirmSuccess" ;
+		HttpSession session = request.getSession();
+		Object memberId = session.getAttribute("memberId");
+//		if (memberId == null) {
+//			return "login/login";
+//		}	else {
+
+			Order addO=new Order();
+			addO.setaddress(address);
+			addO.setConPhone(phone);
+			addO.setConName(name);
+			addO.setOrderSum(sum);
+			addO.setOrderDetail(orderd);
+			addO.setUserId(uid);
+			oService.insertOrder(addO);
+			return "/shop/confirmSuccess" ;
+			
+			
 		
 	}
 //	@PostMapping(value="/shop/", consumes = "application/json")

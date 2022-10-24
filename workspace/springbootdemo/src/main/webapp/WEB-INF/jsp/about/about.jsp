@@ -64,13 +64,23 @@
 
 <body>
 	<!-- <div class="backgroundImge"> -->
+
+
+
+		<div
+			class="gnn-container gnn-section" style="margin-top:100px;">
+		</div>
+			
+<div class="container px-4 px-lg-5">
+	<div class="row gx-4 gx-lg-5 justify-content-center">
 		<div
 			class="align-items-center justify-content-center text-center">
-			<h1 style="font-size:50px ;margin-top:100px;">關 於 月 老</h1>
+			<h1 style="font-size:50px;">關 於 月 老</h1>
 <!-- 			<div class="container px-4 px-lg-5 h-100"></div> -->
-			<div class="row">
-				<div class="col-lg-1"></div>
-				<div class="col-lg-10">
+
+<!-- 			<div class="row"> -->
+<!-- 				<div class="col-lg-1"></div> -->
+<!-- 				<div class="col-lg-10"> -->
 					<h2 class="mb-5">相傳，人世間的姻緣由月老為每個人配就 無論大德前來本寺，是求好姻，結良緣
 						抑或是處於感情裡的貪癡怨，欲求解疑答惑</h2>
 					<h2>紅塵事，情人結， 月老助手幫你牽起手中線</h2>
@@ -85,7 +95,8 @@
 			</div>
 		</div>
 
-
+<!-- 	</div> -->
+<!-- </div> -->
 
 
 	<!-- Bootstrap core JS-->

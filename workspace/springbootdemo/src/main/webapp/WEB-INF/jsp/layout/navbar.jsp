@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath }" />
 <c:set scope="session" var="memberId" value="${sessionScope.memberId}" />
+<c:set scope="session" var="name" value="${sessionScope.name}" />
 <!DOCTYPE html>
 <html>
 
@@ -81,7 +82,7 @@
 							<c:when test="${memberId.equals('A123123')}">
 								<li class="nav-item"><a class="nav-link"
 									href="${contextRoot}/management/allManagement">
-										使用者${memberId} </a></li>
+										使用者：${name} </a></li>
 								<li class="nav-item"><a class="nav-link" href="#"
 									data-toggle="modal" data-target="#logoutModal"> <i
 										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -90,7 +91,7 @@
 							</c:when>
 							<c:otherwise>
 								<li class="nav-item"><a class="nav-link"
-									href="${contextRoot}/user"> 使用者${memberId} </a></li>
+									href="${contextRoot}/user"> 使用者：${name}</a></li>
 								<li class="nav-item"><a class="nav-link" href="#"
 									data-toggle="modal" data-target="#logoutModal"> <i
 										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

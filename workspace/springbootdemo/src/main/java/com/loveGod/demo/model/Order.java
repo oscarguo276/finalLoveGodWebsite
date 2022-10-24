@@ -52,9 +52,9 @@ public class Order {
 //	@Column(name="buyer_id")
 //	private Integer buyerId;
 //	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "memberId" , foreignKey=@ForeignKey(name = "fkc_mmm_mid"))
-	private RegisterModel buyerId;
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "memberId" , foreignKey=@ForeignKey(name = "fkc_mmm_mid"))
+//	private RegisterModel buyerId;
 	
 
 	@Column(name="orderDetail")
@@ -127,12 +127,12 @@ public class Order {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public RegisterModel getBuyerId() {
-		return buyerId;
-	}
-	public void setBuyerId(RegisterModel buyerId) {
-		this.buyerId = buyerId;
-	}
+//	public RegisterModel getBuyerId() {
+//		return buyerId;
+//	}
+//	public void setBuyerId(RegisterModel buyerId) {
+//		this.buyerId = buyerId;
+//	}
 
 	
 	

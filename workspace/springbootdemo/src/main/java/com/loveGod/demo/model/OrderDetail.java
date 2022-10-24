@@ -1,5 +1,7 @@
 package com.loveGod.demo.model;
 
+import java.util.Arrays;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "orderDetail_y")
+@Table(name = "orderDetail_test3")
 public class OrderDetail {
 	
 	@Id
@@ -16,72 +18,96 @@ public class OrderDetail {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer orderDetailId;	
 	
-	@Column(name = "orderId")
+	@Column(name = "orderID")
 	private String orderId;				//訂單id
-	
 
-	@Column(name = "prodId" )
-	private Integer prodId;			//商品id(FK)(PK)
-	
+	@Column(name = "productID" )
+	private String prodId;			//商品id(FK)(PK)
+	private Integer total;			
+	private String prod_name;			
+	private byte[] prod_photo;			
 
 	/**
 	 * 商品數量
 	 */
-	@Column(name="quantity")
-	private Integer quantity;			
-	
+	@Column(name="quanity")
+	private Integer quanity;			
 
-	@Column(name="subtotal")
+	@Column(name="prod_price")
 	private Integer subtotal;			//商品小計
-	
-	
-	
-	
+
+
 	public OrderDetail() {
 	}
-
-	public String getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(String orderId) {
-		this.orderId = orderId;
-	}
-
-	public Integer getProdId() {
-		return prodId;
-	}
-
-	public void setProdId(Integer prodId) {
-		this.prodId = prodId;
-	}
-
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-
-	public Integer getSubtotal() {
-		return subtotal;
-	}
-
-	public void setSubtotal(Integer subtotal) {
-		this.subtotal = subtotal;
-	}
-	
-	
-
 	public Integer getOrderDetailId() {
 		return orderDetailId;
 	}
-
 	public void setOrderDetailId(Integer orderDetailId) {
 		this.orderDetailId = orderDetailId;
 	}
+	public String getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+	public String getProdId() {
+		return prodId;
+	}
+	public void setProdId(String prodId) {
+		this.prodId = prodId;
+	}
+	public Integer getTotal() {
+		return total;
+	}
+	public void setTotal(Integer total) {
+		this.total = total;
+	}
+	public String getProd_name() {
+		return prod_name;
+	}
+	public void setProd_name(String prod_name) {
+		this.prod_name = prod_name;
+	}
+	public byte[] getProd_photo() {
+		return prod_photo;
+	}
+	public void setProd_photo(byte[] prod_photo) {
+		this.prod_photo = prod_photo;
+	}
+	public Integer getQuanity() {
+		return quanity;
+	}
+	public void setQuanity(Integer quanity) {
+		this.quanity = quanity;
+	}
+	public Integer getSubtotal() {
+		return subtotal;
+	}
+	public void setSubtotal(Integer subtotal) {
+		this.subtotal = subtotal;
+	}
 
+
+	public OrderDetail(Integer orderDetailId, String orderId, String prodId, Integer total, String prod_name,
+			byte[] prod_photo, Integer quanity, Integer subtotal) {
+		this.orderDetailId = orderDetailId;
+		this.orderId = orderId;
+		this.prodId = prodId;
+		this.total = total;
+		this.prod_name = prod_name;
+		this.prod_photo = prod_photo;
+		this.quanity = quanity;
+		this.subtotal = subtotal;
+	}
+
+
+	@Override
+	public String toString() {
+		return "OrderDetail [orderDetailId=" + orderDetailId + ", orderId=" + orderId + ", prodId=" + prodId
+				+ ", total=" + total + ", prod_name=" + prod_name + ", prod_photo=" + Arrays.toString(prod_photo)
+				+ ", quanity=" + quanity + ", subtotal=" + subtotal + "]";
+	}
 	
 	
 

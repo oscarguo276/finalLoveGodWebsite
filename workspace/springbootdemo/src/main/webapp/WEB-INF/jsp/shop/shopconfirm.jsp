@@ -41,10 +41,7 @@
 					height: 20 px
 				}
 
-				table tbody tr {
-					height: 20 px
-				}
-
+				
 				.fillIn {
 					font-size: 25px;
 					background: #7B7B7B;

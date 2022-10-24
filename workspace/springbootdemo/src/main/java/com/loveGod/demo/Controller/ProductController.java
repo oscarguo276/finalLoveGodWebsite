@@ -52,27 +52,10 @@ public class ProductController {
 		
 		model.addAttribute("memberOrders", memberOrders);
 
-
 		return "shop/uploadPage";
 	}
 	
 	
-	
-	
-	// -----------商品明細----------
-//	@GetMapping("/orderDetail")
-//	protected String orderDetail(Model model,
-//			@RequestParam("id") Long id 
-//			) {
-//		RegisterModel memberBean = (RegisterModel) model.getAttribute("LoginOK");
-//		if (memberBean == null) {
-//			return "redirect:/login/login";
-//		}
-//		Order ob = oService.getProducts(id);
-//		model.addAttribute("orderList", ob);
-//		log.info("訂單編號:" + id + "的內容: " + ob);
-//		return "shop/uploadPage";
-//	}
 	
 
 	

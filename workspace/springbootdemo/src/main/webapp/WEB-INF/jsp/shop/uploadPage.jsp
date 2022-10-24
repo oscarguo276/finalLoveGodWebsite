@@ -5,9 +5,6 @@
 <meta charset="UTF-8">
   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <c:set var="contextRoot"  value="${pageContext.request.contextPath }"/>
-<%-- <c:if test="${empty LoginOK}"> --%>
-<%-- 	<c:redirect url="/login/login.jsp" /> --%>
-<%-- </c:if> --%>
 <title>歸心寺</title>
     <style type="text/css">
 	.fillIn {
@@ -46,7 +43,7 @@
     	  </thead>
     	  <tbody>
     	  <tr style="height: 60px;">
-    	  <td> ${oneOrder.orderId}</td>
+    	  <td> <a href="${contextRoot}/orderDetailList">${oneOrder.orderId}</a></td>
     	  <td>${oneOrder.orderDate}</td>
     	  <td>$${oneOrder.orderSum}</td>
     	  </tr>

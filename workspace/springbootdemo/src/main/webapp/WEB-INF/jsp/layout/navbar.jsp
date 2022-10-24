@@ -40,8 +40,12 @@
 			<!-- <div class="row row-cols-auto"> -->
 
 			<div class="logoImage">
-				<a class="navbar-brand" href=" ${contextRoot}/"> <img
-					class="barimg" src=" ${contextRoot}/image/index/logo.png">
+				<a class="navbar-brand" href=" ${contextRoot}/" > <img
+					class="barimg" src=" ${contextRoot}/image/index/logo.png" >
+				</a>
+			</div>
+			<div class="logoImage">
+				<a class="navbar-brand" style="weight:30px" >
 				</a>
 			</div>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
@@ -53,7 +57,7 @@
 
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto my-2 my-lg-0">
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item" style="font-size:20px"><a class="nav-link"
 						href="${contextRoot}/donation">香油錢</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="${contextRoot}/drawlots">求籤</a></li>
@@ -81,7 +85,7 @@
 								<li class="nav-item"><a class="nav-link" href="#"
 									data-toggle="modal" data-target="#logoutModal"> <i
 										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-										登出
+										
 								</a></li>
 							</c:when>
 							<c:otherwise>
@@ -90,7 +94,7 @@
 								<li class="nav-item"><a class="nav-link" href="#"
 									data-toggle="modal" data-target="#logoutModal"> <i
 										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-										登出
+										
 								</a></li>
 							</c:otherwise>
 						</c:choose>
@@ -134,11 +138,15 @@
 	<!-- Bootstrap Modal JS -->
 	<script src="${contextRoot}/vender/bootstrap/4.6.2/bootstrap.min.js"></script>
 	<!-- Bootstrap core JS -->
-	<!-- <script src="${contextRoot}/vender/bootstrap/5.1.3/bootstrap.bundle.min.js"></script> -->
+	<script src="${contextRoot}/vender/bootstrap/5.1.3/bootstrap.bundle.min.js"></script>
 	<!-- SimpleLightbox plugin JS -->
 	<script src="${contextRoot}/js/index/plugin/simpleLightbox.min.js"></script>
 	<!-- Core theme JS -->
 	<script src="${contextRoot}/js/index/scripts.js"></script>
+	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+	  <!-- Core theme JS-->
+<!--   <script src="../js/index/scripts.js"></script> -->
+  
 
 	<%-- <script src="${contextRoot}/js/jquery-3.6.1.min.js" type="text/javascript">
 				</script> --%>

@@ -26,7 +26,8 @@ public class OrderDetailService {
 	}
 	
 	public List<OrderDetail> listOrderDetail(){
-		return oDDao.findAll();
+		List<OrderDetail> list = oDDao.findAll();
+		return list;
 	}
 	
 	

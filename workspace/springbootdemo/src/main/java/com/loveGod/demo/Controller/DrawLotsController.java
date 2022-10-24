@@ -27,7 +27,10 @@ public class DrawLotsController {
 	
 
 	@GetMapping("/drawlots")
-	public String drawlots() {
+	public String drawlots(Model model) {
+		List<DrawlotsModel> userList = dService.findByByNewId();
+		model.addAttribute("drawName", userList.get(0).getDrawName());
+		model.addAttribute("drawMean", userList.get(0).getDrawMean());
 		return "drawlots/drawlots";
 	}
 	
@@ -67,10 +70,31 @@ public class DrawLotsController {
 		dService.insertlots(pro);
 		return "redirect:/poem/page";
 	}
+	@PostMapping("poem/page")
+		public String findDrawId(@ModelAttribute("drawIdSubmit") Integer id, Model model) {
+			DrawlotsModel pro = dService.findByIntegerId(id);
+			model.addAttribute("drawlots",pro);
+			return "redirect:/poem/page";
+	}
+
+//	@GetMapping("/drawlots/poem")
+//	public String viewPoem(@RequestParam("id") Integer id, Model model) {
+//		Optional<DrawlotsModel> msg = dService.findByByNewId();
+//		model.addAttribute("workMessage", msg);
+//		return "drawlots/addMessages (1)";
+		
+	
+		//		Page<DrawlotsModel> page = dService.findByPage(pageNumber);
+//		model.addAttribute("page", page);
+//		return "management/poemManagement";
+	}
+	
+	
+	
 
 	
 	
-	}
+	
 	
 
 

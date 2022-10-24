@@ -20,7 +20,12 @@
         <div id="wrap">      
             <div class="box2" >
                 <div class="input-group">
-                <input type="text"  placeholder="請輸入詩籤編號" class="form-control input-md"><span class="btn btn-primary">搜索</span>
+                
+                    <form:form class="form-inline" action="drawIdSubmit" method="post" 
+       				modelAttribute="drawIdSubmit">
+                			<input   type="text"  placeholder="請輸入詩籤編號" class="form-control input-md">
+                			<span name="submit" class="btn btn-primary">搜索</span>
+                	</form:form>
                 </div>
             </div>
         </div> 

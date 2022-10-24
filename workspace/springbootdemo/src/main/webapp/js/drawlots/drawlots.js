@@ -1,4 +1,7 @@
-
+//解籤畫面
+var classVal = document.getElementById("controlBigCard").getAttribute("class");
+//
+var classVal2 = document.getElementById("centerimg").getAttribute("class");
 
 let nextimage = document.getElementById("nextimage");
 let count = 0;
@@ -55,24 +58,23 @@ function click() {
         document.getElementById("nextText").innerHTML = "觀看籤文";
         count++
     }
-    else if (count == 5) {
+   else if (count == 5) {
+
+        classVal = classVal.replace("nobigCard", "bigCard");
+        document.getElementById("controlBigCard").setAttribute("class", classVal);
+
+        classVal2 = classVal2.replace("", "nobigCard");
+        document.getElementById("centerimg").setAttribute("class", classVal2);
 
         document.getElementById("s").innerHTML = "籤文如下"
         document.getElementById("idimg").src = ""
         document.getElementById("s2").innerHTML = "<br><br><br> 默念 : 信士OOO，OOO年O月O生，<br>家住OOOOO(現居地址)，因有OOOOO問題，<br>恭請賜籤指點。"
-        document.getElementById("nextText").innerHTML = "解析籤文";
+        document.getElementById("nextText").innerHTML = "再次求籤";
 
         count++
     }
     else if (count == 6) {
-
-        document.getElementById("s").innerHTML = "解籤"
-        document.getElementById("idimg").src = ""
-        document.getElementById("s2").innerHTML = "<br><br><br> 默念 : 信士OOO，OOO年O月O生，<br>家住OOOOO(現居地址)，因有OOOOO問題，<br>恭請賜籤指點。"
-        document.getElementById("nextText").innerHTML = "再次求籤";
-        count = 0;
-
-        console.log("count=" + count)
+        window.location.reload();
     }
 
 }

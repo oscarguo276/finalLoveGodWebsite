@@ -24,6 +24,11 @@ import com.loveGod.demo.model.RegisterModel;
 		private DrawlotsDao dDao;
 		
 
+		//隨機生出
+		public List<DrawlotsModel> findByByNewId() {
+			return dDao.findByByNewId();
+		}
+		
 		//查
 		public Optional<DrawlotsModel> findById(DrawlotsModel rM) {
 			return dDao.findById(rM.getDrawId());
@@ -57,15 +62,6 @@ import com.loveGod.demo.model.RegisterModel;
 		
 		
 		
-		//查
-//		public DrawlotsModel findById(DrawlotsModel rM) {
-//			Optional<DrawlotsModel> optional = dDao.findById(rM);
-//			
-//			if(optional.isPresent()) {
-//				return optional.get();
-//			}
-//			return null;
-//		}
 
 		
 

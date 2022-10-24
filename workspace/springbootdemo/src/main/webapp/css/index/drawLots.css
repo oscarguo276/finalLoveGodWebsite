@@ -137,3 +137,29 @@ h1 {
 
 
 }
+
+.outcenterimg {
+    height: 60vh;
+    width: auto;
+}
+
+.incenterimg {
+    height: 100%;
+    width: auto;
+}
+
+.noCenterImg {
+    display: none;
+}
+
+.nobigCard {
+    display: none;
+}
+
+.bigCard {
+    max-width: 350px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 4rem auto;
+}

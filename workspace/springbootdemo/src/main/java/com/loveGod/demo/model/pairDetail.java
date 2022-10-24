@@ -28,11 +28,11 @@ public class pairDetail implements Serializable{
 		private Long pairId;
 		
 		@JoinColumn(name = "Id" , foreignKey=@ForeignKey(name = "fkc_mmm_idb"))
-		@Column(name="idBoy")
+		@Column(name="idBoy", columnDefinition = "VARBINARY(MAX)")
 		private RegisterModel idBoy;
 		
 		@JoinColumn(name = "Id" , foreignKey=@ForeignKey(name = "fkc_mmm_idg"))
-		@Column(name="idGirl")
+		@Column(name="idGirl", columnDefinition = "VARBINARY(MAX)")
 		private RegisterModel idGirl;
 		
 		@DateTimeFormat(pattern = "yyyy/MM/dd")

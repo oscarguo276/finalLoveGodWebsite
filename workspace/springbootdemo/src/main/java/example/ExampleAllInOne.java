@@ -7,6 +7,9 @@ import java.util.Date;
 import java.util.Hashtable;
 import java.util.UUID;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import ecpay.payment.integration.AllInOne;
 import ecpay.payment.integration.domain.AioCheckOutALL;
 import ecpay.payment.integration.domain.AioCheckOutApplePay;
@@ -27,9 +30,9 @@ import ecpay.payment.integration.domain.QueryTradeObj;
 import ecpay.payment.integration.domain.TradeNoAioObj;
 
 public class ExampleAllInOne {
-	public static AllInOne all;
-	public static void main(String[] args) {
-		initial();
+//	public static AllInOne all;
+//	public static void main(String[] args) {
+//		initial();
 //		System.out.println("compare CheckMacValue method testing result: " + cmprChkMacValue());
 //		System.out.println("apple pay create order: " + postCreateServerOrder());
 //		System.out.println("doAction: " + postDoAction());
@@ -38,7 +41,7 @@ public class ExampleAllInOne {
 //		System.out.println("queryTrade: " + postQueryTrade());
 //		System.out.println("tradeNoAio: " + postTradeNoAio());
 //		System.out.println("fundingReconDetail: " + postFundingReconDetail());
-		System.out.println("aioCheckOutALL: " + genAioCheckOutALL());
+//		System.out.println("aioCheckOutALL: " + genAioCheckOutALL());
 //		System.out.println("aioCheckOutOneTime: " + genAioCheckOutApplePay());
 //		System.out.println("aioCheckOutATM: " + genAioCheckOutATM());
 //		System.out.println("aioCheckOutCVS: " + genAioCheckOutCVS());
@@ -47,10 +50,11 @@ public class ExampleAllInOne {
 //		System.out.println("aioCheckOutOneTime: " + genAioCheckOutOneTime());
 //		System.out.println("aioCheckOutPeriod: " + genAioCheckOutPeriod());
 //		System.out.println("aioCheckOutWebATM: " + genAioCheckOutWebATM());
-	}
-	private static void initial(){
-		all = new AllInOne("");
-	}
+//	}
+//	public static AllInOne all;
+//	private static void initial(){
+//		all = new AllInOne("");
+//	}
 	
 //	public static boolean cmprChkMacValue(){
 //		Hashtable<String, String> dict = new Hashtable<String, String>();
@@ -138,23 +142,29 @@ public class ExampleAllInOne {
 //		return form;
 //	}
 	
-	public static String genAioCheckOutALL(){
-		AioCheckOutALL obj = new AioCheckOutALL();
-//		obj.setMerchantTradeNo(String.valueOf((new Date()).getTime()));
-		obj.setMerchantTradeNo("testCompany0004");
+//	@ResponseBody
+//	@PostMapping("/payment")
+//	public String postEditMessage() {
+//		initial();
+//		AioCheckOutALL obj = new AioCheckOutALL();
+////		String transAmount = null ;
+////		obj.setMerchantTradeNo(String.valueOf((new Date()).getTime()));
+//	
+//		obj.setMerchantTradeNo("LL"+String.valueOf((new Date()).getTime()));
 //		DateFormat df= new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 //		obj.setMerchantTradeDate(df.format(new java.sql.Timestamp(System.currentTimeMillis())));
-		obj.setMerchantTradeDate("2017/01/01 08:05:23");
-		obj.setTotalAmount("50");
-//		obj.setTotalAmount(String.valueOf(transAmount));
-		obj.setTradeDesc("test Description");
-		obj.setItemName("TestItem");
-		obj.setReturnURL("http://localhost:8080/my-app/management/allManagement");
-		obj.setNeedExtraPaidInfo("N");
-		
-		String form = all.aioCheckOut(obj, null);
-		return form;
-	}
+////		obj.setMerchantTradeDate("2017/01/01 08:05:23");
+//		obj.setTotalAmount("50");
+////		obj.setTotalAmount(String.valueOf(transAmount));
+//		obj.setTradeDesc("test Description");
+//		obj.setItemName("香油錢");
+//		obj.setReturnURL("http://localhost:8080/my-app/shop");
+//		obj.setClientBackURL("http://localhost:8080/my-app/shop");
+//		obj.setNeedExtraPaidInfo("N");
+//		
+//		String form = all.aioCheckOut(obj, null);
+//		return form;
+//	}
 	
 //	public static String genAioCheckOutApplePay(){
 //		AioCheckOutApplePay obj = new AioCheckOutApplePay();

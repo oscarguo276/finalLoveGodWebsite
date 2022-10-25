@@ -18,19 +18,23 @@
   
         <!--查詢元件-->
         <div id="wrap">      
+             <div class="box1">
+                <select class="form-select"  aria-label="multiple select example" style="width:auto;">
+                <option selected>詩籤編號</option>
+                <option value="1">詩籤名稱</option>
+                </select>              
+            </div>  
             <div class="box2" >
-                <div class="input-group">
-                
-                    <form:form class="form-inline" action="drawIdSubmit" method="post" 
-       				modelAttribute="drawIdSubmit">
-                			<input   type="text"  placeholder="請輸入詩籤編號" class="form-control input-md">
-                			<span name="submit" class="btn btn-primary">搜索</span>
-                	</form:form>
-                </div>
+            	<div class="input-group">
+                <input type="text"  class="form-control input-md"><span class="btn btn-primary">搜索</span>
+           		</div>
+           	</div>
+            <div class="box3">
+            	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"> + 新增籤詩</button>
             </div>
         </div> 
         
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">新增籤詩</button>
+        
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

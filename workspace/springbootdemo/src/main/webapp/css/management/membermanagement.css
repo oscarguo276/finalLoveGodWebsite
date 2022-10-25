@@ -16,6 +16,10 @@
 .box2{
     float:left;
 }
+.box3{
+    float:left;
+    margin-left:10px;
+}
 #pageindex{
     
     display: flex;

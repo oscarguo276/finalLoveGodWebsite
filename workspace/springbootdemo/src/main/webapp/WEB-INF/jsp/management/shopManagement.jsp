@@ -24,9 +24,12 @@
                 <input type="text"  class="form-control input-md"><span class="btn btn-primary">搜索</span>
                 </div>
             </div>
+            <div class="box3">
+            	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"> + 新增商品</button>
+            </div>
         </div> 
         
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">新增商品</button>
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

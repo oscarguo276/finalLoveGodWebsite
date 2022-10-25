@@ -94,14 +94,15 @@
 						<input type="hidden" id="userId" name="userId" value="${memberId}">
 						<label>訂單總額：</label> <input type="text" name="orderSum" id="Sum" size="15" value="">
 						
-				<div class="st1">
-					<label>※請填寫正確收件人資訊，避免包裹配送不達</label>
+						<div class="st1">
+							<label>※請填寫正確收件人資訊，避免包裹配送不達</label>
+						</div>
+						<div>
+							<br> <input type="submit" value="送出" id='sendData'>
+						</div>
+					</form>
 				</div>
-				<div>
-					<br> <input type="submit" value="送出" id='sendData'>
-				</div>
-				</div>
-				</form>
+				
 				
 <!-- 					<table class="item"> -->
 <!-- 					<thead><th>填寫訂購資料</th></thead> -->

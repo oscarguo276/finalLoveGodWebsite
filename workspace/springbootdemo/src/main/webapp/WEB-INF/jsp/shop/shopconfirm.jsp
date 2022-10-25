@@ -19,7 +19,6 @@
 					border-bottom: 2px solid #D0D0D0;
 					width: 550px;
 					border-collapse: collapse;
-					/*                     max-width: 350px; */
 					vertical-align: middle;
 					text-align: center
 				}
@@ -57,7 +56,7 @@
 		</head>
 
 		<body>
-			<jsp:include page="../layout/navbar.jsp"></jsp:include>
+			<jsp:include page="../layout/shopNavbar.jsp"></jsp:include>
 			<%-- <jsp:include page="../layout/footer.jsp"></jsp:include> --%>
 
 				<div class="backgroundImge">
@@ -70,7 +69,7 @@
 					<form action="oconfirm" method="post" enctype="multipart/form-data">
 				
 						<div class="fillIn">
-							<label>填寫訂購資料</label>
+							<label>填寫訂購資訊</label>
 						</div>
 						<div class="st1">
 							<label>姓名：</label> <input type="text" name="conName" id="conName" size="10">
@@ -83,6 +82,36 @@
 							<div style="height: 10px;"></div>
 						</div>
 						<div class="st1">
+							<label>信箱：</label> <input type="text" size="20">
+							<div style="height: 10px;"></div>
+							<div style="height: 10px;"></div>
+						</div>
+						<div class="st1">
+							<label>聯絡地址：</label>
+							<div id="zipcode2"></div>
+
+							<input type="text" size="25">
+							<div style="height: 10px;"></div>
+							<div style="height: 10px;"></div>
+						</div>
+						<input type="hidden" name="orderDetail" id="orderD" value="">
+						<input type="hidden" id="userId" name="userId" value="${memberId}">
+						<label>訂單總額：</label> <input type="text" id="Sum" name="orderSum" size="15" value="">
+						
+						<div class="fillIn">
+							<label>收件人資訊</label>
+						</div>
+						<div class="st1">
+							<label>姓名：</label> <input type="text" size="10">
+							<div style="height: 10px;"></div>
+							<div style="height: 10px;"></div>
+						</div>
+						<div class="st1">
+							<label>手機號碼：</label> <input type="text" size="15">
+							<div style="height: 10px;"></div>
+							<div style="height: 10px;"></div>
+						</div>
+						<div class="st1">
 							<label>寄送地址：</label>
 							<div id="zipcode2"></div>
 
@@ -90,9 +119,6 @@
 							<div style="height: 10px;"></div>
 							<div style="height: 10px;"></div>
 						</div>
-						<input type="hidden" name="orderDetail" id="orderD" value="">
-						<input type="hidden" id="userId" name="userId" value="${memberId}">
-						<label>訂單總額：</label> <input type="text" name="orderSum" id="Sum" size="15" value="">
 						
 						<div class="st1">
 							<label>※請填寫正確收件人資訊，避免包裹配送不達</label>
@@ -102,25 +128,6 @@
 						</div>
 					</form>
 				</div>
-				
-				
-<!-- 					<table class="item"> -->
-<!-- 					<thead><th>填寫訂購資料</th></thead> -->
-<!-- 					<tr> -->
-<!-- 					<td>1</td> -->
-<!-- 					</tr> -->
-<!-- 					<tr> -->
-<!-- 					<td>2</td> -->
-<!-- 					</tr> -->
-<!-- 					<tr> -->
-<!-- 					<td>3</td> -->
-<!-- 					</tr> -->
-<!-- 					<tr> -->
-<!-- 					<td>3</td> -->
-<!-- 					</tr> -->
-<!-- 					</table> -->
-				
-
 <script>
 function show() {
 	

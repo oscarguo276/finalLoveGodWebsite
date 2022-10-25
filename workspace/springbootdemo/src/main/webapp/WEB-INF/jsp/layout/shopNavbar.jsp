@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath }" />
 <c:set scope="session" var="memberId" value="${sessionScope.memberId}" />
-<c:set scope="session" var="name" value="${sessionScope.name}" />
 <!DOCTYPE html>
 <html>
 
@@ -68,11 +67,9 @@
 						href="${contextRoot}/shop">線上商城</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="${contextRoot}/about">關於月老</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="${contextRoot}/management/allManagement">後台管理</a></li>
 					<!--      -------------------------------------------------------------------------- -->
-<!-- 					<li class="nav-item"><a class="nav-link" -->
-<%-- 						href="${contextRoot}/newProducts">訂單資訊</a></li> --%>
+					<li class="nav-item"><a class="nav-link"
+						href="${contextRoot}/newProducts">訂單資訊</a></li>
 					<!--       -------------------------------------------------------------------------- -->
 					<li class="nav-item"><c:choose>
 							<c:when test="${empty memberId}">
@@ -101,14 +98,12 @@
 						</c:choose>
 				</ul>
 				<!--   這個div只有在商城有效，是和購物車連接       -->
-<!-- 				<div style="cursor: pointer"> -->
-<!-- 					<span -->
-<!-- 						class="glyphicon glyphicon-shopping-cart my-cart-icon badge badge-notify my-cart-badge"></span> -->
-<!-- 					購物車小圖 -->
-<!-- 					<i class="fa-sharp fa-solid fa-cart-shopping" -->
-<!-- 						style="font-size: 25px;"></i> -->
-<!-- 				</div> -->
-				<!--  --  -->
+				<div style="cursor: pointer">
+					<span
+						class="glyphicon glyphicon-shopping-cart my-cart-icon badge badge-notify my-cart-badge"></span>
+					<!-- 購物車小圖 -->
+					<i class="fa-sharp fa-solid fa-cart-shopping " style="font-size: 30px ; "></i>
+				</div>
 			</div>
 		</div>
 	</nav>
@@ -145,14 +140,7 @@
 	<!-- Core theme JS -->
 	<script src="${contextRoot}/js/index/scripts.js"></script>
 	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-	  <!-- Core theme JS-->
-<!--   <script src="../js/index/scripts.js"></script> -->
-  
-
-	<%-- <script src="${contextRoot}/js/jquery-3.6.1.min.js" type="text/javascript">
-				</script> --%>
-	<%-- <script src="${contextRoot}/js/bootstrap.bundle.min.js" type="text/javascript">
-					</script> --%>
+ 
 
 
 </body>

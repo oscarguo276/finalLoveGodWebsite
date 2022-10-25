@@ -1,10 +1,13 @@
 package com.loveGod.demo.Controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +22,6 @@ public class OrderController {
 	private OrderService oService;
 	
 	@GetMapping("/shop/newOrder") //訂單按下確認導入位置
-
 	public String newOrder() {
 		return "shop/shopconfirm";
 	}
@@ -32,8 +34,8 @@ public class OrderController {
 							@RequestParam("orderSum") Integer sum,
 							@RequestParam("orderDetail") String orderd,
 							@RequestParam("userId") String uid) {
-		HttpSession session = request.getSession();
-		Object memberId = session.getAttribute("memberId");
+//		HttpSession session = request.getSession();
+//		Object memberId = session.getAttribute("memberId");
 //		if (memberId == null) {
 //			return "login/login";
 //		}	else {
@@ -51,18 +53,24 @@ public class OrderController {
 			
 		
 	}
-//	@PostMapping(value="/shop/", consumes = "application/json")
-//	public @ResponseBody Map<String, String> save(@RequestBody Order order) {
-//		Map<String, String> map = new HashMap<>();
-//		try {
-//			memberService.save(order);
-//			map.put("success", "新增成功");
-//		} catch (Exception e) {
-//			map.put("fail", e.getMessage());
-//		}
-//		return map;
-//	}
-//	
+	
+	//-------訂單查詢------------Ordertable:識別字串memberOrders  會員table:memberId(帳號)
+	
+		@GetMapping("/newProducts")
+		protected String orderList(HttpServletRequest request,Model model) {
+			HttpSession session = request.getSession();
+			Object memberId = session.getAttribute("memberId");
+			model.addAttribute("memberId", memberId);
+			String userid_4order=(String)session.getAttribute("memberId");
+			if (memberId == null) {
+				return "login/login";
+			}
+			List<Order> memberOrders = oService.findUserId(userid_4order);
+			
+			model.addAttribute("memberOrders", memberOrders);
+
+			return "shop/uploadPage";
+		}
 	
 			
 //	@PostMapping("/shop/oconfirm")

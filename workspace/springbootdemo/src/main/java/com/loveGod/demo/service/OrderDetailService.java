@@ -40,4 +40,9 @@ public class OrderDetailService {
 		return null;
 
 	}
+	
+	public List<OrderDetail> findOrderID(Integer orderId ) {
+		 return  oDDao.findByOrderId(orderId);
+		
+	}
 }

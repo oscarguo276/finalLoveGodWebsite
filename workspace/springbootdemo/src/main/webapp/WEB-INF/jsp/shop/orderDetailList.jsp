@@ -24,51 +24,53 @@ table thead th {
 	background: #7B7B7B;
 	margin: 10px;
 }
-table tbody tr {
-	
+
+.flex{
+	display:flex;
+	align-items:center;
+	justify-content:center; 
 }
+
 
 
 </style>
 </head>
 <body>
-<jsp:include page="../layout/navbar.jsp"></jsp:include>
+<jsp:include page="../layout/shopNavbar.jsp"></jsp:include>
 <header class="masthead">
 	<div class="backgroundImge">
-		<div class="container px-4 px-lg-5 h-100">
-			<c:forEach items="${orderDetail}" var="oD">
-
+		<div class="container px-4 px-lg-5 h-100 flex">
+		
 		<table class="fillIn">
 			<thead>
 				<tr style="height: 70px;">
 					<th>訂購編號</th>
-					<th>商品名稱</th>
-					<th>商品照片</th>
-					<th>商品數量</th>
+					<th colspan="3">商品名稱</th>
 					<th>單價</th>
+					<th>商品數量</th>
 					<th>小計</th>
 				</tr>
 			</thead>
+			<c:forEach items="${orderDetail}" var="oD">
 			<tbody>
 				<tr style="height: 60px;">
 					<td>${oD.orderId}</td>
-					<td>${oD.prod_name}</td>
-				<td> <img src="${pageContext.request.contextPath }/downImg/${oD.orderDetailId}" height="60px"></td>
+				<td colspan="3" style="text-align: left;"> <img src="${pageContext.request.contextPath }/downImg/${oD.orderDetailId}" width="90px">&emsp;${oD.prod_name}</td>
+					<td>$${oD.subtotal}</td>
 					<td>${oD.quanity}</td>
 					<td>$${oD.total}</td>
-					<td>$${oD.subtotal}</td>
 				</tr>
 			</tbody>
 
+	</c:forEach>
 
 		</table>
+		<a href="${contextRoot}/newProducts">回前頁</a>
 
-	</c:forEach>
 	</div>
 </div>
 
 
-		<a href="${contextRoot}/uploadPage">回前頁</a>
 	</header>
 
 </body>

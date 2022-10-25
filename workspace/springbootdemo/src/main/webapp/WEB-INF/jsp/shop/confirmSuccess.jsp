@@ -7,7 +7,7 @@
 <title>歸心寺</title>
 </head>
 <body>
-<jsp:include page="../layout/navbar.jsp"></jsp:include>
+<jsp:include page="../layout/shopNavbar.jsp"></jsp:include>
 <jsp:include page="../layout/footer.jsp"></jsp:include>
 <div class="backgroundImge">
 <div class="container px-4 px-lg-5 h-100">

@@ -26,7 +26,9 @@ public class OrderDetail {
 	@Column(name = "productID" )
 	private String prodId;			//商品id(FK)(PK)
 	private Integer total;			
-	private String prod_name;			
+	private String prod_name;	
+	
+	
 	private byte[] prod_photo;			
 
 	/**

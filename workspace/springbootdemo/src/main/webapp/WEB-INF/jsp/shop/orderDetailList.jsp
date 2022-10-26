@@ -56,16 +56,16 @@ table thead th {
 				<tr style="height: 60px;">
 					<td>${oD.orderId}</td>
 				<td colspan="3" style="text-align: left;"> <img src="${pageContext.request.contextPath }/downImg/${oD.orderDetailId}" width="90px">&emsp;${oD.prod_name}</td>
-					<td>$${oD.subtotal}</td>
+					<td>$<fmt:formatNumber value="${oD.subtotal}" pattern="#,###,###"/></td>
 					<td>${oD.quanity}</td>
-					<td>$${oD.total}</td>
+					<td>$<fmt:formatNumber value="${oD.total}" pattern="#,###,###"/></td>
 				</tr>
 			</tbody>
 
 	</c:forEach>
 
 		</table>
-		<a href="${contextRoot}/newProducts">回前頁</a>
+		<a href="${contextRoot}/Order">回前頁</a>
 
 	</div>
 </div>

@@ -56,7 +56,7 @@
 		</head>
 
 		<body>
-			<jsp:include page="../layout/shopNavbar.jsp"></jsp:include>
+			<jsp:include page="../layout/navbar.jsp"></jsp:include>
 			<%-- <jsp:include page="../layout/footer.jsp"></jsp:include> --%>
 
 				<div class="backgroundImge">

@@ -13,6 +13,23 @@
 <meta name="author" content="" />
 <meta charset="UTF-8">
 <title>歸心寺</title>
+ <style>
+    .badge-notify {
+      border: 1px solid red;
+      border-radius:50%;
+
+      background: red;
+      position: relative;
+      top: -20px;
+      right: -50px;
+
+    }
+
+    .my-cart-icon-affix {
+      z-index: 999;
+    }
+ </style>
+
 <!-- Bootstrap Icons-->
 <link href="${contextRoot }/font/bootstrap-icons.css" rel="stylesheet" />
 <!-- Google fonts-->
@@ -69,7 +86,7 @@
 						href="${contextRoot}/about">關於月老</a></li>
 					<!--      -------------------------------------------------------------------------- -->
 					<li class="nav-item"><a class="nav-link"
-						href="${contextRoot}/newProducts">訂單資訊</a></li>
+						href="${contextRoot}/Order">訂單資訊</a></li>
 					<!--       -------------------------------------------------------------------------- -->
 					<li class="nav-item"><c:choose>
 							<c:when test="${empty memberId}">
@@ -97,16 +114,19 @@
 							</c:otherwise>
 						</c:choose>
 				</ul>
-				<!--   這個div只有在商城有效，是和購物車連接       -->
-				<div style="cursor: pointer">
-					<span
-						class="glyphicon glyphicon-shopping-cart my-cart-icon badge badge-notify my-cart-badge"></span>
-					<!-- 購物車小圖 -->
-					<i class="fa-sharp fa-solid fa-cart-shopping " style="font-size: 30px ; "></i>
-				</div>
+
+<!--------------------購物車 ------------>
+<div style="float: right; cursor: pointer;">
+<span class="glyphicon glyphicon-shopping-cart my-cart-icon">
+	<span class="badge badge-notify my-cart-badge"></span>
+		<i class="fa-sharp fa-solid fa-cart-shopping"style="font-size: 27px;"></i>
+	</span>
+</div>
+<!-------------------------- -->
 			</div>
 		</div>
-	</nav>
+	
+</nav>
 
 	<!-- Logout Modal-->
 	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"

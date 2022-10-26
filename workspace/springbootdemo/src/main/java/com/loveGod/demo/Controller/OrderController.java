@@ -1,5 +1,10 @@
 package com.loveGod.demo.Controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -56,8 +61,8 @@ public class OrderController {
 	
 	//-------訂單查詢------------Ordertable:識別字串memberOrders  會員table:memberId(帳號)
 	
-		@GetMapping("/newProducts")
-		protected String orderList(HttpServletRequest request,Model model) {
+		@GetMapping("/Order")
+		protected String orderList(HttpServletRequest request,Model model)  {
 			HttpSession session = request.getSession();
 			Object memberId = session.getAttribute("memberId");
 			model.addAttribute("memberId", memberId);
@@ -68,8 +73,10 @@ public class OrderController {
 			List<Order> memberOrders = oService.findUserId(userid_4order);
 			
 			model.addAttribute("memberOrders", memberOrders);
+			
 
 			return "shop/uploadPage";
+		
 		}
 	
 			

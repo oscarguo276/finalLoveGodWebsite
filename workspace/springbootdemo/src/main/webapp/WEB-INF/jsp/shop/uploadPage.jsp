@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +39,7 @@ height: 70px;
 </style>
 </head>
 <body>
-	<jsp:include page="../layout/shopNavbar.jsp"></jsp:include>
+	<jsp:include page="../layout/navbar.jsp"></jsp:include>
 	<header class="masthead">
 		<div class="backgroundImge">
 			<div class=" px-4 px-lg-5 h-100 container flex" >
@@ -56,8 +58,8 @@ height: 70px;
 							<tr class="tdbottom">
 								<td><a
 									href="${contextRoot}/orderDetailList?orderId=${oneOrder.orderId}">${oneOrder.orderId}</a></td>
-								<td>${oneOrder.orderDate}</td>
-								<td>$${oneOrder.orderSum}</td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm EEEE" value="${oneOrder.orderDate}" /></td>
+								<td>$<fmt:formatNumber value="${oneOrder.orderSum}" pattern="#,###,###"/></td>
 							</tr>
 						</tbody>
 

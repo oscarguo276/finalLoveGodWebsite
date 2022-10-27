@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath }" />
 <c:set scope="session" var="memberId" value="${sessionScope.memberId}" />
-<c:set scope="session" var="name" value="${sessionScope.name}" />
 <!DOCTYPE html>
 <html>
 
@@ -14,6 +13,23 @@
 <meta name="author" content="" />
 <meta charset="UTF-8">
 <title>歸心寺</title>
+ <style>
+    .badge-notify {
+      border: 1px solid red;
+      border-radius:50%;
+
+      background: red;
+      position: relative;
+      top: -20px;
+      right: -50px;
+
+    }
+
+    .my-cart-icon-affix {
+      z-index: 999;
+    }
+ </style>
+
 <!-- Bootstrap Icons-->
 <link href="${contextRoot }/font/bootstrap-icons.css" rel="stylesheet" />
 <!-- Google fonts-->
@@ -68,11 +84,9 @@
 						href="${contextRoot}/shop">線上商城</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="${contextRoot}/about">關於月老</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="${contextRoot}/management/allManagement">後台管理</a></li>
 					<!--      -------------------------------------------------------------------------- -->
-<!-- 					<li class="nav-item"><a class="nav-link" -->
-<%-- 						href="${contextRoot}/newProducts">訂單資訊</a></li> --%>
+					<li class="nav-item"><a class="nav-link"
+						href="${contextRoot}/Order">訂單資訊</a></li>
 					<!--       -------------------------------------------------------------------------- -->
 					<li class="nav-item"><c:choose>
 							<c:when test="${empty memberId}">
@@ -100,18 +114,19 @@
 							</c:otherwise>
 						</c:choose>
 				</ul>
-				<!--   這個div只有在商城有效，是和購物車連接       -->
-<!-- 				<div style="cursor: pointer"> -->
-<!-- 					<span -->
-<!-- 						class="glyphicon glyphicon-shopping-cart my-cart-icon badge badge-notify my-cart-badge"></span> -->
-<!-- 					購物車小圖 -->
-<!-- 					<i class="fa-sharp fa-solid fa-cart-shopping" -->
-<!-- 						style="font-size: 25px;"></i> -->
-<!-- 				</div> -->
-				<!--  --  -->
+
+<!--------------------購物車 ------------>
+<div style="float: right; cursor: pointer;">
+<span class="glyphicon glyphicon-shopping-cart my-cart-icon">
+	<span class="badge badge-notify my-cart-badge"></span>
+		<i class="fa-sharp fa-solid fa-cart-shopping"style="font-size: 27px;"></i>
+	</span>
+</div>
+<!-------------------------- -->
 			</div>
 		</div>
-	</nav>
+	
+</nav>
 
 	<!-- Logout Modal-->
 	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
@@ -145,14 +160,7 @@
 	<!-- Core theme JS -->
 	<script src="${contextRoot}/js/index/scripts.js"></script>
 	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-	  <!-- Core theme JS-->
-<!--   <script src="../js/index/scripts.js"></script> -->
-  
-
-	<%-- <script src="${contextRoot}/js/jquery-3.6.1.min.js" type="text/javascript">
-				</script> --%>
-	<%-- <script src="${contextRoot}/js/bootstrap.bundle.min.js" type="text/javascript">
-					</script> --%>
+ 
 
 
 </body>

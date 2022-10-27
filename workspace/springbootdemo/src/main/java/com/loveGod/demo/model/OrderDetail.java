@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,12 +21,14 @@ public class OrderDetail {
 	private Integer orderDetailId;	
 	
 	@Column(name = "orderID")
-	private String orderId;				//訂單id
+	private Integer orderId;				//訂單id
 
 	@Column(name = "productID" )
 	private String prodId;			//商品id(FK)(PK)
 	private Integer total;			
-	private String prod_name;			
+	private String prod_name;	
+	
+	
 	private byte[] prod_photo;			
 
 	/**
@@ -35,6 +39,10 @@ public class OrderDetail {
 
 	@Column(name="prod_price")
 	private Integer subtotal;			//商品小計
+	
+//	@ManyToOne
+//	@JoinColumn(name = "orderid")
+//	Order Order;
 
 
 	public OrderDetail() {
@@ -45,10 +53,10 @@ public class OrderDetail {
 	public void setOrderDetailId(Integer orderDetailId) {
 		this.orderDetailId = orderDetailId;
 	}
-	public String getOrderId() {
+	public Integer getOrderId() {
 		return orderId;
 	}
-	public void setOrderId(String orderId) {
+	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
 	public String getProdId() {
@@ -89,7 +97,7 @@ public class OrderDetail {
 	}
 
 
-	public OrderDetail(Integer orderDetailId, String orderId, String prodId, Integer total, String prod_name,
+	public OrderDetail(Integer orderDetailId, Integer orderId, String prodId, Integer total, String prod_name,
 			byte[] prod_photo, Integer quanity, Integer subtotal) {
 		this.orderDetailId = orderDetailId;
 		this.orderId = orderId;
@@ -104,7 +112,7 @@ public class OrderDetail {
 
 	@Override
 	public String toString() {
-		return "OrderDetail [orderDetailId=" + orderDetailId + ", orderId=" + orderId + ", prodId=" + prodId
+		return "OrderDetail [orderDetailId=" + orderDetailId + ", orderId=" + orderId +  ", prodId=" + prodId
 				+ ", total=" + total + ", prod_name=" + prod_name + ", prod_photo=" + Arrays.toString(prod_photo)
 				+ ", quanity=" + quanity + ", subtotal=" + subtotal + "]";
 	}

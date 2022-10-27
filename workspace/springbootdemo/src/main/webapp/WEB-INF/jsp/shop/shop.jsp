@@ -7,42 +7,29 @@
 <head>
 <meta charset="UTF-8">
 <title>歸心寺</title>
- <style>
-    .badge-notify {
-      border: 1px solid red;
-      border-radius: 50%;
 
-      background: red;
-      position: relative;
-      top: -20px;
-      right: -50px;
-      
-    }
-
-    .my-cart-icon-affix {
-      z-index: 999;
-    }
- </style>
 
 </head>
 <body id="page-top">
 
-<jsp:include page="../layout/navbar.jsp"></jsp:include>
+
+
+<jsp:include page="../layout/shopNavbar.jsp"></jsp:include>
 <header class="masthead">
 <%-- <jsp:include page="../layout/footer.jsp"></jsp:include> --%>
 
  
 
 <div class="backgroundImge">
-    <div class="container px-4 px-lg-5 h-100">
+    <div class="container px-4 ">
       <div class="row">
 		<c:forEach items="${productsList}" var="oneProduct">
 	     
-	        <div class="col-md-3 text-center" style="margin-bottom:30px ">
-		          <img src="${pageContext.request.contextPath }/downloadImg/${oneProduct.prodId}" height="200px">
+	        <div class="col-md-3 text-center" >
+		          <img src="${pageContext.request.contextPath }/downloadImg/${oneProduct.prodId}" height="60%" width="90%">
 		          <br />
 		          ${oneProduct.prodName}
-		           <strong>${oneProduct.prodPrice}</strong>
+		           <strong>$${oneProduct.prodPrice}</strong>
 		          <br />
 		          <button class="btn btn-danger my-cart-btn" data-id="${oneProduct.prodId}" data-name=" ${oneProduct.prodName}" data-summary="summary 1"
 		            data-price="${oneProduct.prodPrice}" data-quantity="1" data-image="${contextRoot}/downloadImg/${oneProduct.prodId}">加入購物車
@@ -50,10 +37,24 @@
 	       	 </div>
       
     	  </c:forEach>
-
-      </div>
+      </div>  
+<%-- 			    	<c:forEach var="pageNumber" begin="1" end="${page.totalPages}"> --%>
+<%-- 						<c:choose> --%>
+<%-- 			    			<c:when test="${page.number != pageNumber-1}"> --%>
+<%-- 			   					 <a href="${contextRoot}/shop/page?p=${pageNumber}">${pageNumber}</a> --%>
+<%-- 			   				 </c:when> --%>
+<%-- 				    		<c:otherwise> --%>
+<%-- 				    			${pageNumber} --%>
+<%-- 				    		</c:otherwise> --%>
+<%-- 			 			</c:choose>      --%>
+<%-- 					</c:forEach> --%>
+					
+		
     </div>
 </div>
+          
+
+</header>
 
 <script src="${contextRoot}/vender/bootstrap/5.1.3/bootstrap.bundle.min.js"></script> 
   <!--shop js-->
@@ -417,14 +418,14 @@
           '<tr title="' + this.summary + '" data-id="' + this.id + '" data-price="' + this.price + '">' +
           '<td class="text-center" style="width: 30px;"><img width="30px" height="30px" src="' + this.image + '"/></td>' +
           '<td>' + this.name + '</td>' +
-          '<td title="Unit Price" class="text-right">' + options.currencySymbol + MathHelper.getRoundedNumber(this.price) + '</td>' +
+          '<td title="Unit Price" class="text-right">' + options.currencySymbol + this.price + '</td>' +
           '<td title="Quantity"><input type="number" min="1" style="width: 70px;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
-          '<td title="Total" class="text-right ' + classProductTotal + '">' + options.currencySymbol + MathHelper.getRoundedNumber(total) + '</td>' +
+          '<td title="Total" class="text-right ' + classProductTotal + '">' + options.currencySymbol + total + '</td>' +
           '<td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" class="btn btn-xs btn-danger ' + classProductRemove + '">X</a></td>' +
           '</tr>'
         );
       });
-
+//-test
       $cartTable.append(products.length ?
         '<tr>' +
         '<td></td>' +
@@ -465,7 +466,7 @@
       });
     };
     var showGrandTotal = function () {
-      $("#" + idGrandTotal).text(options.currencySymbol + MathHelper.getRoundedNumber(ProductManager.getTotalPrice()));
+      $("#" + idGrandTotal).text(options.currencySymbol + ProductManager.getTotalPrice());//MathHelper.getRoundedNumber()//
     };
     var showDiscountPrice = function () {
       $("#" + idDiscountPrice).text(options.currencySymbol + MathHelper.getRoundedNumber(options.getDiscountPrice(ProductManager.getAllProducts(), ProductManager.getTotalPrice(), ProductManager.getTotalQuantity())));

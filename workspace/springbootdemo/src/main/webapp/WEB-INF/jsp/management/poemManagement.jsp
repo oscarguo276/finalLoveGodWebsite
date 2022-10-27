@@ -94,7 +94,7 @@
                 </td>
                 
                 <td>
-                    <a onclick="return confirm('確定刪除會員?')" href="${contextRoot}/poem/deleteMember?id=${drawlots.drawId}"><img src="${contextRoot}/image/management/delete.png"></a>
+                    <a onclick="return confirm('確定刪除詩籤?')" href="${contextRoot}/poem/deleteMember?id=${drawlots.drawId}"><img src="${contextRoot}/image/management/delete.png"></a>
                 </td>
                
               </tr>

@@ -45,7 +45,7 @@
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
                     <li class="nav-item" id="barname"><a class="nav-link" href="${contextRoot}/member/page">會員管理</a></li>
                     <li class="nav-item" id="barname"><a class="nav-link" href="${contextRoot}/management/coupleManagement">配對管理</a></li>
-                    <li class="nav-item" id="barname"><a class="nav-link" href="${contextRoot}/management/orderManagement">訂單管理</a></li>
+                    <li class="nav-item" id="barname"><a class="nav-link" href="${contextRoot}/order/page">訂單管理</a></li>
                     <li class="nav-item" id="barname"><a class="nav-link" href="${contextRoot}/product/page">商品管理</a></li>
                     <li class="nav-item" id="barname"><a class="nav-link" href="${contextRoot}/poem/page">詩籤管理</a></li>
                     <li class="nav-item" id="barname"><a class="nav-link" href="${contextRoot}/management/donateManagement">香油錢管理</a></li>

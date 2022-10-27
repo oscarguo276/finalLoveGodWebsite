@@ -39,7 +39,7 @@ public class ProdManagementService {
 	}
 	
 	public Page<Products>findByPage(Integer pageNumber){
-		org.springframework.data.domain.Pageable pgb = PageRequest.of(pageNumber-1, 10,Sort.Direction.ASC,"prodId");
+		org.springframework.data.domain.Pageable pgb = PageRequest.of(pageNumber-1, 7,Sort.Direction.ASC,"prodId");
 		Page<Products> page = pdao.findAll(pgb);
 		return page;
 	}

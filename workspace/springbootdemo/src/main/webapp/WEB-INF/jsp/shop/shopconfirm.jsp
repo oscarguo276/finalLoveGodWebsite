@@ -67,8 +67,8 @@
 					
 				</div>
 				<div class="container px-4 px-lg-5 h-100">
-					<form action="oconfirm" method="post" enctype="multipart/form-data">
-				
+<!-- 					<form action="oconfirm" method="post" enctype="multipart/form-data"> -->
+					<form action="${contextRoot}/prod_payment" method="post" enctype="multipart/form-data">
 						<div class="fillIn">
 							<label>填寫訂購資料</label>
 						</div>
@@ -171,6 +171,7 @@ window.onload = show;
 
 
 			</script>
+			
 
 
 		</body>

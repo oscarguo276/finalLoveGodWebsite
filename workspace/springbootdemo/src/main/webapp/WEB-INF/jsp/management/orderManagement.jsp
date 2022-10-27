@@ -33,54 +33,72 @@
               <tr>
                 <th scope="col">訂單編號</th>
                 <th scope="col">訂購人帳號</th>
-                <th scope="col">訂購人姓名</th>
-                <th scope="col">訂購人電話</th>
+                <th scope="col">收件人姓名</th>
+                <th scope="col">收件人電話</th>
                 <th scope="col">配送地址</th>
                 <th scope="col">訂單時間</th>
                 <th scope="col">訂單總金額</th>
+                <th scope="col">出貨狀態</th>
                 <th scope="col">修改</th>
-                <th scope="col">狀態</th>
+                <th scope="col">刪除</th>
               </tr>
             </thead>
             <tbody>
+            <c:forEach var="Orders" items="${page.content}">
               <tr>
-                <th scope="row">1</th>
-                <td>1</td>
-                <td>Mark</td>
-                <td>09xxxxxx</td>
-                <td>xxxxxx</td>
-                <td>2021-09-22 17:25:20</td>
-                <td>2000</td>
-                <td>
-                    <a href="#about"><img src="${contextRoot}/image/management/edit.png"></a>
-                </td>
+                <th scope="row">${Orders.orderId}</th>
+                <td>${Orders.userId}</td>
+                <td>${Orders.conName}</td>
+                <td>${Orders.conPhone}</td>
+                <td>${Orders.address}</td>
+                <td>${Orders.orderDate}</td>
+                <td>${Orders.orderSum}</td>
                 <td>未出貨</td>
+                <td>
+                    <a href="${contextRoot}/order/editOrder?id=${Orders.orderId}"><img src="${contextRoot}/image/management/edit.png"></a>
+                </td>
+                <td>
+                    <a onclick="return confirm('確定刪除訂單?')" href="${contextRoot}/order/deleteOrder?id=${Orders.orderId}"><img src="${contextRoot}/image/management/delete.png"></a>
+                </td>
               </tr>
-             
+             </c:forEach>
             </tbody>
           </table>
 
-            <div id="pageindex">
-                <nav aria-label="Page navigation example" >
-                <ul class="pagination">
-                    <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                    </li>
-                </ul>
-                </nav>
-            </div>
+		<nav aria-label="Page navigation example">
+			 	<ul class="pagination justify-content-center fixed-bottom" >
+			    	<li class="page-item">
+			    		<c:choose>
+				    		<c:when test="${page.number!=0}">
+				      		<a class="page-link" href="${contextRoot}/order/page?p=${page.number}">Previous</a>
+				      		</c:when>
+				      		<c:otherwise>
+				      		<a class="page-link" href="">Previous</a>
+				      		</c:otherwise>
+			      		</c:choose> 
+			    	</li>
+			    	<c:forEach var="pageNumber" begin="1" end="${page.totalPages}">
+						<c:choose>
+			    			<c:when test="${page.number != pageNumber-1}">
+			   					 <li class="page-item"><a class="page-link" href="${contextRoot}/order/page?p=${pageNumber}">${pageNumber}</a></li>
+			   				 </c:when>
+				    		<c:otherwise>
+				    			<li class="page-item"><a class="page-link" style="background-color: #F2F3F4">${pageNumber}</a></li>
+				    		</c:otherwise>
+			 			</c:choose>     
+					</c:forEach>
+					<li class="page-item">
+						<c:choose>
+				    		<c:when test="${page.number!=page.totalPages-1}">
+				      			<a class="page-link" href="${contextRoot}/order/page?p=${page.number+2}">Next</a>
+				      		</c:when>
+				      		<c:otherwise>
+				      			<a class="page-link" href="">Next</a>
+				      		</c:otherwise>
+			      		</c:choose> 
+			    	</li>
+			  	</ul>
+			</nav>
 
     </header>
 

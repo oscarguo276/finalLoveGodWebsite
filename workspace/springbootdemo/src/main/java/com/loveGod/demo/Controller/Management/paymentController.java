@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.loveGod.demo.service.DonationService;
 
@@ -24,8 +27,7 @@ public class paymentController {
 //		System.out.println("aioCheckOutALL: " + paymentcheck());
 //	}
 	
-	@Autowired
-	private DonationService dService;
+
 	
 	
 	public static AllInOne all;
@@ -61,7 +63,7 @@ public class paymentController {
 	
 	@ResponseBody
 	@PostMapping("/payment")
-	public static String paymentcheck(@RequestParam("transAmount")Integer transAmount) {
+	public static String prodpaymentcheck(@RequestParam("transAmount")Integer transAmount) {
 		initial();
 		AioCheckOutALL obj = new AioCheckOutALL();
 	
@@ -73,8 +75,8 @@ public class paymentController {
 		obj.setTotalAmount(String.valueOf(transAmount));
 		obj.setTradeDesc("test Description");
 		obj.setItemName("香油錢");
-		obj.setReturnURL("http://localhost:8080/my-app/donation");
-		obj.setClientBackURL("http://localhost:8080/my-app/donation");
+		obj.setReturnURL("http://localhost:8080/my-app/oconfirm");
+		obj.setClientBackURL("http://localhost:8080/my-app/shop");
 //		obj.setOrderResultURL("http://localhost:8080/my-app/donation");
 		obj.setNeedExtraPaidInfo("N");
 		
@@ -82,6 +84,41 @@ public class paymentController {
 		String form = all.aioCheckOut(obj, null);
 		
 		return form;
+		
+	}
+	
+	@ResponseBody
+	@PostMapping("/prod_payment")
+	public static String paymentcheck(@RequestParam("orderSum")Integer orderSum) {
+		initial();
+		AioCheckOutALL obj = new AioCheckOutALL();
+	
+		obj.setMerchantTradeNo("LL"+String.valueOf((new Date()).getTime()));
+		DateFormat df= new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		obj.setMerchantTradeDate(df.format(new java.sql.Timestamp(System.currentTimeMillis())));
+//		obj.setMerchantTradeDate("2017/01/01 08:05:23");
+//		obj.setTotalAmount("50");
+		obj.setTotalAmount(String.valueOf(orderSum));
+		obj.setTradeDesc("test Description");
+		obj.setItemName("結緣商品");
+		obj.setReturnURL("http://localhost:8080/my-app/management/ordermanagement");
+		obj.setClientBackURL("http://localhost:8080/my-app/shop");
+//		obj.setOrderResultURL("http://localhost:8080/my-app/donation");
+		obj.setNeedExtraPaidInfo("N");
+	
+		String form = all.aioCheckOut(obj, null);
+
+		return form;
+		
+	}
+	
+	
+	@GetMapping("/management/ordermanagement")
+	public void getpaymentInfo(@RequestParam("RtnMsg")String RtnMsg) {
+		
+		
+		System.out.println(RtnMsg);
+//	return RtnMsg;
 		
 	}
 

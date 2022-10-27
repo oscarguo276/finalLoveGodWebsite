@@ -25,7 +25,7 @@ public class OrderService {
 		return oDao.findAll();
 	}
 	
-	public Order getProducts(Long id) {
+	public Order getProducts(Integer id) {
 		Optional<Order> optional=oDao.findById(id);
 		
 		if(optional.isPresent()) {

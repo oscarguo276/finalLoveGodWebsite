@@ -63,8 +63,31 @@ public class Order {
 	@Column(name="userId")
 	private String userId;
 	
+	//訂單付款狀態
+	@Column(name="paystatus")
+	private String paystatus;
+	//訂單出貨狀態
+	@Column(name="shipstatus")
+	private String shipstatus;
 	
-	
+
+
+	public String getPaystatus() {
+		return paystatus;
+	}
+
+	public void setPaystatus(String paystatus) {
+		this.paystatus = paystatus;
+	}
+
+	public String getShipstatus() {
+		return shipstatus;
+	}
+
+	public void setShipstatus(String shipstatus) {
+		this.shipstatus = shipstatus;
+	}
+
 	@PrePersist
 	public void onCreate() {
 		if(orderDate == null) {
@@ -127,6 +150,7 @@ public class Order {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+	
 //	public RegisterModel getBuyerId() {
 //		return buyerId;
 //	}
@@ -134,6 +158,24 @@ public class Order {
 //		this.buyerId = buyerId;
 //	}
 
+	public Order(Integer orderId, Integer orderSum, Date orderDate, String conName, String conPhone, String address, String paystatus, String shipstatus) {
+		this.orderId=orderId;
+		this.orderSum=orderSum;
+		this.orderDate=orderDate;
+		this.conName=conName;
+		this.conPhone=conPhone;
+		this.address=address;
+		this.paystatus=paystatus;
+		this.shipstatus=shipstatus;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", address=" + address + ", conName=" + conName + ", conPhone=" + conPhone
+				+ ", orderDate=" + orderDate + ", orderSum=" + orderSum + ", orderDetail=" + orderDetail + ", userId="
+				+ userId + ", paystatus=" + paystatus + ", shipstatus=" + shipstatus + "]";
+	}
+	
 	
 	
 	

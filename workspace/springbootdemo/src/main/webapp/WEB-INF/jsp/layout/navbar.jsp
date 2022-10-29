@@ -68,8 +68,8 @@
 						href="${contextRoot}/shop">線上商城</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="${contextRoot}/about">關於月老</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="${contextRoot}/management/allManagement">後台管理</a></li>
+<!-- 					<li class="nav-item"><a class="nav-link" -->
+<%-- 						href="${contextRoot}/management/allManagement">後台管理</a></li> --%>
 					<!--      -------------------------------------------------------------------------- -->
 <!-- 					<li class="nav-item"><a class="nav-link" -->
 <%-- 						href="${contextRoot}/newProducts">訂單資訊</a></li> --%>

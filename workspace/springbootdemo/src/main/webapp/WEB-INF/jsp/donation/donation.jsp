@@ -19,7 +19,7 @@
 	<header class="masthead">
 		<div class="container px-4 px-lg-5 h-100">
 			<div
-				class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+				class="gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
 
 				<div class="all_border" id="all_border">
 					<div class="choose_border sign-in-container">
@@ -132,7 +132,7 @@
 		</div>
 	</header>
 
-	<jsp:include page="../layout/footer.jsp"></jsp:include>
+<%-- 	<jsp:include page="../layout/footer.jsp"></jsp:include> --%>
 	<script src="${contextRoot}/js/index/donation/Choose_to_pay.js"></script>
 	<script src="${contextRoot}/js/index/donation/verification_code.js"></script>
 </body>

@@ -164,21 +164,16 @@ public class LoginController {
 			model.addAttribute("Phone", userList.get(0).getPhone());
 			model.addAttribute("Mail", userList.get(0).getMail());
 			model.addAttribute("Address", userList.get(0).getAddress());
-			model.addAttribute("Mach", userList.get(0).getMach());
-			System.out.println( userList.get(0).getMach());
-			model.addAttribute("Text", userList.get(0).getText());
-			System.out.println(userList.get(0).getText());
-			model.addAttribute("Line", userList.get(0).getLine());
-			System.out.println(userList.get(0).getLine());
+			model.addAttribute("Mach", userList.get(0).getMach());	
+			model.addAttribute("Text", userList.get(0).getText());	
+			model.addAttribute("Line", userList.get(0).getLine());			
 			model.addAttribute("Ig", userList.get(0).getIg());
-			System.out.println(userList.get(0).getIg());
 			return "/user/user";
 		}else {
 			//表示帳密錯誤 或者Session有問題
 			session.removeAttribute("memberId"); 	// 刪掉
 			session.removeAttribute("password");
 			return "redirect:index";
-			
 		}
 	}
 	// ===================================== 送出：修改使用者資料 =======================================

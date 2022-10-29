@@ -69,7 +69,7 @@
 
 
 
-<jsp:include page="../layout/footer.jsp"></jsp:include>
+<%-- <jsp:include page="../layout/footer.jsp"></jsp:include> --%>
 <script src="${contextRoot}/js/drawlots/drawlots.js"></script>
 </body>
 </html>

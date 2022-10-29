@@ -20,8 +20,8 @@
 
                     <!-- 中央圖 -->
                     <div id="centerimg" class="noCenterImg"><img class="incenterimg" id="idimg" src="" alt=""></div>
-                    <p id="centerP" class="text-black-75 mb-5 out inZoom">郎才佳人聚於此，情云初話結親誼，
-                        月老有意線相牽，更在相情把機會。</p>
+                    <h1 id="centerP" class="text-black-75 mb-5 out inZoom">郎才佳人聚於此，情云初話結親誼，
+                        月老有意線相牽，更在相情把機會。</h1>
 
 
 
@@ -59,7 +59,7 @@
         </div>
     </div>
 
-<jsp:include page="../layout/footer.jsp"></jsp:include>
+<%-- <jsp:include page="../layout/footer.jsp"></jsp:include> --%>
 <script src="${contextRoot}/js/marriage/marriage.js"></script>
 </body>
 </html>

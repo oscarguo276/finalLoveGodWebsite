@@ -60,15 +60,15 @@ function click() {
     }
    else if (count == 5) {
 
-        classVal = classVal.replace("nobigCard", "bigCard");
-        document.getElementById("controlBigCard").setAttribute("class", classVal);
+        //classVal = classVal.replace("nobigCard", "bigCard");
+         //document.getElementById("controlBigCard").setAttribute("class", classVal);
 
-        classVal2 = classVal2.replace("", "nobigCard");
-        document.getElementById("centerimg").setAttribute("class", classVal2);
+        // classVal2 = classVal2.replace("", "nobigCard");
+         //document.getElementById("centerimg").setAttribute("class", classVal2);
 
-        document.getElementById("s").innerHTML = "籤文如下"
+        document.getElementById("s").innerHTML = "點擊觀看簽文"
         document.getElementById("idimg").src = ""
-        document.getElementById("s2").innerHTML = "<br><br><br> 默念 : 信士OOO，OOO年O月O生，<br>家住OOOOO(現居地址)，因有OOOOO問題，<br>恭請賜籤指點。"
+        document.getElementById("s2").innerHTML = ""
         document.getElementById("nextText").innerHTML = "再次求籤";
 
         count++

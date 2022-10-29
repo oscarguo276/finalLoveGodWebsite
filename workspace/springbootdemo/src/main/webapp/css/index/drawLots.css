@@ -163,3 +163,44 @@ h1 {
     position: relative;
     margin: 4rem auto;
 }
+/*========籤詩出現========*/
+ 	.remember {
+    margin-bottom: 20px;
+}
+
+.modal-body form .btn {
+    width: 100%;
+    font-size: 25px;
+
+}
+
+
+h3 {
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+.modal-content {
+    background: url("../../image/draw/poem.png");
+    background-size: cover;
+    width: 100%;
+
+    padding-left: 8%;
+    padding-right: 8%;
+    /* margin: 3rem; */
+    border-style: hidden;
+    border-radius: 20px;
+}
+
+.modal-body form .btn {
+    width: 100%;
+    font-size: 25px;
+    color: white;
+}
+
+
+
+
+
+
+

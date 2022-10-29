@@ -30,6 +30,8 @@
 <!-- Bootstrap Core Css-->
 <link href="${contextRoot}/vender/bootstrap/4.6.2/bootstrap_Modal.css"
 	rel="stylesheet" />
+	<link href="${contextRoot}/css/index/drawLots.css"
+	rel="stylesheet" />
 
 </head>
 
@@ -68,8 +70,8 @@
 						href="${contextRoot}/shop">線上商城</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="${contextRoot}/about">關於月老</a></li>
-<!-- 					<li class="nav-item"><a class="nav-link" -->
-<%-- 						href="${contextRoot}/management/allManagement">後台管理</a></li> --%>
+					<li class="nav-item"><a class="nav-link"
+						href="${contextRoot}/management/allManagement">後台管理</a></li>
 					<!--      -------------------------------------------------------------------------- -->
 <!-- 					<li class="nav-item"><a class="nav-link" -->
 <%-- 						href="${contextRoot}/newProducts">訂單資訊</a></li> --%>

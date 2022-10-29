@@ -1,10 +1,5 @@
 package com.loveGod.demo.Controller;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,33 +13,42 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.loveGod.demo.model.Order;
+import com.loveGod.demo.model.RegisterModel;
 import com.loveGod.demo.service.OrderService;
+import com.loveGod.demo.service.RegisterService;
 
 @Controller
 public class OrderController {
 	
 	@Autowired
 	private OrderService oService;
-	
-	@GetMapping("/shop/newOrder") //訂單按下確認導入位置
-	public String newOrder() {
+	@Autowired
+	private RegisterService rService; 
+	//-----顯示填寫訂購畫面 以及 自動將使用者的資訊 帶入填寫訂購人資訊的表格
+	@GetMapping("/shop/newOrder") 
+	public String newOrder(RegisterModel rM, Model model,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String memberId = session.getAttribute("memberId").toString(); // 使用Session是因為要用抓這人的帳密來判斷這人的資料
+		String password = session.getAttribute("password").toString();
+		List<RegisterModel> userList = rService.viewUser(memberId, password);
+		model.addAttribute("Name", userList.get(0).getName());
+		model.addAttribute("Phone", userList.get(0).getPhone());
+		model.addAttribute("Address", userList.get(0).getAddress());
+		model.addAttribute("Mail", userList.get(0).getMail());
+
 		return "shop/shopconfirm";
 	}
 	
-	//--------------------------存入orders_y table 	
+	//------------------填寫完訂購資料按下送出--存入orders_y table 	
 	@PostMapping("/shop/oconfirm")
-	public String postnewOrder(HttpServletRequest request,@RequestParam("address") String address,
+	public String postnewOrder(
+							@RequestParam("address") String address,
 							@RequestParam("conName") String name,
 							@RequestParam("conPhone") String phone,
 							@RequestParam("orderSum") Integer sum,
 							@RequestParam("orderDetail") String orderd,
 							@RequestParam("userId") String uid) {
-//		HttpSession session = request.getSession();
-//		Object memberId = session.getAttribute("memberId");
-//		if (memberId == null) {
-//			return "login/login";
-//		}	else {
-
+	
 			Order addO=new Order();
 			addO.setaddress(address);
 			addO.setConPhone(phone);
@@ -54,11 +58,8 @@ public class OrderController {
 			addO.setUserId(uid);
 			oService.insertOrder(addO);
 			return "/shop/confirmSuccess" ;
-			
-			
-		
+
 	}
-	
 	//-------訂單查詢------------Ordertable:識別字串memberOrders  會員table:memberId(帳號)
 	
 		@GetMapping("/Order")
@@ -71,12 +72,8 @@ public class OrderController {
 				return "login/login";
 			}
 			List<Order> memberOrders = oService.findUserId(userid_4order);
-			
 			model.addAttribute("memberOrders", memberOrders);
-			
-
 			return "shop/uploadPage";
-		
 		}
 	
 			

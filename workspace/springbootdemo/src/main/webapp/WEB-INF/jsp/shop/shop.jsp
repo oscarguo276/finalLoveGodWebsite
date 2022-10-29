@@ -38,16 +38,6 @@
       
     	  </c:forEach>
       </div>  
-<%-- 			    	<c:forEach var="pageNumber" begin="1" end="${page.totalPages}"> --%>
-<%-- 						<c:choose> --%>
-<%-- 			    			<c:when test="${page.number != pageNumber-1}"> --%>
-<%-- 			   					 <a href="${contextRoot}/shop/page?p=${pageNumber}">${pageNumber}</a> --%>
-<%-- 			   				 </c:when> --%>
-<%-- 				    		<c:otherwise> --%>
-<%-- 				    			${pageNumber} --%>
-<%-- 				    		</c:otherwise> --%>
-<%-- 			 			</c:choose>      --%>
-<%-- 					</c:forEach> --%>
 					
 		
     </div>

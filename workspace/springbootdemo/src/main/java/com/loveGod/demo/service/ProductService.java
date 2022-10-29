@@ -40,11 +40,5 @@ public class ProductService {
 	}
 	
 
-//	public Page<Products>findByPage(Integer pageNumber){
-//		Pageable pgb = PageRequest.of(pageNumber-1, 3,Sort.Direction.ASC,"prodId");
-//		Page<Products> page = pDao.findAll(pgb);
-//		return page;
-//	}
-
 
 }

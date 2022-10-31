@@ -71,7 +71,7 @@ table thead th {
 
 	<div class="backgroundImge">
 		<div class="form-group col-lg-12">
-			<h1 style="font-size: 50px; margin-top: 150px;"></h1>
+			<h1 style="font-size: 50px; "></h1>
 		</div>
 
 	</div>
@@ -136,6 +136,7 @@ table thead th {
 			</table>
 
 		</form>
+		
 	</div>
 
 

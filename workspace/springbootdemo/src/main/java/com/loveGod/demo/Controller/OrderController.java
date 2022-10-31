@@ -109,7 +109,7 @@ public class OrderController {
 		
 		@GetMapping("/Order/page")
 		protected String orderList(HttpServletRequest request,Model model, HttpSession session,@RequestParam(name="p",defaultValue="1") Integer pageNumber)  {
-			HttpSession session = request.getSession();
+//			HttpSession session = request.getSession();
 			Object memberId = session.getAttribute("memberId");
 			Order order=(Order) session.getAttribute("orderObj");
 //			System.out.println( "kkkkkk"+order.getConName());

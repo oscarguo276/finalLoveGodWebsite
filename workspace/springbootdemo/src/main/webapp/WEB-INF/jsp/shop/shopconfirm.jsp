@@ -71,12 +71,13 @@ table thead th {
 
 	<div class="backgroundImge">
 		<div class="form-group col-lg-12">
-			<h1 style="font-size: 50px; margin-top: 150px;"></h1>
+			<h1 style="font-size: 50px; "></h1>
 		</div>
 
 	</div>
 	<div class="container px-4 px-lg-5 h-100 ">
 		<form action="oconfirm" method="post" enctype="multipart/form-data">
+
 			<table class="flex">
 				<thead>
 					<tr class="tr_h">
@@ -135,6 +136,7 @@ table thead th {
 			</table>
 
 		</form>
+		
 	</div>
 
 

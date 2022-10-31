@@ -29,6 +29,7 @@ table thead th {
 	display:flex;
 	align-items:center;
 	justify-content:center; 
+	
 }
 
 
@@ -65,7 +66,7 @@ table thead th {
 	</c:forEach>
 
 		</table>
-		<a href="${contextRoot}/Order">回前頁</a>
+		<a href="${contextRoot}/Order/page?${page.number}">回前頁</a>
 
 	</div>
 </div>

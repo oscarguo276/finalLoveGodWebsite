@@ -6,13 +6,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.loveGod.demo.model.Order;
+import com.loveGod.demo.model.Products;
 import com.loveGod.demo.model.RegisterModel;
 import com.loveGod.demo.service.OrderService;
 import com.loveGod.demo.service.RegisterService;
@@ -39,6 +42,8 @@ public class OrderController {
 		return "shop/shopconfirm";
 	}
 	
+	
+	
 	//------------------填寫完訂購資料按下送出--存入orders_y table 	
 	@PostMapping("/shop/oconfirm")
 	public String postnewOrder(
@@ -61,9 +66,9 @@ public class OrderController {
 
 	}
 	//-------訂單查詢------------Ordertable:識別字串memberOrders  會員table:memberId(帳號)
-	
-		@GetMapping("/Order")
-		protected String orderList(HttpServletRequest request,Model model)  {
+		
+		@GetMapping("/Order/page")
+		protected String orderList(HttpServletRequest request,Model model,@RequestParam(name="p",defaultValue="1") Integer pageNumber)  {
 			HttpSession session = request.getSession();
 			Object memberId = session.getAttribute("memberId");
 			model.addAttribute("memberId", memberId);
@@ -71,11 +76,23 @@ public class OrderController {
 			if (memberId == null) {
 				return "login/login";
 			}
+			
 			List<Order> memberOrders = oService.findUserId(userid_4order);
+			
 			model.addAttribute("memberOrders", memberOrders);
+			Page<Order> page = oService.findByPage(pageNumber);
+			model.addAttribute("page", page);
 			return "shop/uploadPage";
+//			 return "redirect:/Order/page";
 		}
-	
+		
+		
+//		@GetMapping("/Order/page")
+//		public String viewOrder(@RequestParam(name="p",defaultValue="1") Integer pageNumber, Model model) {
+//			Page<Order> page = oService.findByPage(pageNumber);
+//			model.addAttribute("page", page);
+//			return "shop/uploadPage";
+//		}
 			
 //	@PostMapping("/shop/oconfirm")
 //	public @ResponseBody Map<String , String>postNewOrderDetail(

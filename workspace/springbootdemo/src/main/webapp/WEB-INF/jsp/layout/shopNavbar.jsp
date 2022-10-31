@@ -56,7 +56,7 @@
 		<div class="container px-4 px-lg-8">
 			<!-- <div class="row row-cols-auto"> -->
 
-			<div class="logoImage">
+			<div class="logoImage" style="margin-left: -15%;">
 				<a class="navbar-brand" href=" ${contextRoot}/" > <img
 					class="barimg" src=" ${contextRoot}/image/index/logo.png" >
 				</a>
@@ -80,13 +80,13 @@
 						href="${contextRoot}/drawlots">求籤</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="${contextRoot}/marriage">求姻緣</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="${contextRoot}/shop">線上商城</a></li>
+<!-- 					<li class="nav-item"><a class="nav-link" -->
+<%-- 						href="${contextRoot}/shop">線上商城</a></li> --%>
 					<li class="nav-item"><a class="nav-link"
 						href="${contextRoot}/about">關於月老</a></li>
 					<!--      -------------------------------------------------------------------------- -->
 					<li class="nav-item"><a class="nav-link"
-						href="${contextRoot}/Order">訂單資訊</a></li>
+						href="${contextRoot}/Order/page?${page.number}">訂單資訊</a></li>
 					<!--       -------------------------------------------------------------------------- -->
 					<li class="nav-item"><c:choose>
 							<c:when test="${empty memberId}">
@@ -98,14 +98,15 @@
 									href="${contextRoot}/management/allManagement">
 										使用者：${name} </a></li>
 								<li class="nav-item"><a class="nav-link" href="#"
-									data-toggle="modal" data-target="#logoutModal"> <i
-										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									data-toggle="modal" data-target="#logoutModal">登 出<i
+										></i>
+<!-- 										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400 -->
 										
 								</a></li>
 							</c:when>
 							<c:otherwise>
-								<li class="nav-item"><a class="nav-link"
-									href="${contextRoot}/user"> 使用者：${name}</a></li>
+								<li class="nav-item" style="font-size: 13px"><a class="nav-link"
+									href="${contextRoot}/user"> 使用者:${name}</a></li>
 								<li class="nav-item"><a class="nav-link" href="#"
 									data-toggle="modal" data-target="#logoutModal"> <i
 										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -113,15 +114,20 @@
 								</a></li>
 							</c:otherwise>
 						</c:choose>
+						
+				
 				</ul>
 
 <!--------------------購物車 ------------>
+
 <div style="float: right; cursor: pointer;">
 <span class="glyphicon glyphicon-shopping-cart my-cart-icon">
 	<span class="badge badge-notify my-cart-badge"></span>
 		<i class="fa-sharp fa-solid fa-cart-shopping"style="font-size: 27px;"></i>
 	</span>
 </div>
+
+
 <!-------------------------- -->
 			</div>
 		</div>

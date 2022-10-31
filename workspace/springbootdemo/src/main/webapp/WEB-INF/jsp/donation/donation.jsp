@@ -40,7 +40,7 @@
 
 					<div class="Payment_border">
 <!-- 						輸入香油錢資訊 -->
-						<form:form action="${contextRoot}/donation" method="post" modelAttribute="donations"
+						<form:form action="${contextRoot}/donation2" method="post" modelAttribute="donations"
 						class="donation_dataform_m1 sign-up-container"  onsubmit="return checkForm(false);">
 						<form
 						class="donation_dataform_m1 sign-up-container" name="dataform"  onsubmit="return checkForm(false);">

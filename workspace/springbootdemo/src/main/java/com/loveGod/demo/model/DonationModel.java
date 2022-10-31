@@ -19,13 +19,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class DonationModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer Id;
+	private Integer id;
 	private String name;
 	private String phone;
 	private String mail;
 	private String address;
 	private String money;
-	private String Receipt;
+	private String receipt;
 	
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -44,11 +44,11 @@ public class DonationModel {
 	}
 
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		Id = id;
+		this.id = id;
 	}
 	
 	public String getName() {
@@ -100,12 +100,12 @@ public class DonationModel {
 
 
 	public String getReceipt() {
-		return Receipt;
+		return receipt;
 	}
 
 
 	public void setReceipt(String receipt) {
-		Receipt = receipt;
+		this.receipt = receipt;
 	}
 
 

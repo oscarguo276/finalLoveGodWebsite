@@ -22,7 +22,7 @@
                     <div id="centerimg" class="noCenterImg"><img class="incenterimg" id="idimg" src="" alt=""></div>
                     <h1 id="centerP" class="text-black-75 mb-5 out inZoom">郎才佳人聚於此，情云初話結親誼，
                         月老有意線相牽，更在相情把機會。</h1>
-
+						
 
 
 
@@ -33,21 +33,43 @@
                                 <img class="cardImg" src="${contextRoot}/image/marriage/catcat.gif" alt="">
                             </div>
                             <div class="card-profile_user-infos">
-                                <span class="infos_name">水樣喵喵</span>
-                                <span class="infos_nick">@EmWatson</span>
+                             <c:choose>
+									<c:when test="${Marriage.idGirl.memberId == MemberId}">
+										<span class="infos_name">${Marriage.idBoy.name}</span>
+									</c:when>
+									<c:otherwise>
+										<span class="infos_name">${Marriage.idGirl.name}</span>
+									</c:otherwise>
+								</c:choose>
                             </div>
                     <!-- 卡片下方icon -->
                             <div class="card-profile_user-stats">
                                 <div class="stats-holder">
-                                    <div class="user-stats">
-                                        <span><img class="cardicon" src="${contextRoot}/image/marriage/icon/facebook.png" alt=""></span>
-                                    </div>
-                                    <div class="user-stats">
-                                        <span><img class="cardicon" src="${contextRoot}/image/marriage/icon/ig.png" alt=""></span>
-                                    </div>
-                                    <div class="user-stats">
-                                        <span><img class="cardicon" src="${contextRoot}/image/marriage/icon/line.png" alt=""></span>
-                                    </div>
+                                <c:choose>
+									<c:when test="${Marriage.idGirl.memberId == MemberId}">
+										<div class="user-stats">
+                                        	<span><img class="cardicon" src="${contextRoot}/image/marriage/icon/line.png" alt=""></span>
+                                        	<span class="infos_name">${Marriage.idBoy.line}</span>
+                                    	</div>
+                                    	<div class="user-stats">
+                                       		<span><img class="cardicon" src="${contextRoot}/image/marriage/icon/ig.png" alt=""></span>
+                                       		<span class="infos_name">${Marriage.idBoy.ig}</span>
+                                    	</div>
+									</c:when>
+									<c:otherwise>
+										<div class="user-stats">
+                                        	<span><img class="cardicon" src="${contextRoot}/image/marriage/icon/facebook.png" alt=""></span>
+                                        	<span class="infos_name">${Marriage.idGirl.line}</span>
+                                    	</div>
+                                    	<div class="user-stats">
+                                       		<span><img class="cardicon" src="${contextRoot}/image/marriage/icon/ig.png" alt=""></span>
+                                       		<span class="infos_name">${Marriage.idGirl.ig}</span>
+                                    	</div>
+									</c:otherwise>
+								</c:choose>
+                                    
+                                    
+                                    
                                 </div>
                             </div>
 

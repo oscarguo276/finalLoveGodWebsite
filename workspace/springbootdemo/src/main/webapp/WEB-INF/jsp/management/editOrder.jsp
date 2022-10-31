@@ -20,59 +20,41 @@
 <div class="container">
 <h1>修改頁面</h1>
 
-<div class="card">
+	<div class="card">
 
-	    <div class="card-header">
-   			訂單時間:<span><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${Orders.orderDate}"/></span>
-   			<br>
-   			訂購人帳號：<span>${Orders.userId}</span>
-  		</div>
+		    <div class="card-header">
+	   			訂單時間:<span>${orders.orderDate}</span>
+	   			<br>
+	   			訂購人帳號：<span>${orders.userId}</span>
+	   			<br>
+	   			訂單總金額:<span>${orders.orderSum}</span>
+	  		</div>
   		
-  		<div class="card-body">
-	    <form:form action="${contextRoot}/order/postEditOrder"  method="post" modelAttribute="orders">
-	    			<form:input type="hidden" path="orderId" /> <br>
-	    			 訂購人帳號：<form:input type="text" path="userId" /><br>
-	    			 訂單總金額:<form:input type="text" path="orderSum" /><br>
+  			<div class="card-body">
+	    	<form:form action="${contextRoot}/order/postEditOrder"  method="post" modelAttribute="orders">
+	    	
+				    <form:input type="hidden" path="orderId" />
+				    <form:input type="hidden" path="userId" />
+				    <form:input type="hidden" path="orderSum" /> 
+	    			<form:input type="hidden" path="orderDate" /> 
+	    			<form:input type="hidden" path="orderDetail" />
+	    			<form:input type="hidden" path="paystatus" />
+	    			<br>
 	    			 收件人姓名：<form:input type="text" path="conName" /> <br>
-                     收件人電話：<form:input type="text" path="conPhone" /><br>
-                     配送地址: <form:input type="text" path="address" /><br>
-                     
-                     <%-- 出貨狀態：<form:input type="checkbox" path="address" /><br>
-                     
-                     出貨狀態：<form:input type="checkbox" id="status1" name="status1" value="已出貨" path="shipstatus" />
-					  <label for="status1"> 已出貨</label><br>
-					  <input type="checkbox" id="status2" name="status2" value="未出貨">
-					  <label for="status2"> 未出貨</label><br> --%>
-					  
+		             收件人電話：<form:input type="text" path="conPhone" /><br>
+		             配送地址: <form:input type="text" path="address" /><br>
+		             出貨狀態：
+		             <form:radiobutton path="shipstatus" value="1"/>
+		             <label for="ship1"> 已出貨</label>
+		             <form:radiobutton path="shipstatus" value="0"/>
+		             <label for="ship2"> 未出貨</label>
+		             <br>
 					  <input type="submit" name="submit" value="送出">
-            </form:form> 
-                     
-                 
-<%--                 <form action="${contextRoot}/order/postEditOrder" method="post" enctype="multipart/form-data" >   
-                
-                	<input type="text" value="${Orders.orderId}" name="prodId"> <br>
-                     訂單時間：${Orders.orderDate}<br>
-                     訂單總金額:<input type="text" value="${Orders.orderSum}" name="orderSum" ><br>
-                     收件人姓名：<input type="text" value="${Orders.conName}" name="conName">
-                     <br>
-                     收件人電話：<input type="text" value="${Orders.conPhone}" name="conPhone">
-                     <br>
-                     配送地址: <input type="text" value="${Orders.address}" name="address">
-                     <br>
-                     出貨狀態：<br>
-                      <input type="checkbox" id="status1" name="status1" value="${Orders.shipstatus}" />
-					  <label for="status1"> 已出貨</label>
-					  <input type="checkbox" id="status2" name="status2" value="${Orders.shipstatus}">
-					  <label for="status2"> 未出貨</label><br>
-					  
-                     <input type="submit" name="submit" value="送出">
-	    	</form>  --%> 
+            	</form:form> 
          
-		       </div>
-		 
-	  	
+		   </div>
+  		
 	  	</div>
-   
 </div>
 
 

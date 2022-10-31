@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>管理員首頁</title>
+<title>訂單管理</title>
 </head>
 <body>
 <jsp:include page="../management/managerLayout/mnavbar.jsp"></jsp:include>
@@ -38,27 +38,29 @@
                 <th scope="col">配送地址</th>
                 <th scope="col">訂單時間</th>
                 <th scope="col">訂單總金額</th>
+<!--                 <th scope="col">付款狀態</th> -->
                 <th scope="col">出貨狀態</th>
                 <th scope="col">修改</th>
                 <th scope="col">刪除</th>
               </tr>
             </thead>
             <tbody>
-            <c:forEach var="Orders" items="${page.content}">
+            <c:forEach var="orders" items="${page.content}">
               <tr>
-                <th scope="row">${Orders.orderId}</th>
-                <td>${Orders.userId}</td>
-                <td>${Orders.conName}</td>
-                <td>${Orders.conPhone}</td>
-                <td>${Orders.address}</td>
-                <td>${Orders.orderDate}</td>
-                <td>${Orders.orderSum}</td>
-                <td>未出貨</td>
+                <th scope="row">${orders.orderId}</th>
+                <td>${orders.userId}</td>
+                <td>${orders.conName}</td>
+                <td>${orders.conPhone}</td>
+                <td>${orders.address}</td>
+                <td>${orders.orderDate}</td>
+                <td>${orders.orderSum}</td>
+<%--                 <td>${Orders.paystatus==null?"未付款":"已付款"}</td> --%>
+                <td>${orders.shipstatus==1?"已出貨":"未出貨"}</td>
                 <td>
-                    <a href="${contextRoot}/order/editOrder?id=${Orders.orderId}"><img src="${contextRoot}/image/management/edit.png"></a>
+                    <a href="${contextRoot}/order/editOrder?id=${orders.orderId}"><img src="${contextRoot}/image/management/edit.png"></a>
                 </td>
                 <td>
-                    <a onclick="return confirm('確定刪除訂單?')" href="${contextRoot}/order/deleteOrder?id=${Orders.orderId}"><img src="${contextRoot}/image/management/delete.png"></a>
+                    <a onclick="return confirm('確定刪除訂單?')" href="${contextRoot}/order/deleteOrder?id=${orders.orderId}"><img src="${contextRoot}/image/management/delete.png"></a>
                 </td>
               </tr>
              </c:forEach>

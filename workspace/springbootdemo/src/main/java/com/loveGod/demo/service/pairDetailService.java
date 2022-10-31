@@ -39,6 +39,13 @@ public class pairDetailService {
 		return null;
 	}
 	
+	public List<pairDetail> findTodayPair(int year,int month,int day){
+		
+		return pairDetailDao.findTodayPair(year, month, day);
+	}
+	
+	
+	
 	public void newPairDetail(pairDetail pd) {
 //		取得男、女清單
 		List<RegisterModel> listBoy = RegisterDao.findCustomerBoy();

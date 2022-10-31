@@ -72,8 +72,8 @@ public class Order {
 		return paystatus;
 	}
 
-	public void setPaystatus(String paystatus) {
-		this.paystatus = paystatus;
+	public String setPaystatus(String paystatus) {
+		return this.paystatus = paystatus;
 	}
 
 	public String getShipstatus() {

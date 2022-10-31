@@ -36,9 +36,12 @@ public class pairDetail implements Serializable{
 		private RegisterModel idGirl;
 		
 		@DateTimeFormat(pattern = "yyyy/MM/dd")
-		@Temporal(TemporalType.TIMESTAMP)
+		@Temporal(TemporalType.DATE)
 		@Column(name="pairDate", columnDefinition="datetime")
 		private Date pairDate;
+		
+		@Column(name="coupon")
+		private String coupon;
 		
 		@PrePersist
 		public void onCreate() {
@@ -47,6 +50,14 @@ public class pairDetail implements Serializable{
 			}
 		}
 	
+		public String getCoupon() {
+			return coupon;
+		}
+
+		public void setCoupon(String coupon) {
+			this.coupon = coupon;
+		}
+
 		public pairDetail() {
 		}
 

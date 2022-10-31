@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -92,6 +94,8 @@ public class paymentController {
 	public static String paymentcheck(@RequestParam("orderSum")Integer orderSum) {
 		initial();
 		AioCheckOutALL obj = new AioCheckOutALL();
+		
+		
 	
 		obj.setMerchantTradeNo("LL"+String.valueOf((new Date()).getTime()));
 		DateFormat df= new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -102,7 +106,7 @@ public class paymentController {
 		obj.setTradeDesc("test Description");
 		obj.setItemName("結緣商品");
 		obj.setReturnURL("http://localhost:8080/my-app/management/ordermanagement");
-		obj.setClientBackURL("http://localhost:8080/my-app/shop");
+		obj.setClientBackURL("http://localhost:8080/my-app/Order");
 //		obj.setOrderResultURL("http://localhost:8080/my-app/donation");
 		obj.setNeedExtraPaidInfo("N");
 	

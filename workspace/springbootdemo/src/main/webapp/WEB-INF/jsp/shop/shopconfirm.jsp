@@ -76,7 +76,8 @@ table thead th {
 
 	</div>
 	<div class="container px-4 px-lg-5 h-100 ">
-		<form action="oconfirm" method="post" enctype="multipart/form-data">
+		<form action="${contextRoot}/shop/oconfirm" method="post" enctype="multipart/form-data">
+<%-- 		<form action="${contextRoot}/prod_payment" method="post" enctype="multipart/form-data"> --%>
 			<table class="flex">
 				<thead>
 					<tr class="tr_h">

@@ -114,9 +114,7 @@ public class OrderController {
 			Order order=(Order) session.getAttribute("orderObj");
 //			System.out.println( "kkkkkk"+order.getConName());
 //			order.setPaystatus("已付款");
-			
-			
-			System.out.println(order.getPaystatus());
+//			System.out.println(order.getPaystatus());
 			
 			
 			model.addAttribute("memberId", memberId);

@@ -1,19 +1,19 @@
 package com.loveGod.demo.Controller;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import com.loveGod.demo.model.RegisterModel;
 import com.loveGod.demo.service.RegisterService;
 
@@ -27,7 +27,8 @@ public class LoginController {
 	// ================================== 登入頁面 ==================================
 	@GetMapping("/login") 								// 網址http://localhost:8080/my-app/login
 	public String login(HttpServletRequest request) {   // 進入方法(login)
-		HttpSession session = request.getSession();
+		// ----- 抓登入帳密要用來判斷重複登入(登入又故意去登入) ----- 
+		HttpSession session = request.getSession();		
 		Object memberId = session.getAttribute("memberId");
 		if (memberId != null) { 						// 如果已有登入未登入
 			return "redirect:index"; 					// 強制給我滾回來
@@ -53,9 +54,9 @@ public class LoginController {
 
 	// ================================== 註冊成功/失敗 ==================================
 
-// ----- 生日換算成年齡 -----
+		// ----- 生日換算成年齡 -----
 	public int CalculateAge(Date Birthday) {
-// ----- 當前年份 - 生日 = 年齡 ----
+		// ----- 當前年份 - 生日 = 年齡 ----
 		Calendar cal = Calendar.getInstance();
 		Calendar bir = Calendar.getInstance();
 		bir.setTime(Birthday);
@@ -76,17 +77,17 @@ public class LoginController {
 		return age;
 	}
 
-// ----- 註冊成功畫面 -----
-//	@RequestMapping(value = "/registersubmit", method = RequestMethod.POST)
+	// ----- 註冊成功畫面 -----
+	//	@RequestMapping(value = "/registersubmit", method = RequestMethod.POST)
 	@PostMapping("/registersubmit")
 	public String registersubmit(@ModelAttribute(name = "registersubmit") RegisterModel rM, Model model) {
 
 		List<RegisterModel> resultList = rService.findMemberId(rM);
 		if (resultList.size() > 0) { 				  // 他有找到
 			model.addAttribute("Msg", "*帳號已經有重複的");
-			return "login/register";  				  //	return "redirect:register";
+			return "login/register";  				  // return "redirect:register";
 		} else {
-// -- 資料傳到SQL ---
+			// -- 資料傳到SQL ---
 			int age = CalculateAge(rM.getBirthday()); // 把生日放進 轉換成年齡的方法 裡面執行再把結果放變數裡面
 			rM.setAge(age); 						  // 放到年齡欄位裡面
 			rService.insertRegister(rM);              // 把資料放進去(插入)
@@ -98,7 +99,7 @@ public class LoginController {
 	@PostMapping("/loginsubmit")
 	public String loginsubmit(HttpServletRequest request, @ModelAttribute(name = "loginsubmit") RegisterModel rM,
 			Model model) {
-// ---- 資料傳到SQL ------
+		// ---- 資料傳到SQL ------
 		List<RegisterModel> resultList = rService.findLogin(rM);
 
 			System.out.println("==================== .登入. =========================");
@@ -108,14 +109,11 @@ public class LoginController {
 				HttpSession session = request.getSession();
 				// 第二步：将想要保存到数据存入session中
 				session.setAttribute("memberId", resultList.get(0).getMemberId()); // 取得那欄位的帳號,從0(陣列)開始,放入session
-				session.setAttribute("password", resultList.get(0).getPassword());
-				
+				session.setAttribute("password", resultList.get(0).getPassword());		
 				// <c:set scope="session" var="name" value="${sessionScope.name}" /> 呼叫↓
-				session.setAttribute("name", resultList.get(0).getName());		   // 顯示導覽頁的使用者
-				
+				session.setAttribute("name", resultList.get(0).getName());		   // 顯示導覽頁的使用者	
 				// 这样就完成了用户名和密码保存到session的操作
 				return "redirect:index";
-			
 			} else {
 				model.addAttribute("Msg", "*帳密錯誤!!"); // 畫面顯示：*帳密錯誤!!
 				return "login/login"; 				   // 返回登入畫面
@@ -180,7 +178,7 @@ public class LoginController {
 	@PostMapping("/usersubmit")
 	public String UpdateUser(HttpServletRequest request, 
 			@ModelAttribute("usersubmit")RegisterModel rM, Model model) {
-		System.out.println("===============送出修改按鈕=================");
+		System.out.println("=============== .送出修改. =================");
 		int age = CalculateAge(rM.getBirthday()); // 把生日放進 轉換成年齡的方法 裡面執行再把結果放變數裡面
 		rM.setAge(age); 						  // 放到年齡欄位裡面
 		
@@ -203,6 +201,22 @@ public class LoginController {
 		}
 	}
 	
-
+// ===================================== 當Server端程式有錯誤時 =====================================	
+	@GetMapping("/ErrorProneAjax")
+	public String errorProneAjax() {
+		return "login/ErrorProneAjax";
+	}
+	
+	@GetMapping(value="login/withError")
+	public String withError() {
+		try {
+			Connection con = DriverManager.getConnection
+			("jdbc:sqlserver://localhost:1433;databaseName=JSPDB", "AAA", "123");
+			con.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} 
+		return "/";                            
+	}
 	
 }

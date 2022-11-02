@@ -23,12 +23,12 @@
             </div>      
            	<div class="box2" >
                 <div class="input-group">
-                	<input type="text"  class="form-control input-md">
-                	<input type="submit" class="btn btn-primary" value="搜索" />
+                	<input type="text"  class="form-control input-md" id="searchword" onkeyup="searchName()">
+                	<input type="submit" class="btn btn-primary" id="submitBtn" value="搜索" />
             	</div>
         	</div> 
 		</div>
-        <table class="table table-hover">
+        <table class="table table-hover" id="listmember">
             <thead>
               <tr>
               	<th scope="col">編號</th>
@@ -47,7 +47,7 @@
             <tbody>
             <c:forEach var="RegisterModel" items="${page.content}">
               <tr>
-                <th scope="row">${RegisterModel.id}</th>
+                <td scope="row">${RegisterModel.id}</td>
                 <td>${RegisterModel.memberId}</td>
                 <td>${RegisterModel.name}</td>
                 <td>${RegisterModel.birthday}</td>
@@ -110,6 +110,43 @@
 
     </header>
 
+<script>
+/* $(document).ready(function(){
+	$('#submitBtn').click(function(){
+		var inputWord = document.getElementById('searchword').value;
+		
+		$.ajax({
+			url:'http://localhost:8080/my-app/member/page',
+			contentType:'application/jason',
+			method:'get',
+			dataType:'json',
+			data:''
+		})
+	})
+}) */
+const searchName=()=>{
+	let filter = document.getElementById('searchword').value.toUpperCase();
+	
+	let listmember = document.getElementById('listmember');
+	let tr =listmember.getElementsByTagName('tr');
+	
+	for(var i=1; i<tr.length; i++){
+		let td = tr[i].getElementsByTagName('td')[2];
+		if(td){
+			let textvalue = td.textContent || td.innerHTML;
+			
+			if(textvalue.toUpperCase().indexOf(filter)>-1){
+				tr[0].style.display="";
+			}else{
+				tr[i].style.display="none";
+			}
+		}
+	}
+}
+
+
+
+</script>
 
 
 </body>

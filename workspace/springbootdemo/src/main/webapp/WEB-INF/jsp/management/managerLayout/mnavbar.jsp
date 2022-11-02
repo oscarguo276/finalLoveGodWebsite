@@ -20,12 +20,23 @@
     <!-- SimpleLightbox plugin CSS-->
     <link href="${contextRoot }/css/index/plugin/simpleLightbox.min.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="${contextRoot}/css/index/styles.css" rel="stylesheet" />
+    <link href="${contextRoot}/css/management/styles.css" rel="stylesheet" />
     <!-- Custom -->
     <link href="${contextRoot}/css/index/customIndex.css" rel="stylesheet" />
     <!-- Management css -->
     
 	<link href="${contextRoot}/css/management/membermanagement.css" rel="stylesheet" />		
+  	<script type="text/javascript">
+  	var t=1;
+  	function test(x){
+  		
+  	}
+  	
+  	</script>
+ 
+	
+		
+	
     
 
 </head>
@@ -34,7 +45,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="${contextRoot}/">
+            <a class="navbar-brand" href="${contextRoot}/management/allManagement">
             <img class="barimg" src=" ${contextRoot}/image/index/logo.png">
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
@@ -68,7 +79,12 @@
   <script src="${contextRoot}/js/index/scripts.js"></script>
 <script src="${contextRoot}/js/jquery-3.6.1.min.js" type="text/javascript"></script>
 <script src="${contextRoot}/js/bootstrap.bundle.min.js" type="text/javascript"></script> 
+<script src="${pageContext.request.contextPath }/js/index/shop/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
 
+
+
+</script> 
 
 </body>
 </html>

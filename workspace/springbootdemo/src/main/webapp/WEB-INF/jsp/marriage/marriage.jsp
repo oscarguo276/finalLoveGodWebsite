@@ -29,16 +29,43 @@
                     <!-- 卡片照片及文字 -->
                     <div id="controlBigCard" class="nobigCard inZoom">
                         <div class="card-profile">
-                            <div class="card-profile_visual">
-                                <img class="cardImg" src="${contextRoot}/image/marriage/catcat.gif" alt="">
-                            </div>
-                            <div class="card-profile_user-infos">
+                            
                              <c:choose>
 									<c:when test="${Marriage.idGirl.memberId == MemberId}">
-										<span class="infos_name">${Marriage.idBoy.name}</span>
+										<c:choose>
+											<c:when test="${Marriage.idBoy == null}">
+												<div class="card-profile_visual">
+                                					<img class="cardImg" src="${contextRoot}/image/marriage/null.png" alt="">
+                            					</div>
+                            					<div class="card-profile_user-infos">
+													<span class="infos_name">未配對到有緣人，請明日再來</span>
+											</c:when>
+											<c:otherwise>
+												<div class="card-profile_visual">
+                                					<img class="cardImg" src="${contextRoot}/image/marriage/icon_boy.png" alt="">
+                            					</div>
+                            					<div class="card-profile_user-infos">
+													<span class="infos_name">${Marriage.idBoy.name}</span>
+											</c:otherwise>
+										</c:choose>
 									</c:when>
 									<c:otherwise>
-										<span class="infos_name">${Marriage.idGirl.name}</span>
+										<c:choose>
+										<c:when test="${Marriage.idGirl == null}">
+											<div class="card-profile_visual">
+                                				<img class="cardImg" src="${contextRoot}/image/marriage/null.png" alt="">
+                            				</div>
+                            				<div class="card-profile_user-infos">
+												<span class="infos_name">未配對到有緣人，請明日再來</span>
+										</c:when>
+										<c:otherwise>
+											<div class="card-profile_visual">
+                                				<img class="cardImg" src="${contextRoot}/image/marriage/icon_girl.png" alt="">
+                            				</div>
+                            				<div class="card-profile_user-infos">
+												<span class="infos_name">${Marriage.idGirl.name}</span>
+										</c:otherwise>
+										</c:choose>
 									</c:otherwise>
 								</c:choose>
                             </div>
@@ -47,24 +74,52 @@
                                 <div class="stats-holder">
                                 <c:choose>
 									<c:when test="${Marriage.idGirl.memberId == MemberId}">
-										<div class="user-stats">
-                                        	<span><img class="cardicon" src="${contextRoot}/image/marriage/icon/line.png" alt=""></span>
-                                        	<span class="infos_name">${Marriage.idBoy.line}</span>
-                                    	</div>
-                                    	<div class="user-stats">
-                                       		<span><img class="cardicon" src="${contextRoot}/image/marriage/icon/ig.png" alt=""></span>
-                                       		<span class="infos_name">${Marriage.idBoy.ig}</span>
-                                    	</div>
+										<c:choose>
+											<c:when test="${Marriage.idBoy == null}">
+												<div class="user-stats">
+                                        			<span></span>
+                                        			<span class="infos_name"></span>
+                                    			</div>
+                                    			<div class="user-stats">
+                                       				<span></span>
+                                       				<span class="infos_name"></span>
+                                    			</div>
+											</c:when>
+											<c:otherwise>
+												<div class="user-stats">
+                                        			<span><img class="cardicon" src="${contextRoot}/image/marriage/icon/line.png" alt=""></span>
+                                        			<span class="infos_name">${Marriage.idBoy.line}</span>
+                                    			</div>
+                                    			<div class="user-stats">
+                                       				<span><img class="cardicon" src="${contextRoot}/image/marriage/icon/ig.png" alt=""></span>
+                                       				<span class="infos_name">${Marriage.idBoy.ig}</span>
+                                    			</div>
+											</c:otherwise>
+										</c:choose>
 									</c:when>
 									<c:otherwise>
-										<div class="user-stats">
-                                        	<span><img class="cardicon" src="${contextRoot}/image/marriage/icon/facebook.png" alt=""></span>
-                                        	<span class="infos_name">${Marriage.idGirl.line}</span>
-                                    	</div>
-                                    	<div class="user-stats">
-                                       		<span><img class="cardicon" src="${contextRoot}/image/marriage/icon/ig.png" alt=""></span>
-                                       		<span class="infos_name">${Marriage.idGirl.ig}</span>
-                                    	</div>
+										<c:choose>
+											<c:when test="${Marriage.idGirl == null}">
+												<div class="user-stats">
+                                        			<span></span>
+                                        			<span class="infos_name"></span>
+                                    			</div>
+                                    			<div class="user-stats">
+                                       				<span></span>
+                                       				<span class="infos_name"></span>
+                                    			</div>
+											</c:when>
+											<c:otherwise>
+												<div class="user-stats">
+                                        			<span><img class="cardicon" src="${contextRoot}/image/marriage/icon/line.png" alt=""></span>
+                                        			<span class="infos_name">${Marriage.idGirl.line}</span>
+                                    			</div>
+                                    			<div class="user-stats">
+                                       				<span><img class="cardicon" src="${contextRoot}/image/marriage/icon/ig.png" alt=""></span>
+                                       				<span class="infos_name">${Marriage.idGirl.ig}</span>
+                                    			</div>
+											</c:otherwise>
+										</c:choose>
 									</c:otherwise>
 								</c:choose>
                                     

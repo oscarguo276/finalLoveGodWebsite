@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 //import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface RegisterDao extends JpaRepository<RegisterModel, Integer> {
 
@@ -18,9 +19,9 @@ public interface RegisterDao extends JpaRepository<RegisterModel, Integer> {
 	List<RegisterModel> findMemberId(String memberId);
 	
 	
-	@Query(value="from RegisterModel r where r.sex = 1")
+	@Query(value="from RegisterModel r where r.sex = 1 and r.mach !=null" )
 	public List<RegisterModel> findCustomerBoy();
-	@Query(value="from RegisterModel r where r.sex = 0")
+	@Query(value="from RegisterModel r where r.sex = 0 and r.mach !=null")
 	public List<RegisterModel> findCustomerGirl();
 	
 	// =================================== 修改使用者 ==================================
@@ -37,5 +38,14 @@ public interface RegisterDao extends JpaRepository<RegisterModel, Integer> {
 			String phone, String mail, String address, String mach, 
 			int age, String text, String line, String ig, 
 			String MemberId, String Password);
+	
+	//=======關鍵字搜尋============
+	
+//	@Query("SELECT r from RegisterModel r WHERE r.name LIKE %?keyword%")
+//	public List<RegisterModel> findByNameContainingIgnoreCase(@Param("keyword")String keyword);
+//	
+//	@Query("SELECT r from RegisterModel r WHERE r.memberId LIKE %?keyword%")
+//	public List<RegisterModel> findByIdContainingIgnoreCase(@Param("keyword")String keyword);
+	
 	
 }

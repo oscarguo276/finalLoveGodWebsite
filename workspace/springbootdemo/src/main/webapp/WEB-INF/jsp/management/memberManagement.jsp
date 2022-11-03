@@ -14,6 +14,7 @@
         <!--查詢元件-->
        
         <div id="wrap"> 
+        <form action="${contextRoot}/member/findByName" method="GET"> 
             <div class="box1">
                 <select class="form-select"  aria-label="multiple select example" style="width:auto;">
                 <option selected>帳號</option>
@@ -23,10 +24,13 @@
             </div>      
            	<div class="box2" >
                 <div class="input-group">
-                	<input type="text"  class="form-control input-md" id="searchword" onkeyup="searchName()">
+<!--                 javascript search -->
+<!--                  onkeyup="searchName()" -->
+                	<input type="search"  class="form-control input-md" id="searchname" >
                 	<input type="submit" class="btn btn-primary" id="submitBtn" value="搜索" />
             	</div>
         	</div> 
+        </form>
 		</div>
         <table class="table table-hover" id="listmember">
             <thead>
@@ -111,38 +115,80 @@
     </header>
 
 <script>
-/* $(document).ready(function(){
-	$('#submitBtn').click(function(){
-		var inputWord = document.getElementById('searchword').value;
-		
-		$.ajax({
-			url:'http://localhost:8080/my-app/member/page',
-			contentType:'application/jason',
-			method:'get',
-			dataType:'json',
-			data:''
-		})
-	})
-}) */
-const searchName=()=>{
-	let filter = document.getElementById('searchword').value.toUpperCase();
+
+
+function findByName() {
 	
-	let listmember = document.getElementById('listmember');
-	let tr =listmember.getElementsByTagName('tr');
+	var inputname = document.getElementById("searchname").value;
 	
-	for(var i=1; i<tr.length; i++){
-		let td = tr[i].getElementsByTagName('td')[2];
-		if(td){
-			let textvalue = td.textContent || td.innerHTML;
-			
-			if(textvalue.toUpperCase().indexOf(filter)>-1){
-				tr[0].style.display="";
-			}else{
-				tr[i].style.display="none";
-			}
-		}
-	}
+	$("#submitBtn").click(function(){
+	    $("#tbody").empty();
+	    fetch("/member/findByName").then(function(response) {
+	        return response.json();
+	    }).then(function(array) {
+	    	console.log(array);
+// 	        $.each(array, function(index, value) {
+// 	            $("#tbody").append(`<tr>
+// 	                   <td scope="col"> ` + value.id+ `</td>
+// 	                   <td scope="col">$` + value.memberId + `</td>
+// 	                   <td scope="col">$` + value.name + `</td>
+// 	                   <td scope="col">$` + value.birthday + `</td>
+// 	                   <td scope="col">$` + value.address + `</td>
+// 	                   <td scope="col">$` + value.phone + `</td>
+// 	                   <td scope="col">$` + value.mail + `</td>
+// 	                   <td scope="col">$` + value.sex + `</td>
+// 	                   <td scope="col">$` + value.mach + `</td>
+// 	               </tr>`);
+// 	        });
+ 	    });
+   });
 }
+
+// $(doucument).ready(function(){
+// 	$('search').keyup(function(){
+// 		$('#result').html('');
+// 		var searchField = $('#search').val();
+// // 		var expression new RegExp(searchField,"i");
+// 		$.getJson('data.json',function(data)){
+// 			$each(data,function(key,value){
+// 				if(value.name.search(expression) !=-1 || value.location.search(expression)!=-1){
+// 					$('#result').append(`<tr>
+// 			                   <td scope="col"> ` + value.id+ `</td>
+// 			                   <td scope="col">$` + value.memberId + `</td>
+// 			                   <td scope="col">$` + value.name + `</td>
+// 			                   <td scope="col">$` + value.birthday + `</td>
+// 			                   <td scope="col">$` + value.address + `</td>
+// 			                   <td scope="col">$` + value.phone + `</td>
+// 			                   <td scope="col">$` + value.mail + `</td>
+// 			                   <td scope="col">$` + value.sex + `</td>
+// 			                   <td scope="col">$` + value.mach + `</td>
+// 			               </tr>`);
+// 				}
+// 			})
+// 		}
+// 	})
+// })
+
+// =======javascript 搜尋==========
+// const searchName=()=>{
+// 	let filter = document.getElementById('searchword').value.toUpperCase();
+	
+// 	let listmember = document.getElementById('listmember');
+// 	let tr =listmember.getElementsByTagName('tr');
+	
+// 	for(var i=1; i<tr.length; i++){
+// 		let td = tr[i].getElementsByTagName('td')[2];
+// 		if(td){
+// 			let textvalue = td.textContent || td.innerHTML;
+			
+// 			if(textvalue.toUpperCase().indexOf(filter)>-1){
+// 				tr[0].style.display="";
+// 			}else{
+// 				tr[i].style.display="none";
+// 			}
+// 		}
+// 	}
+// }
 
 
 

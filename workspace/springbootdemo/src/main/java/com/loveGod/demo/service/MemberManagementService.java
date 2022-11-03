@@ -55,6 +55,9 @@ public class MemberManagementService {
 //	public List<RegisterModel> findByName(@Param("keyword") String keyword){
 //		return rDao.findByNameContainingIgnoreCase(keyword);
 //	}
+	public List<RegisterModel> findByName(@Param("name") String name){
+		return rDao.findByNameContainingIgnoreCase(name);
+	}
 	
 	
 	

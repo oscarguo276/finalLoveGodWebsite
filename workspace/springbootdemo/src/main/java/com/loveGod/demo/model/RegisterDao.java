@@ -2,13 +2,16 @@ package com.loveGod.demo.model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 //import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RegisterDao extends JpaRepository<RegisterModel, Integer> {
 
 	// ================================== 使用者登入判斷帳密是否正確 ========================
@@ -39,13 +42,18 @@ public interface RegisterDao extends JpaRepository<RegisterModel, Integer> {
 			int age, String text, String line, String ig, 
 			String MemberId, String Password);
 	
+	
+	
 	//=======關鍵字搜尋============
+	@Query(value = "SELECT r from RegisterModel r WHERE r.name LIKE %:keyword%",nativeQuery = true)
+	public List<RegisterModel> findByNameContainingIgnoreCase(@Param("keyword")String keyword);
 	
-//	@Query("SELECT r from RegisterModel r WHERE r.name LIKE %?keyword%")
-//	public List<RegisterModel> findByNameContainingIgnoreCase(@Param("keyword")String keyword);
-//	
-//	@Query("SELECT r from RegisterModel r WHERE r.memberId LIKE %?keyword%")
-//	public List<RegisterModel> findByIdContainingIgnoreCase(@Param("keyword")String keyword);
+	@Query(value = "SELECT r from RegisterModel r WHERE r.memberId LIKE %:keyword%",nativeQuery = true)
+	public List<RegisterModel> findByIdContainingIgnoreCase(@Param("keyword")String keyword);
 	
+	@Query(value = "SELECT * from RegisterModel r WHERE r.name =?1",nativeQuery = true)
+	public List<RegisterModel> findByName(@Param("name")String name);
+	
+
 	
 }

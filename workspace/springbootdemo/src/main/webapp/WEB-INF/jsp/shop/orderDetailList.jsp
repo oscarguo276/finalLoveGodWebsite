@@ -14,7 +14,7 @@
 .fillIn {
 	font-size: 18px;
 	width: 50%;
-	margin: 35px;
+	/* 	margin: 35px; */
 	text-align: center;
 	border-bottom: 2px solid #D0D0D0;
 }
@@ -25,52 +25,51 @@ table thead th {
 	margin: 10px;
 }
 
-.flex{
-	display:flex;
-	align-items:center;
-	justify-content:center; 
-	
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-
-
-
 </style>
 </head>
 <body>
-<jsp:include page="../layout/shopNavbar.jsp"></jsp:include>
-<header class="masthead">
-	<div class="backgroundImge">
+	<jsp:include page="../layout/orderNavbar.jsp"></jsp:include>
+	<header class="masthead">
+		<div>
 		<div class="container px-4 px-lg-5 h-100 flex">
-		
-		<table class="fillIn">
-			<thead>
-				<tr style="height: 70px;">
-					<th>訂購編號</th>
-					<th colspan="3">商品名稱</th>
-					<th>單價</th>
-					<th>商品數量</th>
-					<th>小計</th>
-				</tr>
-			</thead>
-			<c:forEach items="${orderDetail}" var="oD">
-			<tbody>
-				<tr style="height: 60px;">
-					<td>${oD.orderId}</td>
-				<td colspan="3" style="text-align: left;"> <img src="${pageContext.request.contextPath }/downImg/${oD.orderDetailId}" width="90px">&emsp;${oD.prod_name}</td>
-					<td>$<fmt:formatNumber value="${oD.subtotal}" pattern="#,###,###"/></td>
-					<td>${oD.quanity}</td>
-					<td>$<fmt:formatNumber value="${oD.total}" pattern="#,###,###"/></td>
-				</tr>
-			</tbody>
+			<table class="fillIn">
+				<thead>
+					<tr style="height: 70px;">
+						<th>訂購編號</th>
+						<th colspan="3">商品名稱</th>
+						<th>單價</th>
+						<th>商品數量</th>
+						<th>小計</th>
+					</tr>
+				</thead>
+				<c:forEach items="${orderDetail}" var="oD">
+					<tbody>
+						<tr style="height: 60px;">
+							<td>${oD.orderId}</td>
+							<td colspan="3" style="text-align: left;"><img
+								src="${pageContext.request.contextPath }/downImg/${oD.orderDetailId}"
+								width="90px">&emsp;${oD.prod_name}</td>
+							<td>$<fmt:formatNumber value="${oD.subtotal}"
+									pattern="#,###,###" /></td>
+							<td>${oD.quanity}</td>
+							<td>$<fmt:formatNumber value="${oD.total}"
+									pattern="#,###,###" /></td>
+						</tr>
+					</tbody>
 
-	</c:forEach>
+				</c:forEach>
 
-		</table>
-		<a href="${contextRoot}/Order/page?${page.number}">回前頁</a>
+			</table>
 
-	</div>
+			<a class="nav-link" href="${contextRoot}/Order/page?${page.number}">回前頁</a>
+
+		</div>
 </div>
-
 
 	</header>
 

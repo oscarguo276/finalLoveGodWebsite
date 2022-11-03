@@ -42,10 +42,13 @@ public class OrderService {
 		return oDao.findByUserId(UserId);
 	}
 	
+
 	public Page<Order> findByPage(Integer pageNumber){
+		//pageNumber-1 pageNumber設定為從第1頁開始 0=第一頁， 每五筆一頁， 依照 orderDate 做降幕排序  
 		Pageable pgb = PageRequest.of(pageNumber-1, 5, Sort.Direction.DESC, "orderDate");
 		Page<Order> page = oDao.findAll(pgb);
 		return page;
 	}
+	
 
 }

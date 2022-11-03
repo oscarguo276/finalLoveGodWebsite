@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.loveGod.demo.model.Order;
-import com.loveGod.demo.model.Products;
 import com.loveGod.demo.model.RegisterModel;
 import com.loveGod.demo.service.OrderService;
 import com.loveGod.demo.service.RegisterService;
@@ -51,10 +50,6 @@ public class OrderController {
 
 		return "shop/shopconfirm";
 	}
-	
-	//------------------填寫完訂購資料按下送出--存入orders_y table 
-	
-	
 	
 	//------------------填寫完訂購資料按下送出--存入orders_y table 
 	@ResponseBody	
@@ -97,8 +92,6 @@ public class OrderController {
 			obj.setNeedExtraPaidInfo("N");
 			String form = all.aioCheckOut(obj, null);
 			return form;
-			
-//			return "/shop/confirmSuccess" ;
 
 	}
 	//-------訂單查詢------------Ordertable:識別字串memberOrders  會員table:memberId(帳號)
@@ -108,7 +101,7 @@ public class OrderController {
 			
 		
 		@GetMapping("/Order/page")
-		protected String orderList(HttpServletRequest request,Model model, HttpSession session,@RequestParam(name="p",defaultValue="1") Integer pageNumber)  {
+		protected String orderList(HttpServletRequest request,Model model, HttpSession session)  {
 //			HttpSession session = request.getSession();
 			Object memberId = session.getAttribute("memberId");
 			Order order=(Order) session.getAttribute("orderObj");
@@ -120,16 +113,28 @@ public class OrderController {
 			model.addAttribute("memberId", memberId);
 			String userid_4order=(String)session.getAttribute("memberId");
 			if (memberId == null) {
-				return "login/login";
+				 String url ="http://localhost:8080/my-app/login";
+				 return "redirect:"+url ; 
 			}
 			
 			List<Order> memberOrders = oService.findUserId(userid_4order);
 			
 			model.addAttribute("memberOrders", memberOrders);
-			Page<Order> page = oService.findByPage(pageNumber);
-			model.addAttribute("page", page);
+			//--尚未做判斷memberId 的分頁 Order
+			//@RequestParam(name="p",defaultValue="1") Integer pageNumber
+			//Page<Order> page = oService.findByPage(pageNumber );
+			//model.addAttribute("page", page);
+			
 			return "shop/uploadPage";
-//			 return "redirect:/Order/page";
+		}
+//----從訂單資訊 登出
+		@GetMapping("/Order/logout")
+		public String logout(HttpServletRequest request) { // 進入方法(login)
+			HttpSession session = request.getSession();    // 使用 session
+			session.removeAttribute("memberId"); 		   // 刪掉
+			session.removeAttribute("password");
+			String url= "http://localhost:8080/my-app/index";
+			return "redirect:"+url;
 		}
 		
 		
@@ -139,33 +144,5 @@ public class OrderController {
 //			model.addAttribute("page", page);
 //			return "shop/uploadPage";
 //		}
-			
-//	@PostMapping("/shop/oconfirm")
-//	public @ResponseBody Map<String , String>postNewOrderDetail(
-//		   @RequestParam(value = "orderId", required = false)String oid,
-//		   @RequestParam(value = "conAddress", required = false)String address,
-//		   @RequestParam(value = "conName", required = false)String name,
-//		   @RequestParam(value = "conPhone", required = false)String phone,
-//		   @RequestParam(value = "orderSum", required = false)Integer sum,
-//		   @RequestParam(value = "buyerId", required = false)Integer buyerId) {
-//		
-//		Map<String,String> messageMap = new HashMap<>();
-//		
-//		if(address==null || address.trim().length()==0) {
-//			messageMap.put("addressError","請輸入地址");
-//		} 
-//		if(phone==null || phone.trim().length()==0) {
-//			messageMap.put("phoneError","請輸入手機號碼");
-//		}
-//		if (name == null || name.trim().length() == 0) {
-//			messageMap.put("nameError", "請輸入姓名");
-//		}
-//		if (!messageMap.isEmpty()) {
-//			return messageMap;
-//		}
-//		
-//		messageMap.put("success", "訂購成功");
-//		return messageMap ;
-//	}	
 
 	}

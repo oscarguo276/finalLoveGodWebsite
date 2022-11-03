@@ -7,7 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface OrderDao extends JpaRepository<Order, Integer> {
 	
-	@Query(value="from Order  where userId = :userId")
+	@Query(value="from Order  where userId = :userId order by order_Date desc")
 	public List <Order> findByUserId(String userId);
+//	
+
 
 }

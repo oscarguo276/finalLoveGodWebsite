@@ -18,9 +18,7 @@
 <header class="masthead">
 <%-- <jsp:include page="../layout/footer.jsp"></jsp:include> --%>
 
- 
 
-<div class="backgroundImge">
     <div class="container px-4 ">
       <div class="row">
 		<c:forEach items="${productsList}" var="oneProduct">
@@ -41,8 +39,7 @@
 					
 		
     </div>
-</div>
-          
+
 
 </header>
 

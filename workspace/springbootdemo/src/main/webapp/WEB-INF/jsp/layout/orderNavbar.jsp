@@ -120,12 +120,12 @@
 
 <!--------------------購物車 ------------>
 
-<div style="float: right; cursor: pointer;">
-<span class="glyphicon glyphicon-shopping-cart my-cart-icon">
-	<span class="badge badge-notify my-cart-badge"></span>
-		<i class="fa-sharp fa-solid fa-cart-shopping"style="font-size: 27px;"></i>
-	</span>
-</div>
+<!-- <div style="float: right; cursor: pointer;"> -->
+<!-- <span class="glyphicon glyphicon-shopping-cart my-cart-icon"> -->
+<!-- 	<span class="badge badge-notify my-cart-badge"></span> -->
+<!-- 		<i class="fa-sharp fa-solid fa-cart-shopping"style="font-size: 27px;"></i> -->
+<!-- 	</span> -->
+<!-- </div> -->
 
 
 <!-------------------------- -->

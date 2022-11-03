@@ -17,6 +17,9 @@ public class OrderDetailService {
 	@Autowired
 	private OrderDetailDao oDDao;
 	
+//	@Autowired
+//	private SumProdQuanity sPQDao;
+	
 	public OrderDetail insertOrderDetail(OrderDetail od) {
 		return oDDao.save(od);
 	}
@@ -45,4 +48,9 @@ public class OrderDetailService {
 		 return  oDDao.findByOrderId(orderId);
 		
 	}
+	
+//	public List<SumProdQuanity> findByName() {
+//		  List<SumProdQuanity> list = sPQDao.findByOrderDetailName();
+//		  return list;
+//	}
 }

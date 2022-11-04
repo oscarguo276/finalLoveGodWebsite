@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import com.loveGod.demo.model.RegisterDao;
@@ -40,6 +41,7 @@ public class MemberManagementService {
 	}
 	
 	public Page<RegisterModel> findByPage(Integer pageNumber){
+		
 		org.springframework.data.domain.Pageable pgb = PageRequest.of(pageNumber-1,10,Sort.Direction.DESC,"registerDate");
 		Page<RegisterModel> page = rDao.findAll(pgb);
 		return page;
@@ -49,9 +51,15 @@ public class MemberManagementService {
 		rDao.deleteById(id);
 	}
 	
-//	public List<RegisterModel> findByIdLike(Integer id){
-//		return rDao.findByIdLike(id);
+	
+//	public List<RegisterModel> findByName(@Param("keyword") String keyword){
+//		return rDao.findByNameContainingIgnoreCase(keyword);
 //	}
+	public List<RegisterModel> findByName(@Param("name") String name){
+		return rDao.findByNameContainingIgnoreCase(name);
+	}
+	
+	
 	
 	
 

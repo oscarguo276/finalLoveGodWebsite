@@ -48,12 +48,14 @@ public class pairDetailService {
 	
 	public void newPairDetail(pairDetail pd) {
 //		取得男、女清單
+		
 		List<RegisterModel> listBoy = RegisterDao.findCustomerBoy();
 		List<RegisterModel> listGirl = RegisterDao.findCustomerGirl();
 		//將list打亂
 		Collections.shuffle(listBoy);							
 		Collections.shuffle(listGirl);
-		
+		System.out.println("kkk"+listBoy.size());
+		System.out.println("kkk"+listGirl.size());
 		
 		if(listBoy.size()>= listGirl.size()) {
 			for(int i=0;i<listBoy.size();i++) {
@@ -73,7 +75,7 @@ public class pairDetailService {
 			for(int i=0;i<listGirl.size();i++) {
 				pd.setIdGirl(listGirl.get(i)); 
 				if(i < listBoy.size()) {
-					pd.setIdGirl(listBoy.get(i)); 
+					pd.setIdBoy(listBoy.get(i)); 
 				}else {
 					pd.setIdBoy(null); 
 				}
@@ -85,6 +87,8 @@ public class pairDetailService {
 		}
 		listBoy = new ArrayList<>();
 		listGirl = new ArrayList<>();
+		System.out.println("kkk"+listBoy.size());
+		System.out.println("kkk"+listGirl.size());
 	}
 
 }

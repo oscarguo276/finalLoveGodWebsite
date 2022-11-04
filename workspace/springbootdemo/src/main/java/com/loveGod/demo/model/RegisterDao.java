@@ -7,7 +7,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 //import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RegisterDao extends JpaRepository<RegisterModel, Integer> {
 
 	// ================================== 使用者登入判斷帳密是否正確 ========================
@@ -18,9 +21,9 @@ public interface RegisterDao extends JpaRepository<RegisterModel, Integer> {
 	List<RegisterModel> findMemberId(String memberId);
 	
 	
-	@Query(value="from RegisterModel r where r.sex = 1")
+	@Query(value="from RegisterModel r where r.sex = 1 and r.mach !=null" )
 	public List<RegisterModel> findCustomerBoy();
-	@Query(value="from RegisterModel r where r.sex = 0")
+	@Query(value="from RegisterModel r where r.sex = 0 and r.mach !=null")
 	public List<RegisterModel> findCustomerGirl();
 	
 	// =================================== 修改使用者 ==================================
@@ -37,5 +40,19 @@ public interface RegisterDao extends JpaRepository<RegisterModel, Integer> {
 			String phone, String mail, String address, String mach, 
 			int age, String text, String line, String ig, 
 			String MemberId, String Password);
+	
+	
+	
+	//=======關鍵字搜尋============
+	@Query(value = "SELECT * from MemberMainTable m WHERE m.name LIKE %:name%",nativeQuery = true)
+	public List<RegisterModel> findByNameContainingIgnoreCase(@Param("name")String name);
+	
+	@Query(value = "SELECT * from MemberMainTable m WHERE m.memberId LIKE %:keyword%",nativeQuery = true)
+	public List<RegisterModel> findByIdContainingIgnoreCase(@Param("keyword")String keyword);
+	
+	@Query(value = "SELECT * from MemberMainTable m WHERE m.name =?1",nativeQuery = true)
+	public List<RegisterModel> findByName(@Param("name")String name);
+	
+
 	
 }

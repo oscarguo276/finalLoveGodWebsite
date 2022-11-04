@@ -19,7 +19,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="pairDetail")
-public class pairDetail implements Serializable{
+public class pairDetail  implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 		@Id
@@ -30,6 +30,7 @@ public class pairDetail implements Serializable{
 		@JoinColumn(name = "Id" , foreignKey=@ForeignKey(name = "fkc_mmm_idb"))
 		@Column(name="idBoy", columnDefinition = "VARBINARY(MAX)")
 		private RegisterModel idBoy;
+		
 		
 		@JoinColumn(name = "Id" , foreignKey=@ForeignKey(name = "fkc_mmm_idg"))
 		@Column(name="idGirl", columnDefinition = "VARBINARY(MAX)")
@@ -43,21 +44,25 @@ public class pairDetail implements Serializable{
 		@Column(name="coupon")
 		private String coupon;
 		
+		
+		public String getCoupon() {
+			return coupon;
+		}
+
+
+		public void setCoupon(String coupon) {
+			this.coupon = coupon;
+		}
+
+
 		@PrePersist
 		public void onCreate() {
 			if(pairDate == null) {
 				pairDate = new Date();
 			}
 		}
+		
 	
-		public String getCoupon() {
-			return coupon;
-		}
-
-		public void setCoupon(String coupon) {
-			this.coupon = coupon;
-		}
-
 		public pairDetail() {
 		}
 

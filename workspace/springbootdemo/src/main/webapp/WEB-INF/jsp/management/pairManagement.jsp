@@ -48,7 +48,7 @@
                 <td>${pairDetail.pairDate}</td>
                 <td>${pairDetail.idBoy.name}</td>
                 <td>${pairDetail.idGirl.name}</td>
-                <td>${pairDetail.coupon!=null?"已領取":"未領取"}</td>
+                <td>${pairDetail.coupon==1?"已領取":"未領取"}</td>
                 <td>
                     <a href="${contextRoot}/pair/editPair?id=${pairDetail.pairId}"><img src="${contextRoot}/image/management/edit.png"></a>
                 </td>

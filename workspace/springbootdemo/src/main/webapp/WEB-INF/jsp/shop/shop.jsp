@@ -118,16 +118,6 @@
         }
       });
 
-//       $("#addNewProduct").click(function (event) {
-//         var currentElementNo = $(".row").children().length + 1;
-//         $(".row").append('<div class="col-md-3 text-center"><img src="../image/index/shop/img_empty.png" width="150px" height="150px"><br>product ' 
-//         				+ currentElementNo + ' - <strong>$'
-//         				+ currentElementNo + '</strong><br><button class="btn btn-danger my-cart-btn" data-id="' 
-//         				+ currentElementNo + '" data-name="product '
-//         				+ currentElementNo + '" data-summary="summary '
-//         				+ currentElementNo + '" data-price="'
-//         				+ currentElementNo + '" data-quantity="1" data-image="../image/index/shop/img_empty.png">Add to Cart</button><a href="#" class="btn btn-info">Details</a></div>')
-//       });
     });
   
   //---------------------------------------------------------//
@@ -371,27 +361,6 @@
         '</div>'
       );
 
-      
-//       if (!$("#" + idCartModal).length) {
-//           $('body').append(
-//             '<div class="modal fade" id="' + idCartModal + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
-//             '<div class="modal-dialog" role="document">' +
-//             '<div class="modal-content">' +
-//             '<div class="modal-header">' +
-//             '<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
-//             '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span> </h4>' +
-//             '</div>' +
-//             '<div class="modal-body">' +
-//             '<table class="table table-hover table-responsive" id="' + idCartTable + '"></table>' +
-//             '</div>' +
-//             '<div class="modal-footer">' +
-//             '<button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>' +
-//             '<button type="submit" class="btn btn-p ' + classCheckoutCart + '"><a href="${pageContext.request.contextPath}/shop/newOrder">Checkout</a></button>' +
-//             '</div>' +
-//             '</div>' +
-//             '</div>' +
-//             '</div>'
-//           );
     }
 
     var drawTable = function () {
@@ -428,14 +397,14 @@
       var discountPrice = options.getDiscountPrice(products, ProductManager.getTotalPrice(), ProductManager.getTotalQuantity());
       if (products.length && discountPrice !== null) {
         $cartTable.append(
-          '<tr style="color: red">' +
-          '<td></td>' +
-          '<td><strong>滿1,000 <br>免運費</strong></td>' +
-          '<td></td>' +
-          '<td></td>' +
-          '<td class="text-right"></td>' +
-          '<td></td>' +
-          '</tr>'
+//           '<tr style="color: red">' +
+//           '<td></td>' +
+//           '<td><strong><br>免運費</strong></td>' +
+//           '<td></td>' +
+//           '<td></td>' +
+//           '<td class="text-right"></td>' +
+//           '<td></td>' +
+//           '</tr>'
         );
       }
 
@@ -479,7 +448,7 @@
       var id = $(this).closest("tr").data("id");
       var quantity = $(this).val();
 
-      $(this).parent("td").next("." + classProductTotal).text(options.currencySymbol + MathHelper.getRoundedNumber(price * quantity));
+      $(this).parent("td").next("." + classProductTotal).text(options.currencySymbol + (price * quantity));
       ProductManager.updatePoduct(id, quantity);
 
       $cartBadge.text(ProductManager.getTotalQuantity());

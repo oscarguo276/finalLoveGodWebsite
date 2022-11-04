@@ -24,12 +24,10 @@ public interface DrawlotsDao extends JpaRepository<DrawlotsModel, Integer> {
 //			+ "FROM [SpringBootDB].[dbo].[drawlots]\r\n"
 //			+ "ORDER BY NEWID()", nativeQuery = true)
 //	List<DrawlotsModel> findByByNewId();
+	//改list
 	
 	@Query(value="SELECT TOP 1 drawId,drawMean,drawName FROM drawlots ORDER BY NEWID()", nativeQuery = true)
 	List<DrawlotsModel> findByByNewId();
-	
-	
-	//改list
 	
 
 	

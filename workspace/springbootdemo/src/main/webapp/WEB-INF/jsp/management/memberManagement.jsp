@@ -146,7 +146,7 @@
     })
 
     $("#searchName").keyup(function () {
-        let name = $('#searchName').val();
+        let name = $('#searchName').val().trim();
 
         if (name.length<1) {
             $("#tbody").empty();

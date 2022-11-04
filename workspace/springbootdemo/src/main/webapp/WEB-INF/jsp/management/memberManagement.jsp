@@ -14,7 +14,7 @@
         <!--查詢元件-->
        
         <div id="wrap"> 
-        <form action="${contextRoot}/member/findByName" method="GET"> 
+<!--         <form action="/my-app/member/findByName/{name}" method="GET">  -->
             <div class="box1">
                 <select class="form-select"  aria-label="multiple select example" style="width:auto;">
                 <option selected>帳號</option>
@@ -26,11 +26,11 @@
                 <div class="input-group">
 <!--                 javascript search -->
 <!--                  onkeyup="searchName()" -->
-                	<input type="search"  class="form-control input-md" id="searchname" >
+                	<input type="text"  class="form-control input-md" id="searchname" onkeyup="searchName()">
                 	<input type="submit" class="btn btn-primary" id="submitBtn" value="搜索" />
             	</div>
         	</div> 
-        </form>
+<!--         </form> -->
 		</div>
         <table class="table table-hover" id="listmember">
             <thead>
@@ -117,16 +117,16 @@
 <script>
 
 
-function findByName() {
+// function findByName() {
 	
-	var inputname = document.getElementById("searchname").value;
 	
-	$("#submitBtn").click(function(){
-	    $("#tbody").empty();
-	    fetch("/member/findByName").then(function(response) {
-	        return response.json();
-	    }).then(function(array) {
-	    	console.log(array);
+// 	$("#submitBtn").click(function(){
+// 		var name = $('#searchname').val();
+// 	    $("#tbody").empty();
+// 	    fetch("/member/findByName/{name}").then(function(response) {
+// 	        return response.json();
+// 	    }).then(function(array) {
+// 	    	console.log(kkk+array);
 // 	        $.each(array, function(index, value) {
 // 	            $("#tbody").append(`<tr>
 // 	                   <td scope="col"> ` + value.id+ `</td>
@@ -140,55 +140,69 @@ function findByName() {
 // 	                   <td scope="col">$` + value.mach + `</td>
 // 	               </tr>`);
 // 	        });
- 	    });
-   });
-}
+//  	    });
+//    });
 
-// $(doucument).ready(function(){
-// 	$('search').keyup(function(){
-// 		$('#result').html('');
-// 		var searchField = $('#search').val();
-// // 		var expression new RegExp(searchField,"i");
-// 		$.getJson('data.json',function(data)){
-// 			$each(data,function(key,value){
-// 				if(value.name.search(expression) !=-1 || value.location.search(expression)!=-1){
-// 					$('#result').append(`<tr>
-// 			                   <td scope="col"> ` + value.id+ `</td>
-// 			                   <td scope="col">$` + value.memberId + `</td>
-// 			                   <td scope="col">$` + value.name + `</td>
-// 			                   <td scope="col">$` + value.birthday + `</td>
-// 			                   <td scope="col">$` + value.address + `</td>
-// 			                   <td scope="col">$` + value.phone + `</td>
-// 			                   <td scope="col">$` + value.mail + `</td>
-// 			                   <td scope="col">$` + value.sex + `</td>
-// 			                   <td scope="col">$` + value.mach + `</td>
-// 			               </tr>`);
-// 				}
-// 			})
-// 		}
-// 	})
-// })
+//=====try1============
+// 	$("#submitBtn").click(function(){
+// 		var name = $('#searchname').val();
+// 		console.log(name);
+// 	    $("#tbody").empty();
+// 			$.ajax({
+// 			    headers: {
+// 			        Accept: "application/json; charset=utf-8",
+// 			        "Content-Type": "application/json; charset=utf-8"
+// 					    },
+// 					    type: "GET",
+// 					    dataType : "json",
+// 					    url : "http://localhost:8080//member/findByName/" + name,
+// 					    success: function(data) {
+// 					    	var parsed_data = JSON.parse(data);
+// 					    	console.log(kkk+parsed_data);
+// 					    	$.each(data, function(index, value) {
+// 				 	            $("#tbody").append(`<tr>
+// 				 	                   <td scope="col"> ` + value.id+ `</td>
+// 				 	                   <td scope="col">$` + value.memberId + `</td>
+// 				 	                   <td scope="col">$` + value.name + `</td>
+// 				 	                   <td scope="col">$` + value.birthday + `</td>
+// 				 	                   <td scope="col">$` + value.address + `</td>
+// 				 	                   <td scope="col">$` + value.phone + `</td>
+// 				 	                   <td scope="col">$` + value.mail + `</td>
+// 				 	                   <td scope="col">$` + value.sex + `</td>
+// 				 	                   <td scope="col">$` + value.mach + `</td>
+// 				 	               </tr>`);
+// 				 	        });
+// 				  	    }
+// 				});
+// 	});
+	
+	
+	
+	
+	
+	
+// };
 
 // =======javascript 搜尋==========
-// const searchName=()=>{
-// 	let filter = document.getElementById('searchword').value.toUpperCase();
+const searchName=()=>{
+	let filter = document.getElementById('searchname').value.toUpperCase();
 	
-// 	let listmember = document.getElementById('listmember');
-// 	let tr =listmember.getElementsByTagName('tr');
+	let listmember = document.getElementById('listmember');
+	let tr =listmember.getElementsByTagName('tr');
 	
-// 	for(var i=1; i<tr.length; i++){
-// 		let td = tr[i].getElementsByTagName('td')[2];
-// 		if(td){
-// 			let textvalue = td.textContent || td.innerHTML;
+	for(var i=1; i<tr.length; i++){
+		let td = tr[i].getElementsByTagName('td')[2];
+		if(td){
+			let textvalue = td.textContent || td.innerHTML;
 			
-// 			if(textvalue.toUpperCase().indexOf(filter)>-1){
-// 				tr[0].style.display="";
-// 			}else{
-// 				tr[i].style.display="none";
-// 			}
-// 		}
-// 	}
-// }
+			if(textvalue.toUpperCase().indexOf(filter)>-1){
+				tr[0].style.display="";
+			}else{
+				tr[i].style.display="none";
+			}
+		}
+	}
+}
 
 
 

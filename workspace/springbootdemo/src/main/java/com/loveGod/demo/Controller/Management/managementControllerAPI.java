@@ -1,5 +1,6 @@
 package com.loveGod.demo.Controller.Management;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,17 +46,18 @@ public class managementControllerAPI {
 //    }
     
     @GetMapping("/member/findByName/{name}")
-    public RegisterModel findMemberByName(@PathVariable("name") String name) {
-    	Optional<List<RegisterModel>> optional = Optional.of(registerDao.findByNameContainingIgnoreCase(name));
-    	if(optional.isPresent()) {
-    			RegisterModel rm= (RegisterModel) optional.get();
+    public ArrayList<RegisterModel> findMemberByName(@PathVariable("name") String name) {
+    	ArrayList<RegisterModel> rm = new ArrayList<>(memberManagementService.findByName(name));
+    	System.out.println("kkkkkkk"+rm);
+    	if(rm != null) {
     			return rm;
     	}
     	RegisterModel emptyrm = new RegisterModel();
     	emptyrm.setName("can not found");
-    	return emptyrm;
-    }
+    	return null;
+    	
+ 
     
-
+    }
     
 }

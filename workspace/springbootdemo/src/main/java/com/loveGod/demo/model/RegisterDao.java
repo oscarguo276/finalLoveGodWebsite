@@ -1,5 +1,6 @@
 package com.loveGod.demo.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -45,13 +46,13 @@ public interface RegisterDao extends JpaRepository<RegisterModel, Integer> {
 	
 	
 	//=======關鍵字搜尋============
-	@Query(value = "SELECT r from RegisterModel r WHERE r.name LIKE %:keyword%",nativeQuery = true)
-	public List<RegisterModel> findByNameContainingIgnoreCase(@Param("keyword")String keyword);
+	@Query(value = "SELECT * from MemberMainTable m WHERE m.name LIKE %:name%",nativeQuery = true)
+	public List<RegisterModel> findByNameContainingIgnoreCase(@Param("name")String name);
 	
-	@Query(value = "SELECT r from RegisterModel r WHERE r.memberId LIKE %:keyword%",nativeQuery = true)
+	@Query(value = "SELECT * from MemberMainTable m WHERE m.memberId LIKE %:keyword%",nativeQuery = true)
 	public List<RegisterModel> findByIdContainingIgnoreCase(@Param("keyword")String keyword);
 	
-	@Query(value = "SELECT * from RegisterModel r WHERE r.name =?1",nativeQuery = true)
+	@Query(value = "SELECT * from MemberMainTable m WHERE m.name =?1",nativeQuery = true)
 	public List<RegisterModel> findByName(@Param("name")String name);
 	
 

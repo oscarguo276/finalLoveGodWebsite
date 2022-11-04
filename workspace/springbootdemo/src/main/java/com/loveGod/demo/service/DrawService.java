@@ -4,17 +4,15 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.loveGod.demo.model.DonationModel;
 import com.loveGod.demo.model.DrawlotsDao;
 import com.loveGod.demo.model.DrawlotsModel;
-import com.loveGod.demo.model.RegisterDao;
-import com.loveGod.demo.model.RegisterModel;
 
 	@Transactional
 	@Service

@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
 
 public interface DrawlotsDao extends JpaRepository<DrawlotsModel, Integer> {
 
@@ -19,12 +18,17 @@ public interface DrawlotsDao extends JpaRepository<DrawlotsModel, Integer> {
 	@Query("select r from DrawlotsModel r where id = ?1 ")
 	Optional<DrawlotsModel> findById(Integer id);
 
-	@Query(value="SELECT TOP 1 [drawId]\r\n"
-			+ "      ,[drawMean]\r\n"
-			+ "      ,[drawName]\r\n"
-			+ "FROM [SpringBootDB].[dbo].[drawlots]\r\n"
-			+ "ORDER BY NEWID()", nativeQuery = true)
+//	@Query(value="SELECT TOP 1 [drawId]\r\n"
+//			+ "      ,[drawMean]\r\n"
+//			+ "      ,[drawName]\r\n"
+//			+ "FROM [SpringBootDB].[dbo].[drawlots]\r\n"
+//			+ "ORDER BY NEWID()", nativeQuery = true)
+//	List<DrawlotsModel> findByByNewId();
+	
+	@Query(value="SELECT TOP 1 drawId,drawMean,drawName FROM drawlots ORDER BY NEWID()", nativeQuery = true)
 	List<DrawlotsModel> findByByNewId();
+	
+	
 	//改list
 	
 

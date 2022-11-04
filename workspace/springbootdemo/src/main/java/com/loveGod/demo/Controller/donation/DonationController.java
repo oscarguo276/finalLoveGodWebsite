@@ -70,6 +70,8 @@ public class DonationController {
 		@RequestParam(value="address",required=false) String address,
 		HttpSession session) {
 		
+		
+		
 		DonationModel addD=new DonationModel();
 		addD.setMoney(money);
 		addD.setAddress(address);

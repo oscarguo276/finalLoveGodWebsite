@@ -105,11 +105,14 @@ public class OrderController {
 //			HttpSession session = request.getSession();
 			Object memberId = session.getAttribute("memberId");
 			Order order=(Order) session.getAttribute("orderObj");
-//			System.out.println( "kkkkkk"+order.getConName());
-//			order.setPaystatus("已付款");
-//			System.out.println(order.getPaystatus());
 			
+			order.setPaystatus(1);
+			Integer payStatusCode=order.getPaystatus();
+			Order pay= oService.insertOrder(order);
 			
+//			System.out.println( payStatusCode);
+//			System.out.println(pay);
+
 			model.addAttribute("memberId", memberId);
 			String userid_4order=(String)session.getAttribute("memberId");
 			if (memberId == null) {

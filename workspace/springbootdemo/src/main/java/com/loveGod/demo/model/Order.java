@@ -61,19 +61,19 @@ public class Order {
 	
 	//訂單付款狀態
 	@Column(name="paystatus")
-	private String paystatus;
+	private Integer paystatus;
 	//訂單出貨狀態
 	@Column(name="shipstatus")
 	private String shipstatus;
 	
 
 
-	public String getPaystatus() {
+	public Integer getPaystatus() {
 		return paystatus;
 	}
 
-	public String setPaystatus(String paystatus) {
-		return this.paystatus = paystatus;
+	public Integer setPaystatus(Integer paystatus) {
+		return this.paystatus=paystatus  ;
 	}
 
 	public String getShipstatus() {
@@ -154,7 +154,7 @@ public class Order {
 //		this.buyerId = buyerId;
 //	}
 
-	public Order(Integer orderId, Integer orderSum, Date orderDate, String conName, String conPhone, String address, String paystatus, String shipstatus) {
+	public Order(Integer orderId, Integer orderSum, Date orderDate, String conName, String conPhone, String address, Integer paystatus, String shipstatus) {
 		this.orderId=orderId;
 		this.orderSum=orderSum;
 		this.orderDate=orderDate;

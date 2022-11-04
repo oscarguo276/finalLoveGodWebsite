@@ -28,6 +28,16 @@ public class OrderDetail {
 	
 	
 	private byte[] prod_photo;			
+	
+	private Integer paystatus;
+
+	public Integer getPaystatus() {
+		return paystatus;
+	}
+	public void setPaystatus(Integer paystatus) {
+		this.paystatus = paystatus;
+	}
+
 
 	/**
 	 * 商品數量

@@ -42,6 +42,7 @@
                 <th scope="col">出貨狀態</th>
                 <th scope="col">修改</th>
                 <th scope="col">刪除</th>
+                <th scope="col">付款狀態</th>
               </tr>
             </thead>
             <tbody>
@@ -54,7 +55,7 @@
                 <td>${orders.address}</td>
                 <td>${orders.orderDate}</td>
                 <td>${orders.orderSum}</td>
-<%--                 <td>${Orders.paystatus==null?"未付款":"已付款"}</td> --%>
+                <td>${orders.paystatus==1?"已付款":"未付款"}</td>
                 <td>${orders.shipstatus==1?"已出貨":"未出貨"}</td>
                 <td>
                     <a href="${contextRoot}/order/editOrder?id=${orders.orderId}"><img src="${contextRoot}/image/management/edit.png"></a>
@@ -62,6 +63,7 @@
                 <td>
                     <a onclick="return confirm('確定刪除訂單?')" href="${contextRoot}/order/deleteOrder?id=${orders.orderId}"><img src="${contextRoot}/image/management/delete.png"></a>
                 </td>
+                
               </tr>
              </c:forEach>
             </tbody>

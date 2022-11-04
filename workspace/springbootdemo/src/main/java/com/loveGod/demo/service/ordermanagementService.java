@@ -39,7 +39,7 @@ public class ordermanagementService {
 	}
 	
 	public Page<Order>findByPage(Integer pageNumber){
-		org.springframework.data.domain.Pageable pgb = PageRequest.of(pageNumber-1, 7,Sort.Direction.ASC,"orderId");
+		org.springframework.data.domain.Pageable pgb = PageRequest.of(pageNumber-1, 7,Sort.Direction.DESC,"orderDate");
 		Page<Order> page = odao.findAll(pgb);
 		return page;
 	}

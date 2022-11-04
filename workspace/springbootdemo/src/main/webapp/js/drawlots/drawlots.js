@@ -4,6 +4,7 @@ var classVal = document.getElementById("controlBigCard").getAttribute("class");
 var classVal2 = document.getElementById("centerimg").getAttribute("class");
 
 let nextimage = document.getElementById("nextimage");
+var classVal3 = document.getElementById("showPoem").getAttribute("class");
 let count = 0;
 
 nextimage.addEventListener("click", click)
@@ -26,8 +27,8 @@ function click() {
     }
     else if (count == 2) {
 
-        document.getElementById("s").innerHTML = "請擲杯詢問 <br><br><br> 默念 : 信士OOO，OOO年O月O生，<br>家住OOOOO(現居地址)，因有OOOOO問題，<br>恭請賜籤指點。"
-        document.getElementById("idimg").src = ""
+        document.getElementById("s").innerHTML = "請擲杯詢問"
+        document.getElementById("idimg").src = "/my-app/image/draw/hand.png"
         document.getElementById("nextText").innerHTML = "開始擲杯";
         let num = Math.floor(Math.random() * 2);
         console.log(num);
@@ -58,13 +59,10 @@ function click() {
         document.getElementById("nextText").innerHTML = "觀看籤文";
         count++
     }
-   else if (count == 5) {
+    else if (count == 5) {
 
-        //classVal = classVal.replace("nobigCard", "bigCard");
-         //document.getElementById("controlBigCard").setAttribute("class", classVal);
-
-        // classVal2 = classVal2.replace("", "nobigCard");
-         //document.getElementById("centerimg").setAttribute("class", classVal2);
+        classVal3 = classVal.replace("nobigCard", "bigCard");
+        document.getElementById("showPoem").setAttribute("class", classVal3);
 
         document.getElementById("s").innerHTML = "點擊觀看簽文"
         document.getElementById("idimg").src = ""
@@ -77,5 +75,25 @@ function click() {
         window.location.reload();
     }
 
+}
+
+
+// button
+var animateButton = function (e) {
+
+    e.preventDefault;
+    //reset animation
+    e.target.classList.remove('animate');
+
+    e.target.classList.add('animate');
+    setTimeout(function () {
+        e.target.classList.remove('animate');
+    }, 700);
+};
+
+var bubblyButtons = document.getElementsByClassName("bubbly-button");
+
+for (var i = 0; i < bubblyButtons.length; i++) {
+    bubblyButtons[i].addEventListener('click', animateButton, false);
 }
 

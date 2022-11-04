@@ -20,19 +20,20 @@ import com.loveGod.demo.model.RegisterModel;
 public class MemberManagementService {
 	
 	@Autowired
-	private RegisterDao rDao;
-	
+	private RegisterDao registerDao;
+
+
 	public List<RegisterModel> findAllMember() {
-		return rDao.findAll();
+		return registerDao.findAll();
 	}
 	
 	public RegisterModel insert(RegisterModel reg) {
-		return rDao.save(reg);
+		return registerDao.save(reg);
 		
 	}
 	
 	public RegisterModel findById(Integer id) {
-		Optional<RegisterModel> optional = rDao.findById(id);
+		Optional<RegisterModel> optional = registerDao.findById(id);
 		if(optional.isPresent()) {
 			return optional.get();
 		}
@@ -43,12 +44,12 @@ public class MemberManagementService {
 	public Page<RegisterModel> findByPage(Integer pageNumber){
 		
 		org.springframework.data.domain.Pageable pgb = PageRequest.of(pageNumber-1,10,Sort.Direction.DESC,"registerDate");
-		Page<RegisterModel> page = rDao.findAll(pgb);
+		Page<RegisterModel> page = registerDao.findAll(pgb);
 		return page;
 	}
 	
 	public void deleteById(Integer id) {
-		rDao.deleteById(id);
+		registerDao.deleteById(id);
 	}
 	
 	
@@ -56,11 +57,7 @@ public class MemberManagementService {
 //		return rDao.findByNameContainingIgnoreCase(keyword);
 //	}
 	public List<RegisterModel> findByName(@Param("name") String name){
-		return rDao.findByNameContainingIgnoreCase(name);
+		return registerDao.findByNameContainingIgnoreCase(name);
 	}
-	
-	
-	
-	
 
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +20,7 @@ import com.loveGod.demo.service.MemberManagementService;
 @RestController
 public class managementControllerAPI {
 
-	
+
 //	@ResponseBody
 //	@GetMapping("member/getbyname")
 //	public List<RegisterModel> search(@Param("keyword") String keyword,Model model) {
@@ -26,17 +28,15 @@ public class managementControllerAPI {
 //		model.addAttribute("keyword", keyword);
 //		return listName;
 //	}
-	
-	@Autowired
+
+    @Autowired
     MemberManagementService memberManagementService;
-	
-	@Autowired
-	RegisterDao registerDao;
+
 
     public managementControllerAPI(MemberManagementService memberManagementService) {
-		super();
-		this.memberManagementService = memberManagementService;
-	}
+        super();
+        this.memberManagementService = memberManagementService;
+    }
 
 //    @GetMapping("/member/findByName/{keyword}")
 //    public List<RegisterModel> findMemberByName(@RequestParam("keyword") String keyword,Model model) {
@@ -44,20 +44,24 @@ public class managementControllerAPI {
 //    	model.addAttribute("keyword", listrm);
 //        return listrm;
 //    }
-    
+
     @GetMapping("/member/findByName/{name}")
     public ArrayList<RegisterModel> findMemberByName(@PathVariable("name") String name) {
-    	ArrayList<RegisterModel> rm = new ArrayList<>(memberManagementService.findByName(name));
-    	System.out.println("kkkkkkk"+rm);
-    	if(rm != null) {
-    			return rm;
-    	}
-    	RegisterModel emptyrm = new RegisterModel();
-    	emptyrm.setName("can not found");
-    	return null;
-    	
- 
-    
+        ArrayList<RegisterModel> rm = new ArrayList<>(memberManagementService.findByName(name));
+        System.out.println("kkkkkkk" + rm);
+        if (rm != null) {
+            return rm;
+        }
+        RegisterModel emptyrm = new RegisterModel();
+        emptyrm.setName("can not found");
+        return null;
     }
-    
+
+    @GetMapping("member/all")
+    public ResponseEntity<List<RegisterModel>> findAllMember() {
+        List<RegisterModel> allMember = memberManagementService.findAllMember();
+        return ResponseEntity.status(HttpStatus.OK).body(allMember);
+    }
+
+
 }

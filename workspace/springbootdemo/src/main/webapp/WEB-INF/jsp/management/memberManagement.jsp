@@ -51,31 +51,6 @@
 
 
         <tbody id="tbody">
-        <%--        <c:forEach var="RegisterModel" items="${page.content}">--%>
-        <%--            <tr>--%>
-        <%--                <td scope="row">${RegisterModel.id}</td>--%>
-        <%--                <td>${RegisterModel.memberId}</td>--%>
-        <%--                <td>${RegisterModel.name}</td>--%>
-        <%--                <td>${RegisterModel.birthday}</td>--%>
-        <%--                <td>${RegisterModel.address}</td>--%>
-        <%--                <td>${RegisterModel.phone}</td>--%>
-        <%--                <td>${RegisterModel.mail}</td>--%>
-        <%--                <td>${RegisterModel.sex=="1"?"男":"女"}</td>--%>
-        <%--                <td>--%>
-        <%--                    <c:if test="${RegisterModel.mach!=null}">--%>
-        <%--                        <img src='${contextRoot}/image/management/check_mark.png'>--%>
-        <%--                    </c:if>--%>
-        <%--                </td>--%>
-        <%--                <!--                 <td> -->--%>
-        <%--                    &lt;%&ndash;                     <a href="${contextRoot}/member/editMember?id=${RegisterModel.id}"><img src="${contextRoot}/image/management/edit.png"></a> &ndash;%&gt;--%>
-        <%--                <!--                 </td> -->--%>
-        <%--                <td>--%>
-        <%--                    <a onclick="return confirm('確定刪除會員?')"--%>
-        <%--                       href="${contextRoot}/member/deleteMember?id=${RegisterModel.id}"><img--%>
-        <%--                            src="${contextRoot}/image/management/delete.png"></a>--%>
-        <%--                </td>--%>
-        <%--            </tr>--%>
-        <%--        </c:forEach>--%>
         </tbody>
     </table>
 
@@ -117,8 +92,6 @@
             </li>
         </ul>
     </nav>
-
-
 </header>
 
 <script>
@@ -148,7 +121,7 @@
     $("#searchName").keyup(function () {
         let name = $('#searchName').val().trim();
 
-        if (name.length<1) {
+        if (name.length < 1) {
             $("#tbody").empty();
             fetch("http://localhost:8081/my-app/member/all").then(function (response) {
                 return response.json();
@@ -193,13 +166,6 @@
             })
         }
     })
-    // $("#submitBtn").click(function(){
-    // 	var name = $('#searchname').val();
-    //     $("#tbody").empty();
-    //     fetch("/member/findByName/{name}").then(function(response) {
-    //         return response.json();
-    //     }).then(function(array) {
-    //         $.each(array, function(index, value) {
     $("#tbody").append(`<tr>
 	                   <td scope="col"> ` + value.id + `</td>
 	                   <td scope="col">$` + value.memberId + `</td>
@@ -211,70 +177,7 @@
 	                   <td scope="col">$` + value.sex + `</td>
 	                   <td scope="col">$` + value.mach + `</td>
 	               </tr>`);
-    //         });
-    //     });
-    // });
-
-    //=====try1============
-    // 	$("#submitBtn").click(function(){
-    // 		var name = $('#searchname').val();
-    // 		console.log(name);
-    // 	    $("#tbody").empty();
-    // 			$.ajax({
-    // 			    headers: {
-    // 			        Accept: "application/json; charset=utf-8",
-    // 			        "Content-Type": "application/json; charset=utf-8"
-    // 					    },
-    // 					    type: "GET",
-    // 					    dataType : "json",
-    // 					    url : "http://localhost:8080//member/findByName/" + name,
-    // 					    success: function(data) {
-    // 					    	var parsed_data = JSON.parse(data);
-    // 					    	console.log(kkk+parsed_data);
-    // 					    	$.each(data, function(index, value) {
-    // 				 	            $("#tbody").append(`<tr>
-    // 				 	                   <td scope="col"> ` + value.id+ `</td>
-    // 				 	                   <td scope="col">$` + value.memberId + `</td>
-    // 				 	                   <td scope="col">$` + value.name + `</td>
-    // 				 	                   <td scope="col">$` + value.birthday + `</td>
-    // 				 	                   <td scope="col">$` + value.address + `</td>
-    // 				 	                   <td scope="col">$` + value.phone + `</td>
-    // 				 	                   <td scope="col">$` + value.mail + `</td>
-    // 				 	                   <td scope="col">$` + value.sex + `</td>
-    // 				 	                   <td scope="col">$` + value.mach + `</td>
-    // 				 	               </tr>`);
-    // 				 	        });
-    // 				  	    }
-    // 				});
-    // 	});
-
-
-    // };
-
-    // =======javascript 搜尋==========
-    // const searchName=()=>{
-    // 	let filter = document.getElementById('searchname').value.toUpperCase();
-    //
-    // 	let listmember = document.getElementById('listmember');
-    // 	let tr =listmember.getElementsByTagName('tr');
-    //
-    // 	for(var i=1; i<tr.length; i++){
-    // 		let td = tr[i].getElementsByTagName('td')[2];
-    // 		if(td){
-    // 			let textvalue = td.textContent || td.innerHTML;
-    //
-    // 			if(textvalue.toUpperCase().indexOf(filter)>-1){
-    // 				tr[0].style.display="";
-    // 			}else{
-    // 				tr[i].style.display="none";
-    // 			}
-    // 		}
-    // 	}
-    // }
-
-
 </script>
-
 
 </body>
 </html>

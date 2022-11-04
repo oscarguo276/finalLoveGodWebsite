@@ -9,39 +9,77 @@
 
 <style>
 .pieM{
-margin-top: 20vh;
+margin-top: 10vh;
 display:flex;
 align-items:center;
 justify-content:center; 
 }
-.fillIn {
-	font-size: 20px;
-	width: 40%;
-	margin: 35px;
-	text-align: center;
-	border-bottom: 2px solid #D0D0D0;
-	
+.pieM2{
+margin-top: 5vh;
+display:flex;
+align-items:center;
+justify-content:center; 
 }
+
 </style>
 
 </head>
  <body>
-<jsp:include page="../layout/shopNavbar.jsp"></jsp:include>
+<jsp:include page="../layout/orderNavbar.jsp"></jsp:include>
+<!-- 柱狀圖 -->
 <div class="pieM">
 <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
 </div>
 
+<!-- 圓餅圖 -->
+<div class="pieM2">
+<canvas id="myChartUser" style="width:100%;max-width:450px"></canvas>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script>
+var line_orderUser = [];
+var orderSum = [];
+<c:forEach items="${order}" var="orderOne" >	
+line_orderUser.push("${orderOne.userId}");
+orderSum.push("${orderOne.orderSum}");
+</c:forEach>
 
 
+//-----userId
+var orderUser_uniqulo2 = [];
+var orderUser_uniqulo = [];
+line_orderUser.reduce(function(res, value) {
+  if (!res[value]) {
+    res[value] = {value};
+    orderUser_uniqulo2.push(res[value])
+  }
+  return res;
+}, {});
+
+for (i = 0 ; i < orderUser_uniqulo2.length ; i++){
+	orderUser_uniqulo.push(orderUser_uniqulo2[i].value);
+}
+console.log(orderUser_uniqulo);
+//------------------------------------
+var line_orderSum = new Array(orderUser_uniqulo.length);
+for (u = 0 ; u < orderUser_uniqulo.length ; u++){
+	line_orderSum[u] = 0;
+}
+
+for ( i = 0 ; i < orderSum.length ; i++ ){
+	for (u = 0 ; u < orderUser_uniqulo.length ; u++){
+		if (orderUser_uniqulo[u] == line_orderUser[i]){
+			line_orderSum[u] = line_orderSum[u] + parseInt(orderSum[i]);
+		}
+	}
+} 
+console.log(line_orderSum);
+
+//-----------------------------
 var line_name = [];
 var line_q = [];
-
-var test = "";
-
 <c:forEach items="${orderDetail}" var="oD" >	
-	test = test + "${oD.prod_name}";
 	line_name.push("${oD.prod_name}");
 	line_q.push("${oD.quanity}");
 	</c:forEach>
@@ -76,7 +114,6 @@ for ( i = 0 ; i < line_q.length ; i++ ){
 		}
 	}
 } 
-
 //------------------------------//
 var barColors = [
   "#b91d47",
@@ -114,6 +151,23 @@ new Chart("myChart", {
   }
 });
 
+new Chart("myChartUser", {
+	  type: 'pie',
+	  data: {
+	    labels: orderUser_uniqulo,
+	    datasets: [{
+	    backgroundColor: barColors,
+	    data: line_orderSum
+	    }],
+	  },
+	  options: {
+	    
+	    title: {
+	      display: true,
+	      text: "2022年-使用者消費總金額"
+	    }
+	  }
+	});
 
 </script>
   

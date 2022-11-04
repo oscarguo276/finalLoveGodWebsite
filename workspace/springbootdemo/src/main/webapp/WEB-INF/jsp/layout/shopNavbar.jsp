@@ -56,7 +56,7 @@
 		<div class="container px-4 px-lg-8">
 			<!-- <div class="row row-cols-auto"> -->
 
-			<div class="logoImage" style="margin-left: -15vh;">
+			<div class="logoImage" style="margin-left: -25vh;">
 				<a class="navbar-brand" href=" ${contextRoot}/" > <img
 					class="barimg" src=" ${contextRoot}/image/index/logo.png" >
 				</a>

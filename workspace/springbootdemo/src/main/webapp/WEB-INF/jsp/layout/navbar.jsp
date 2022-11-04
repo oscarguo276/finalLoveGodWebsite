@@ -25,28 +25,24 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="${contextRoot}/css/index/styles.css" rel="stylesheet" />
-
-
 <!-- Custom -->
 <link href="${contextRoot}/css/index/customIndex.css" rel="stylesheet" />
-
-
 <!-- Bootstrap Core Css-->
 <link href="${contextRoot}/vender/bootstrap/4.6.2/bootstrap_Modal.css"
 	rel="stylesheet" />
-	         <link href="${contextRoot}/css/index/drawLots.css" rel="stylesheet" />
+
 </head>
 
 <body id="page-top">
 
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-0"
 		id="mainNav">
-		<div class="container px-5 px-lg-5">
+		<div class="container px-4 px-lg-8">
 			<!-- <div class="row row-cols-auto"> -->
 
-			<div class="logoImage"  style="margin-left: -20vh;">
-				<a class="navbar-brand" href=" ${contextRoot}/" > 
-				<img class="barimg" src=" ${contextRoot}/image/index/logo.png" >
+			<div class="logoImage">
+				<a class="navbar-brand" href=" ${contextRoot}/" > <img
+					class="barimg" src=" ${contextRoot}/image/index/logo.png" >
 				</a>
 			</div>
 			<div class="logoImage">
@@ -72,8 +68,8 @@
 						href="${contextRoot}/shop">線上商城</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="${contextRoot}/about">關於月老</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="${contextRoot}/management/allManagement">後台管理</a></li>
+<!-- 					<li class="nav-item"><a class="nav-link" -->
+<%-- 						href="${contextRoot}/management/allManagement">後台管理</a></li> --%>
 					<!--      -------------------------------------------------------------------------- -->
 <!-- 					<li class="nav-item"><a class="nav-link" -->
 <%-- 						href="${contextRoot}/newProducts">訂單資訊</a></li> --%>

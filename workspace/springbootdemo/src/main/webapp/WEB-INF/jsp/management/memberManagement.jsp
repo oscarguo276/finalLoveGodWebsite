@@ -14,7 +14,7 @@
         <!--查詢元件-->
        
         <div id="wrap"> 
-        <form action="/my-app/member/findByName/" method="GET"> 
+        <form action="" method="GET"> 
             <div class="box1">
                 <select class="form-select"  aria-label="multiple select example" style="width:auto;">
                 <option selected>帳號</option>

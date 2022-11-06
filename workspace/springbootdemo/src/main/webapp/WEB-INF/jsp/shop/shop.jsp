@@ -344,7 +344,7 @@
       $('body').append(
         '<div class="modal fade" id="' + idCartModal + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
         '<div class="modal-dialog" role="document">' +
-        '<div class="modal-content">' +
+        '<div class="modal-content" style="padding-right: 0%;">' +
         '<div class="modal-header">' +
         '<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
         '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span> </h4>' +

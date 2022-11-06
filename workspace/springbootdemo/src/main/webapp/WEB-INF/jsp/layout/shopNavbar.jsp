@@ -56,7 +56,7 @@
 		<div class="container px-4 px-lg-8">
 			<!-- <div class="row row-cols-auto"> -->
 
-			<div class="logoImage" style="margin-left: -25vh;">
+			<div class="logoImage" style="margin-left: -35vh;">
 				<a class="navbar-brand" href=" ${contextRoot}/" > <img
 					class="barimg" src=" ${contextRoot}/image/index/logo.png" >
 				</a>
@@ -88,34 +88,25 @@
 					<li class="nav-item"><a class="nav-link"
 						href="${contextRoot}/Order/page">訂單資訊</a></li>
 					<!--       -------------------------------------------------------------------------- -->
-					<li class="nav-item"><c:choose>
+					<c:choose>
 							<c:when test="${empty memberId}">
-								<li class="nav-item"><a class="nav-link"
-									href="${contextRoot}/login"> 訪客 </a></li>
+								<li class="nav-item">
+								<a class="nav-link" href="${contextRoot}/login"> 訪客 </a></li>
 							</c:when>
 							<c:when test="${memberId.equals('A123123')}">
-								<li class="nav-item"><a class="nav-link"
-									href="${contextRoot}/management/allManagement">
-										使用者：${name} </a></li>
-								<li class="nav-item"><a class="nav-link" href="#"
-									data-toggle="modal" data-target="#logoutModal">登 出<i
-										></i>
-<!-- 										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400 -->
-										
-								</a></li>
+								<li class="nav-item">
+								<a class="nav-link" href="${contextRoot}/management/allManagement"> 使用者：${name} </a></li>
+								
+								<li class="nav-item">
+								<a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">登 出</a></li>
 							</c:when>
 							<c:otherwise>
-								<li class="nav-item" style="font-size: 13px"><a class="nav-link"
-									href="${contextRoot}/user"> 使用者:${name}</a></li>
-								<li class="nav-item"><a class="nav-link" href="#"
-									data-toggle="modal" data-target="#logoutModal"> <i
-										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-										
-								</a></li>
+								<li class="nav-item" >
+								<a class="nav-link" href="${contextRoot}/user"> 使用者:${name}</a></li>
+								<li class="nav-item">
+								<a class="nav-link" data-toggle="modal" data-target="#logoutModal"></a></li>
 							</c:otherwise>
 						</c:choose>
-						
-				
 				</ul>
 
 <!--------------------購物車 ------------>

@@ -39,8 +39,8 @@
                     <th scope="col">信箱</th>
                     <th scope="col">地址</th>
                     <th scope="col">金額</th>
+                    <th scope="col">捐款狀態</th>
                     <th scope="col">收據</th>
-                    <th scope="col">捐款方式</th>
                     <th scope="col">刪除</th>
 
                 </tr>
@@ -56,13 +56,9 @@
                 <td>${DonationModel.mail}</td>
                 <td>${DonationModel.address}</td>
                 <td>${DonationModel.money}</td>
+                <td>${DonationModel.donationStatus==1?"已完成":"未完成"}</td>
                 <td>${DonationModel.receipt}</td>
-<%--                 <td><c:if test="${DonationModel.receipt!='N'}"></c:if>
-                <img src='${contextRoot}/image/management/check_mark.png'> 
-                </td> --%>
-                <td>信用卡</td>
-                
-             
+
 <!--                 <td> -->
 <%--                     <a href="${contextRoot}/member/editMember?id=${RegisterModel.id}"><img src="${contextRoot}/image/management/edit.png"></a> --%>
 <!--                 </td> -->

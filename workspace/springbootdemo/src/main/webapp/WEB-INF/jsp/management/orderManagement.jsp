@@ -38,11 +38,11 @@
                 <th scope="col">配送地址</th>
                 <th scope="col">訂單時間</th>
                 <th scope="col">訂單總金額</th>
-<!--                 <th scope="col">付款狀態</th> -->
+                 <th scope="col">付款狀態</th>
                 <th scope="col">出貨狀態</th>
                 <th scope="col">修改</th>
                 <th scope="col">刪除</th>
-                <th scope="col">付款狀態</th>
+               
               </tr>
             </thead>
             <tbody>

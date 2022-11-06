@@ -4,16 +4,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -81,7 +78,6 @@ public class DonationController {
 		addD.setReceipt(receipt);
 		
 		DonationModel returndonation = dService.insert(addD);
-
 		session.setAttribute("moneyObj", returndonation);
 		
 		
@@ -107,8 +103,10 @@ public class DonationController {
 	@GetMapping("/getdonation")
 	public String getdonation(Model model,HttpSession session) {
 
-		DonationModel dm = (DonationModel) session.getAttribute("moneyObj");
-		
+		DonationModel donation = (DonationModel) session.getAttribute("moneyObj");
+		donation.setDonationStatus(1);
+		Integer donationStatusCode=donation.getDonationStatus();
+		DonationModel donationmodel = dService.insertDonation(donation);
 //		System.out.println(dm.getMoney());
 		return "donation/donation";
 	}

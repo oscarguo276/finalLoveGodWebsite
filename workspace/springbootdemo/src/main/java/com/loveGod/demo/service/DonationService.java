@@ -39,6 +39,11 @@ public class DonationService {
 	public List<DonationModel> findAllDonation(){
 		 return dDao.findAll();
 	}
+	
+	public DonationModel insertDonation(DonationModel donationmodel) {
+		return dDao.save(donationmodel);
+	}
+	
 }
 
 

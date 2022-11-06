@@ -32,6 +32,7 @@ public class DonationModel {
 	@Column(name = "time",columnDefinition = "datetime")
 	private Date time;
 	
+	private Integer donationStatus;
 	@PrePersist
 	public void onCreate() {
 		if (time == null) {
@@ -117,6 +118,15 @@ public class DonationModel {
 	public void setTime(Date time) {
 		this.time = time;
 	}
+
+	public Integer getDonationStatus() {
+		return donationStatus;
+	}
+
+	public void setDonationStatus(Integer donationStatus) {
+		this.donationStatus = donationStatus;
+	}
+	
 	
 }
 

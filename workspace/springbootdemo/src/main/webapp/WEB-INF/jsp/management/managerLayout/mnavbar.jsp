@@ -59,7 +59,7 @@
 
 
    
- <jsp:include page="../managerLayout/mfooter.jsp"></jsp:include>
+<%--  <jsp:include page="../managerLayout/mfooter.jsp"></jsp:include> --%>
 <!-- Bootstrap core JS-->
   <script src="${contextRoot}/vender/bootstrap/5.1.3/bootstrap.bundle.min.js"></script>
   <!-- SimpleLightbox plugin JS-->

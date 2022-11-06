@@ -13,28 +13,34 @@
  <header class="masthead">
         <!--查詢元件-->
        
-        <div id="wrap"> 
-        <form action="" method="GET"> 
-            <div class="box1">
-                <select class="form-select"  aria-label="multiple select example" style="width:auto;">
-                <option selected>帳號</option>
-                <option value="1">姓名</option>
-                <option value="2">電話</option>
-                </select>              
-            </div>      
-           	<div class="box2" >
-                <div class="input-group">
-                
-<!--                 javascript search -->
-<!-- 					<input type="text"  class="form-control input-md" id="searchname" onkeyup="searchName()"> -->
-
-                	<input type="text"  class="form-control input-md" id="searchname">
-                	<input type="submit" class="btn btn-primary" id="submitBtn" value="搜索" />
-            	</div>
-        	</div> 
-        </form>
-		</div>
-        <table class="table table-hover" id="listmember">
+<!--         <div id="wrap">  -->
+<!--             <div class="box1"> -->
+<!--                 <select class="form-select"  aria-label="multiple select example" id="sel" style="width:auto;"> -->
+<!--                 <option value="memberId">帳號</option> -->
+<!--                 <option value="name">姓名</option> -->
+<!--                 </select>               -->
+<!--             </div>       -->
+<!--            	<div class="box2" > -->
+<!--                 <div class="input-group"> -->
+<!--                  javascript search -->
+<!--                   onkeyup="searchName()" --> 
+<!--                 	<input type="text"  class="form-control input-md" id="searchName"> -->
+                	
+<!--                 	<input type="submit" class="btn btn-primary" id="submitBtn" value="搜索" /> -->
+<!--             	</div> -->
+<!--         	</div>  -->
+<!-- 		</div> -->
+	
+<!-- 	簡單搜尋 -->
+	<div id="wrap" >
+		<div class="input-group flex-nowrap" style="width:50%">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text" id="addon-wrapping"><img src="${contextRoot}/image/management/Search.png" height=24px;></span>
+		  </div>
+		  <input style="width:50%" type="text" class="form-control" placeholder="請輸入名字" aria-label="Username"id="searchName">
+		</div>    
+	</div>		    
+		<table class="table table-hover" id="listmember">
             <thead>
               <tr>
               	<th scope="col">編號</th>
@@ -50,8 +56,8 @@
                 <th scope="col">刪除</th>
               </tr>
             </thead>
-            <tbody>
-            <c:forEach var="RegisterModel" items="${page.content}">
+            <tbody id="tbody">
+             <!-- <c:forEach var="RegisterModel" items="${page.content}">
               <tr>
                 <td scope="row">${RegisterModel.id}</td>
                 <td>${RegisterModel.memberId}</td>
@@ -66,14 +72,14 @@
                 	<img src='${contextRoot}/image/management/check_mark.png'> 
                 	</c:if>
                	</td>           
-<!--                 <td> -->
-<%--                     <a href="${contextRoot}/member/editMember?id=${RegisterModel.id}"><img src="${contextRoot}/image/management/edit.png"></a> --%>
-<!--                 </td> -->
+                 <td> 
+                    <a href="${contextRoot}/member/editMember?id=${RegisterModel.id}"><img src="${contextRoot}/image/management/edit.png"></a> --%>
+                </td> 
                 <td>
                     <a onclick="return confirm('確定刪除會員?')" href="${contextRoot}/member/deleteMember?id=${RegisterModel.id}"><img src="${contextRoot}/image/management/delete.png"></a>
                 </td>
               </tr>
-             </c:forEach>
+             </c:forEach> -->
             </tbody>
           </table>
           
@@ -115,39 +121,166 @@
 			
 
     </header>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-
-
-function findByName() {
-	
-	
-	$("#submitBtn").click(function(){
-		var name = $('#searchname').val();
-	    $("#tbody").empty();
-	    fetch("/member/findByName/{name}").then(function(response) {
-	        return response.json();
-	    }).then(function(array) {
-	    	console.log(kkk+array);
-	        $.each(array, function(index, value) {
-	            $("#tbody").append(`<tr>
-	                   <td scope="col"> ` + value.id+ `</td>
-	                   <td scope="col">$` + value.memberId + `</td>
-	                   <td scope="col">$` + value.name + `</td>
-	                   <td scope="col">$` + value.birthday + `</td>
-	                   <td scope="col">$` + value.address + `</td>
-	                   <td scope="col">$` + value.phone + `</td>
-	                   <td scope="col">$` + value.mail + `</td>
-	                   <td scope="col">$` + value.sex + `</td>
-	                   <td scope="col">$` + value.mach + `</td>
-	               </tr>`);
-	        });
- 	    });
-   });
- }
-
-//=====try1============
+$(document).ready(function () {
+    fetch("http://localhost:8080/my-app/member/all").then(function (response) {
+        return response.json();
+    }).then(function (array) {
+        $.each(array, function (index, value) {
+            $("#tbody").append(
+                `<tr>
+                   <td scope="col"> ` + value.id + `</td>
+                   <td scope="col">` + value.memberId + `</td>
+                   <td scope="col">` + value.name + `</td>
+                   <td scope="col">` + value.birthday + `</td>
+                   <td scope="col">` + value.address + `</td>
+                   <td scope="col">` + value.phone + `</td>
+                   <td scope="col">` + value.mail + `</td>
+                   <td scope="col">` + getsex(value.sex) + `</td>
+                   <td scope="col">` + getmach(value.mach)+ `</td>
+                   <td scope="col"><a onclick="return confirm('確定刪除會員?')" href="${contextRoot}/member/deleteMember?id=` + value.id + `"><img src="${contextRoot}/image/management/delete.png" ></img></td>
+               </tr>`)
+        });
+            function getsex(sex){
+            	var mark ='';
+            	if(sex==1){
+            		mark='男'
+            	}else{
+            		mark='女'
+            	}
+            	return mark;
+            };
+            function getmach(mach){
+            	var mark2='';
+                if(mach!=null){
+                    mark2='<img src="${contextRoot}/image/management/check_mark.png"></img>';
+                }else{
+                    mark2='';
+                }
+                return mark2;
+            };
+    })
+})
+$("#searchName").keyup(function () {
+    let name = $('#searchName').val().trim();
+    if (name.length < 1) {
+        $("#tbody").empty();
+        fetch("http://localhost:8080/my-app/member/all").then(function (response) {
+            return response.json();
+        }).then(function (array) {
+            $.each(array, function (index, value) {
+                $("#tbody").append(
+          
+                   `<tr>
+                   <td scope="col"> ` + value.id + `</td>
+                   <td scope="col">` + value.memberId + `</td>
+                   <td scope="col">` + value.name + `</td>
+                   <td scope="col">` + value.birthday + `</td>
+                   <td scope="col">` + value.address + `</td>
+                   <td scope="col">` + value.phone + `</td>
+                   <td scope="col">` + value.mail + `</td>
+                   <td scope="col">` + getsex(value.sex) + `</td>
+                   <td scope="col">` + getmach(value.mach) + `</td>
+                   <td scope="col"><a onclick="return confirm('確定刪除會員?')" href="${contextRoot}/member/deleteMember?id=` + value.id + `"><img src="${contextRoot}/image/management/delete.png" ></img></td>
+                   
+               </tr>`)
+            });
+            function getsex(sex){
+            	var mark ='';
+            	if(sex==1){
+            		mark='男'
+            	}else{
+            		mark='女'
+            	}
+            	return mark;
+            };
+            function getmach(mach){
+                var mark2='';
+                if(mach!=null){
+                    mark2='<img src="${contextRoot}/image/management/check_mark.png"></img>';
+                }else{
+                    mark2='';
+                }
+                return mark2;
+                };
+        })
+    } else {
+        $("#tbody").empty();
+        fetch("http://localhost:8080/my-app/member/findByName/" + name).then(function (response) {
+            return response.json();
+        }).then(function (array) {
+            $.each(array, function (index, value) {
+            	
+                $("#tbody").append(
+               
+ 
+                     `<tr>
+                     <td scope="col"> ` + value.id + `</td>
+                     <td scope="col">` + value.memberId + `</td>
+                     <td scope="col">` + value.name + `</td>
+                     <td scope="col">` + value.birthday + `</td>
+                     <td scope="col">` + value.address + `</td>
+                     <td scope="col">` + value.phone + `</td>
+                     <td scope="col">` + value.mail + `</td>
+                     <td scope="col">` +getsex(value.sex)+ `</td>
+                     <td scope="col">` +getmach(value.mach) + `</td>
+                     <td scope="col"><a onclick="return confirm('確定刪除會員?')" href="${contextRoot}/member/deleteMember?id=` + value.id + `"><img src="${contextRoot}/image/management/delete.png" ></img></td>
+                     'value.id' 
+                 </tr>`)
+                console.log(value.name);
+                console.log(value.id);
+                
+            });
+        function getsex(sex){
+        	var mark ='';
+        	if(sex==1){
+        		mark='男'
+        	}else{
+        		mark='女'
+        	}
+        	return mark;
+        };
+        function getmach(mach){
+        	var mark2='';
+        	if(mach!=null){
+        		mark2='<img src="${contextRoot}/image/management/check_mark.png"></img>';
+        	}else{
+        		mark2='';
+        	}
+        	return mark2;
+        };
+        
+            
+        })
+    }
+})
 // function findByName() {
+	
+	
+// 	$("#submitBtn").click(function(){
+// 		var name = $('#searchname').val();
+// 	    $("#tbody").empty();
+// 	    fetch("/member/findByName/{name}").then(function(response) {
+// 	        return response.json();
+// 	    }).then(function(array) {
+// 	    	console.log(kkk+array);
+// 	        $.each(array, function(index, value) {
+// 	            $("#tbody").append(`<tr>
+// 	                   <td scope="col"> ` + value.id+ `</td>
+// 	                   <td scope="col">$` + value.memberId + `</td>
+// 	                   <td scope="col">$` + value.name + `</td>
+// 	                   <td scope="col">$` + value.birthday + `</td>
+// 	                   <td scope="col">$` + value.address + `</td>
+// 	                   <td scope="col">$` + value.phone + `</td>
+// 	                   <td scope="col">$` + value.mail + `</td>
+// 	                   <td scope="col">$` + value.sex + `</td>
+// 	                   <td scope="col">$` + value.mach + `</td>
+// 	               </tr>`);
+// 	        });
+//  	    });
+//    });
+//=====try1============
 // 	$("#submitBtn").click(function(){
 // 		var name = $('#searchname').val();
 // 		console.log(name);
@@ -180,12 +313,14 @@ function findByName() {
 // 				});
 // 	});
 	
+	
+	
+	
+	
+	
 // };
-
-
-
 // =======javascript 搜尋==========
-//  const searchName=()=>{
+// const searchName=()=>{
 // 	let filter = document.getElementById('searchname').value.toUpperCase();
 	
 // 	let listmember = document.getElementById('listmember');
@@ -204,9 +339,6 @@ function findByName() {
 // 		}
 // 	}
 // }
- 
-
-
 </script>
 
 

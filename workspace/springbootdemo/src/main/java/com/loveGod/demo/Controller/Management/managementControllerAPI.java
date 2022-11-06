@@ -1,13 +1,15 @@
 package com.loveGod.demo.Controller.Management;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.loveGod.demo.model.RegisterDao;
 import com.loveGod.demo.model.RegisterModel;
 import com.loveGod.demo.service.MemberManagementService;
 
@@ -26,8 +28,7 @@ public class managementControllerAPI {
 	@Autowired
     MemberManagementService memberManagementService;
 	
-	@Autowired
-	RegisterDao registerDao;
+	
 
     public managementControllerAPI(MemberManagementService memberManagementService) {
 		super();
@@ -54,6 +55,15 @@ public class managementControllerAPI {
     	
  
     
+    }
+    
+    
+    
+    
+    @GetMapping("member/all")
+    public ResponseEntity<List<RegisterModel>> findAllMember() {
+        List<RegisterModel> allMember = memberManagementService.findAllMember();
+        return ResponseEntity.status(HttpStatus.OK).body(allMember);
     }
     
 }

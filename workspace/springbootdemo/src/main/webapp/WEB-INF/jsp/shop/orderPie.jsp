@@ -40,6 +40,7 @@ justify-content:center;
 <script>
 var line_orderUser = [];
 var orderSum = [];
+
 <c:forEach items="${order}" var="orderOne" >	
 line_orderUser.push("${orderOne.userId}");
 orderSum.push("${orderOne.orderSum}");
@@ -76,7 +77,7 @@ for ( i = 0 ; i < orderSum.length ; i++ ){
 } 
 console.log(line_orderSum);
 
-//-----------------------------
+//------------product_quanity
 var line_name = [];
 var line_q = [];
 <c:forEach items="${orderDetail}" var="oD" >	
@@ -94,6 +95,7 @@ line_name.reduce(function(res, value) {
   }
   return res;
 }, {});
+console.log(line_name_uniqulo2)
 
 //-----將商品的名稱轉為字串
 for (i = 0 ; i < line_name_uniqulo2.length ; i++){
@@ -114,6 +116,7 @@ for ( i = 0 ; i < line_q.length ; i++ ){
 		}
 	}
 } 
+console.log(line_q_sum)
 //------------------------------//
 var barColors = [
   "#b91d47",
@@ -144,12 +147,29 @@ new Chart("myChart", {
   },
   options: {
     legend: {display: false},
+
     title: {
       display: true,
-      text: "2022/11月 商品銷售數量"
+      text: "2022/11月 商品銷售數量",
+      fontSize: 16
+    },
+    scales: {
+        yAxes: [{
+        	scaleLabel:{
+                display: true,
+                labelString:"quantity",
+                fontSize: 16
+              },
+            ticks: {
+                beginAtZero: true,
+                stepSize: 1 ,
+
+            }
+        }]
     }
   }
 });
+console.log(line_q_sum)
 
 new Chart("myChartUser", {
 	  type: 'pie',
@@ -164,7 +184,8 @@ new Chart("myChartUser", {
 	    
 	    title: {
 	      display: true,
-	      text: "2022年-使用者消費總金額"
+	      text: "2022年-使用者消費總金額",
+    	  fontSize: 16
 	    }
 	  }
 	});

@@ -59,7 +59,9 @@ public class MemberManagementService {
 		return rDao.findByNameContainingIgnoreCase(name);
 	}
 	
-	
+	public RegisterModel findbyMemberId(String id) {
+		return rDao.findByMemberId(id);
+	}
 	
 	
 

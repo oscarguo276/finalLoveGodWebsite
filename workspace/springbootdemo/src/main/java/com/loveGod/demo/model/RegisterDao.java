@@ -53,6 +53,8 @@ public interface RegisterDao extends JpaRepository<RegisterModel, Integer> {
 	@Query(value = "SELECT * from MemberMainTable m WHERE m.name =?1",nativeQuery = true)
 	public List<RegisterModel> findByName(@Param("name")String name);
 	
+	public RegisterModel findByMemberId(String id);
+	
 
 	
 }

@@ -16,7 +16,7 @@ import com.loveGod.demo.service.MemberManagementService;
 public class MemberManagementController {
 	
 	@Autowired
-	private MemberManagementService mService;
+	public MemberManagementService mService;
 	
 	
 

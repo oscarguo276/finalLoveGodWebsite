@@ -57,7 +57,7 @@
               </tr>
             </thead>
             <tbody id="tbody">
-             <!-- <c:forEach var="RegisterModel" items="${page.content}">
+            <!-- <c:forEach var="RegisterModel" items="${page.content}">
               <tr>
                 <td scope="row">${RegisterModel.id}</td>
                 <td>${RegisterModel.memberId}</td>
@@ -72,9 +72,9 @@
                 	<img src='${contextRoot}/image/management/check_mark.png'> 
                 	</c:if>
                	</td>           
-                 <td> 
-                    <a href="${contextRoot}/member/editMember?id=${RegisterModel.id}"><img src="${contextRoot}/image/management/edit.png"></a> --%>
-                </td> 
+                  <td> 
+                    <a href="${contextRoot}/member/editMember?id=${RegisterModel.id}"><img src="${contextRoot}/image/management/edit.png"></a>
+                </td>  
                 <td>
                     <a onclick="return confirm('確定刪除會員?')" href="${contextRoot}/member/deleteMember?id=${RegisterModel.id}"><img src="${contextRoot}/image/management/delete.png"></a>
                 </td>
@@ -83,8 +83,8 @@
             </tbody>
           </table>
           
-        
-			<nav aria-label="Page navigation example">
+<%--         
+			 <nav aria-label="Page navigation example">
 			 	<ul class="pagination justify-content-center fixed-bottom" >
 			    	<li class="page-item">
 			    		<c:choose>
@@ -117,17 +117,21 @@
 			      		</c:choose> 
 			    	</li>
 			  	</ul>
-			</nav>
+			</nav>  --%>
+			
+			
+
+           
 			
 
     </header>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(document).ready(function () {
-    fetch("http://localhost:8080/my-app/member/all").then(function (response) {
+    fetch("http://localhost:8080/my-app/member/API/page").then(function (response) {
         return response.json();
     }).then(function (array) {
-        $.each(array, function (index, value) {
+        $.each(array.content, function (index, value) {
             $("#tbody").append(
                 `<tr>
                    <td scope="col"> ` + value.id + `</td>
@@ -166,10 +170,11 @@ $("#searchName").keyup(function () {
     let name = $('#searchName').val().trim();
     if (name.length < 1) {
         $("#tbody").empty();
-        fetch("http://localhost:8080/my-app/member/all").then(function (response) {
+        fetch("http://localhost:8080/my-app/member/API/page").then(function (response) {
             return response.json();
         }).then(function (array) {
-            $.each(array, function (index, value) {
+            $.each(array.content, function (index, value) {
+            	
                 $("#tbody").append(
           
                    `<tr>
@@ -255,6 +260,8 @@ $("#searchName").keyup(function () {
         })
     }
 })
+
+
 // function findByName() {
 	
 	

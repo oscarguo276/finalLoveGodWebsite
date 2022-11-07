@@ -28,7 +28,7 @@ justify-content:center;
 <jsp:include page="../layout/orderNavbar.jsp"></jsp:include>
 <!-- 柱狀圖 -->
 <div class="pieM">
-<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+<canvas id="myChart" style="width:100%;max-width:800px"></canvas>
 </div>
 
 <!-- 圓餅圖 -->
@@ -162,7 +162,7 @@ new Chart("myChart", {
               },
             ticks: {
                 beginAtZero: true,
-                stepSize: 1 ,
+                stepSize: 5 
 
             }
         }]

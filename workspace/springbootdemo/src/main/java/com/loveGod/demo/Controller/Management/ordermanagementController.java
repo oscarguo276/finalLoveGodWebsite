@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.loveGod.demo.model.Order;
 import com.loveGod.demo.model.RegisterModel;
 import com.loveGod.demo.service.MemberManagementService;
-import com.loveGod.demo.service.RegisterService;
 import com.loveGod.demo.service.ordermanagementService;
 
 @Controller

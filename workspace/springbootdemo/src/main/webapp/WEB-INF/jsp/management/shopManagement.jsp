@@ -27,9 +27,12 @@
             <div class="box3">
             	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"> + 新增商品</button>
             </div>
+            <div  class="box4">
+            <a class="btn btn-primary" href="${contextRoot}/orderPie" style="text-decoration:none;color:#FFF;">商品銷售數量統計圖</a>
+            </div>   
         </div> 
 	
-<div  style="padding-left:10vh"><a class="btn btn-primary" href="${contextRoot}/orderPie" style="text-decoration:none;color:#FFF;">商品銷售數量統計圖</a></div>
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

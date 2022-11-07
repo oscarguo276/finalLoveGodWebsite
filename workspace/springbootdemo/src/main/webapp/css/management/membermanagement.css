@@ -21,6 +21,11 @@
     float:left;
     margin-left:10px;
 }
+.box4{
+    float:left;
+    margin-left:10px;
+    
+}
 #pageindex{
     
     display: flex;

@@ -21,7 +21,7 @@
 
 
 				<div class="container px-4 px-lg-5 h-100 imgrela">
-					<br><br><br><br>
+					<br><br><br><br>	<br><br><br><br>
 					<div class="indeximg">
 						<img class="imgcenter" src="${contextRoot}/image/index/indexCenter.gif">
 						<div class="col-lg-8 align-self-end imgSize">

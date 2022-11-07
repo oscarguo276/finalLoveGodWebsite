@@ -42,7 +42,7 @@
 
 			<div class="logoImage">
 				<a class="navbar-brand" href=" ${contextRoot}/" > <img
-					class="barimg" src=" ${contextRoot}/image/index/logo.png" >
+					class="barimg" src=" ${contextRoot}/image/index/logo2.png" >
 				</a>
 			</div>
 			<div class="logoImage">

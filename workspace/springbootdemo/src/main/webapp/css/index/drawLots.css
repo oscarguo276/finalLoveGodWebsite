@@ -45,6 +45,13 @@
     padding: 0%;
 }
 
+.inZoom2 {
+
+    animation: fadein 9s ease;
+    margin: 0%;
+    padding: 0%;
+}
+
 .outZoom {
 
     animation: fadeout 7s ease;

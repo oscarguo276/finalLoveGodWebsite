@@ -25,7 +25,7 @@
                     <div class="modal-content">
                         <!-- Header -->
                         <div class="modal-header">
-                            <h1>求籤結果</h1>
+                            <h2>求籤結果</h2>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <!-- Body -->
@@ -34,14 +34,14 @@
                             <form>
                                 <!-- 籤詩 -->
                                 <div class="form-group">
-                                    <h2>籤詩</h2>
-                                    <h3>${drawName}</h3>
+                                    <h3>籤詩</h3>
+                                    <h4>${drawName}</h4>
                                     <br>
                                 </div>
                                 <!-- 解說 -->
                                 <div class="form-group">
-                                    <h2>解說</h2>
-                                    <h3>${drawMean}</h3>
+                                    <h3>解說</h3>
+                                    <h4>${drawMean}</h4>
                                     <br>
                                 </div>
                             </form>

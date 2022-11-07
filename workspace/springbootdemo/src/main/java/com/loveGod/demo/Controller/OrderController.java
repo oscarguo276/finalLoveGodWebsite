@@ -106,9 +106,6 @@ public class OrderController {
 			Object memberId = session.getAttribute("memberId");
 			Order order=(Order) session.getAttribute("orderObj");
 			
-			order.setPaystatus(1);
-			Integer payStatusCode=order.getPaystatus();
-			Order pay= oService.insertOrder(order);
 			
 //			System.out.println( payStatusCode);
 //			System.out.println(pay);
@@ -119,6 +116,10 @@ public class OrderController {
 				 String url ="http://localhost:8080/my-app/login";
 				 return "redirect:"+url ; 
 			}
+			
+			order.setPaystatus(1);
+			Integer payStatusCode=order.getPaystatus();
+			Order pay= oService.insertOrder(order);
 			
 			List<Order> memberOrders = oService.findUserId(userid_4order);
 			

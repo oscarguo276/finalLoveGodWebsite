@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath }" />
 <c:set scope="session" var="memberId" value="${sessionScope.memberId}" />
+<c:set scope="session" var="name" value="${sessionScope.name}" />
 <!DOCTYPE html>
 <html>
 

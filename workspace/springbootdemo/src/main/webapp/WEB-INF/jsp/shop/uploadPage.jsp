@@ -62,7 +62,7 @@ height: 70px;
 			</tbody>
 		</table>
 		
-		<a  href="${contextRoot}/orderPie">商品銷售數量統計圖</a>
+<%-- 		<a  href="${contextRoot}/orderPie">商品銷售數量統計圖</a> --%>
 		
 <!-- 		<nav aria-label="Page navigation example"> -->
 <!-- 			 	<ul class="pagination justify-content-center fixed-bottom" > -->

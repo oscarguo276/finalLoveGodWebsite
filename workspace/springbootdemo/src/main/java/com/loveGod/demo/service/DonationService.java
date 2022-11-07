@@ -17,6 +17,8 @@ public class DonationService {
 	@Autowired
 	private DonationDao dDao;
 	
+	
+	
 	public DonationModel insert(DonationModel dsg) {
 		return dDao.save(dsg);
 	}

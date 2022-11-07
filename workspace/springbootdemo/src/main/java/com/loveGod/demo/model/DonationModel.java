@@ -11,6 +11,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -26,6 +27,8 @@ public class DonationModel {
 	private String address;
 	private String money;
 	private String receipt;
+	@Transient
+	private String captcha;
 	
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -117,6 +120,15 @@ public class DonationModel {
 
 	public void setTime(Date time) {
 		this.time = time;
+	}
+	
+
+	public  String getCaptcha() {
+		return captcha;
+	}
+
+	public void setCaptcha(String captcha) {
+		this.captcha = captcha;
 	}
 
 	public Integer getDonationStatus() {

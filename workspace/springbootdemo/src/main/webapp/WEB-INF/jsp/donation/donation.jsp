@@ -40,48 +40,64 @@
 
 					<div class="Payment_border">
 <!-- 						輸入香油錢資訊 -->
-						<form:form action="${contextRoot}/donation2" method="post" modelAttribute="donations"
+						<form:form action="${contextRoot}/donationForm" method="post" modelAttribute="donationForm"
 						class="donation_dataform_m1 sign-up-container"  onsubmit="return checkForm(false);">
 						<form
 						class="donation_dataform_m1 sign-up-container" name="dataform"  onsubmit="return checkForm(false);">
 							<!-- <span class="title">請填寫以下資訊，以利寄發感謝狀!</span> -->
 							<div class="form-folat_mb1">
-								<input  type="text" class="form-contol" name="Name" id="Name"
+								<input  type="text" class="form-contol" name="name" id="name"
 									maxlength="100" placeholder="請輸入捐款人姓名" >
 							</div>
 							<div class="form-folat_mb1">
-								<input  type="text" class="form-contol" name="phone" id="Name"
+								<input  type="text" class="form-contol" name="phone" id="phone"
 									maxlength="100" placeholder="連絡電話" >
 							</div>
 							<div class="form-folat_mb1">
-								<input   type="text" class="form-contol" name="mail" id="Name"
+								<input   type="text" class="form-contol" name="mail" id="mail"
 									maxlength="100" placeholder="電子郵件" >
 							</div>
 							<div class="form-folat_mb1">
-								<input  type="text" class="form-contol" name="address" id="Name"
+								<input  type="text" class="form-contol" name="address" id="address"
 									maxlength="100" placeholder="收件地址" >
 							</div>
 							<div class="form-folat_mb1">
-								<input  type="text" class="form-contol" name="money" id="Name"
+								<input  type="text" class="form-contol" name="money" id="money"
 									maxlength="100" placeholder="捐款金額" >
 							</div>
 							<div class="form-folat_mb2">
 								<div class="form check">
-									<input  class="form-check-input" type="radio" name="Receipt"
-										id="Receipt2" value="N"> <label>無需捐款收據</label>
+									<input  class="form-check-input" type="radio" name="receipt"
+										id="receipt2" value="N"> <label>無需捐款收據</label>
 								</div>
 								<div class="form-folat_mb2">
-									<input  class="form-check-input" type="radio" name="Receipt"
-										id="Receipt1" value="Y" checked=""> <label>寄送捐款收據</label>
+									<input  class="form-check-input" type="radio" name="receipt"
+										id="receipt1" value="Y" checked=""> <label>寄送捐款收據</label>
+								</div>
+							</div>
+							
+							
+<!-- 							<div class="form-folat_mb3"> -->
+<!-- 								<a id="code"></a><br> <input type="text" -->
+<!-- 									class="form-contol" name="Check" id="Check" maxlength="6" -->
+<!-- 									placeholder="驗證碼"> <span id="CheckId"></span>  -->
+<!-- 									<a href="#" id="recode">更新驗證碼</a><br>  -->
+<!-- 									<input type="submit" name="submit" value="驗證" id="validate"> -->
+<!-- 							</div> -->
+							
+							<div class="form-folat_mb3">
+								<div class="col-md-12">
+									<img src="data:image/png;base64,${captchaEncode}" />
 								</div>
 							</div>
 							<div class="form-folat_mb3">
-								<a id="code"></a><br> <input type="text"
-									class="form-contol" name="Check" id="Check" maxlength="6"
-									placeholder="驗證碼"> <span id="CheckId"></span> 
-									<a href="#" id="recode">更新驗證碼</a><br> 
-									<input type="submit" name="submit" value="驗證" id="validate">
+								<div class="col-md-12">
+									<form:input class="form-control" path="captcha"
+										placeholder="Enter Captcha" required="true" />
+										<input type="submit" name="submit" value="驗證" id="validate">
+								</div>
 							</div>
+							
 							</form>
 							</form:form>
 					</div>

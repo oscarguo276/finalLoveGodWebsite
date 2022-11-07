@@ -66,9 +66,10 @@ table thead th {
 
 			</table>
 
-			<a class="nav-link" href="${contextRoot}/Order/page?${page.number}">回前頁</a>
 
 		</div>
+		<br>
+		<div  class="flex"><a class="btn btn-primary" href="${contextRoot}/Order/page?${page.number}" style="text-decoration:none;color:#FFF;">回前頁</a></div>
 </div>
 
 	</header>

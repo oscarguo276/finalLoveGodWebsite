@@ -34,7 +34,7 @@ public class DonationController2 {
 	private DonationService dService;
 
 	@Autowired
-	private CaptchaGenerator captchaGenerator;
+//	private CaptchaGenerator captchaGenerator;
 
 	public static AllInOne all;
 
@@ -50,9 +50,9 @@ public class DonationController2 {
 
 		model.addAttribute("donationForm", d1);
 
-		Captcha captcha = captchaGenerator.createCaptcha(200, 50);
-		httpSession.setAttribute("captcha", captcha.getAnswer());
-		model.addAttribute("captchaEncode", CaptchaUtils.encodeBase64(captcha));
+//		Captcha captcha = captchaGenerator.createCaptcha(200, 50);
+//		httpSession.setAttribute("captcha", captcha.getAnswer());
+//		model.addAttribute("captchaEncode", CaptchaUtils.encodeBase64(captcha));
 
 		System.out.println(123);
 		return "donation/donation";

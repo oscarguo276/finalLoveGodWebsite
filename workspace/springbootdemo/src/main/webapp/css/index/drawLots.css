@@ -211,7 +211,7 @@ h3 {
     padding-right: 8%;
     /* margin: 3rem; */
     border-style: hidden;
-    border-radius: 20px;
+    border-radius: 20%;
 }
 
 .modal-body form .btn {
@@ -293,6 +293,7 @@ h1 {
     transform: translate(-50%, -50%);
 
 }
+
 
 .bubbly-button:focus {
     outline: 0;

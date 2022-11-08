@@ -39,7 +39,7 @@
             }
 
             .backgroundImge2 {
-                background: url("${contextRoot}/image/marriage/story/3.gif");
+                background: url("${contextRoot}/image/marriage/story/2.gif");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -50,61 +50,6 @@
                 margin: 0px auto;
                 position: relative
             }
-
-            .backgroundImge3 {
-                background: url("${contextRoot}/image/marriage/story/4.gif");
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                border-radius: 20px;
-                box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
-                height: 100vh;
-                max-width: 100vw;
-                margin: 0px auto;
-                position: relative
-            }
-
-            .backgroundImge4 {
-                background: url("${contextRoot}/image/marriage/story/5.gif");
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                border-radius: 20px;
-                box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
-                height: 100vh;
-                max-width: 100vw;
-                margin: 0px auto;
-                position: relative
-            }
-
-            .backgroundImge5 {
-                background: url("${contextRoot}/image/marriage/story/6.gif");
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                border-radius: 20px;
-                box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
-                height: 100vh;
-                max-width: 100vw;
-                margin: 0px auto;
-                position: relative
-            }
-
-            .backgroundImge6 {
-                background: url("${contextRoot}/image/marriage/story/7.gif");
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                border-radius: 20px;
-                box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
-                height: 100vh;
-                max-width: 100vw;
-                margin: 0px auto;
-                position: relative
-            }
-
-
-
 
             .backgroundImge7 {
                 background: url("${contextRoot}/image/marriage/story/test.gif");
@@ -116,7 +61,7 @@
                 height: 100vh;
                 max-width: 100vw;
                 position: relative;
-                animation: fadein 10s ease;
+                animation: fadein 15s ease;
                 margin: 0%;
                 padding: 0%;
             }
@@ -147,55 +92,129 @@
 
                                 <!-- 中央圖 -->
 
-
-
-
-
-
-
-
                                 <!-- 卡片照片及文字 -->
+
                                 <div id="controlBigCard" class="nobigCard inZoom">
+                                    <br><br><br>
                                     <div class="card-profile">
-                                        <div class="card-profile_visual">
-                                            <img class="cardImg" src="${contextRoot}/image/marriage/catcat.gif" alt="">
-                                        </div>
-                                        <div class="card-profile_user-infos">
-                                            <span class="infos_name">水樣喵喵</span>
-                                            <span class="infos_nick">@EmWatson</span>
-                                        </div>
-                                        <!-- 卡片下方icon -->
-                                        <div class="card-profile_user-stats">
-                                            <div class="stats-holder">
-                                                <div class="user-stats">
-                                                    <span><img class="cardicon"
-                                                            src="${contextRoot}/image/marriage/icon/facebook.png"
-                                                            alt=""></span>
-                                                </div>
-                                                <div class="user-stats">
-                                                    <span><img class="cardicon"
-                                                            src="${contextRoot}/image/marriage/icon/ig.png"
-                                                            alt=""></span>
-                                                </div>
-                                                <div class="user-stats">
-                                                    <span><img class="cardicon"
-                                                            src="${contextRoot}/image/marriage/icon/line.png"
-                                                            alt=""></span>
-                                                </div>
-                                            </div>
+
+                                        <c:choose>
+                                            <c:when test="${Marriage.idGirl.memberId == MemberId}">
+                                                <c:choose>
+                                                    <c:when test="${Marriage.idBoy == null}">
+                                                        <div class="card-profile_visual">
+                                                            <img class="cardImg"
+                                                                src="${contextRoot}/image/marriage/null.png" alt="">
+                                                        </div>
+                                                        <div class="card-profile_user-infos">
+                                                            <span class="infos_name">未配對到有緣人，請明日再來</span>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div class="card-profile_visual">
+                                                            <img class="cardImg"
+                                                                src="${contextRoot}/image/marriage/icon_boy.png" alt="">
+                                                        </div>
+                                                        <div class="card-profile_user-infos">
+                                                            <span class="infos_name">${Marriage.idBoy.name}</span>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <c:choose>
+                                                    <c:when test="${Marriage.idGirl == null}">
+                                                        <div class="card-profile_visual">
+                                                            <img class="cardImg"
+                                                                src="${contextRoot}/image/marriage/null.png" alt="">
+                                                        </div>
+                                                        <div class="card-profile_user-infos">
+                                                            <span class="infos_name">未配對到有緣人，請明日再來</span>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div class="card-profile_visual">
+                                                            <img class="cardImg"
+                                                                src="${contextRoot}/image/marriage/icon_girl.png"
+                                                                alt="">
+                                                        </div>
+                                                        <div class="card-profile_user-infos">
+                                                            <span class="infos_name">${Marriage.idGirl.name}</span>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </div>
+                                    <!-- 卡片下方icon -->
+                                    <div class="card-profile_user-stats">
+                                        <div class="stats-holder">
+                                            <c:choose>
+                                                <c:when test="${Marriage.idGirl.memberId == MemberId}">
+                                                    <c:choose>
+                                                        <c:when test="${Marriage.idBoy == null}">
+                                                            <div class="user-stats">
+                                                                <span></span>
+                                                                <span class="infos_name"></span>
+                                                            </div>
+                                                            <div class="user-stats">
+                                                                <span></span>
+                                                                <span class="infos_name"></span>
+                                                            </div>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <div class="user-stats">
+                                                                <span><img class="cardicon"
+                                                                        src="${contextRoot}/image/marriage/icon/line.png"
+                                                                        alt=""></span>
+                                                                <span class="infos_name">${Marriage.idBoy.line}</span>
+                                                            </div>
+                                                            <div class="user-stats">
+                                                                <span><img class="cardicon"
+                                                                        src="${contextRoot}/image/marriage/icon/ig.png"
+                                                                        alt=""></span>
+                                                                <span class="infos_name">${Marriage.idBoy.ig}</span>
+                                                            </div>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <c:choose>
+                                                        <c:when test="${Marriage.idGirl == null}">
+                                                            <div class="user-stats">
+                                                                <span></span>
+                                                                <span class="infos_name"></span>
+                                                            </div>
+                                                            <div class="user-stats">
+                                                                <span></span>
+                                                                <span class="infos_name"></span>
+                                                            </div>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <div class="user-stats">
+                                                                <span><img class="cardicon"
+                                                                        src="${contextRoot}/image/marriage/icon/line.png"
+                                                                        alt=""></span>
+                                                                <span class="infos_name">${Marriage.idGirl.line}</span>
+                                                            </div>
+                                                            <div class="user-stats">
+                                                                <span><img class="cardicon"
+                                                                        src="${contextRoot}/image/marriage/icon/ig.png"
+                                                                        alt=""></span>
+                                                                <span class="infos_name">${Marriage.idGirl.ig}</span>
+                                                            </div>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </c:otherwise>
+                                            </c:choose>
+
                                         </div>
 
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                    </div>
 
 
-                    <%-- <jsp:include page="../layout/footer.jsp">
-                        </jsp:include> --%>
-                        <script src="${contextRoot}/js/marriage/marriage.js"></script>
+                        <%-- <jsp:include page="../layout/footer.jsp">
+                            </jsp:include> --%>
+                            <script src="${contextRoot}/js/marriage/marriage.js"></script>
         </body>
 
         </html>

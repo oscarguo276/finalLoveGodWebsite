@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -118,8 +117,8 @@ public class OrderController {
 			}
 			
 			order.setPaystatus(1);
-			Integer payStatusCode=order.getPaystatus();
-			Order pay= oService.insertOrder(order);
+			order.getPaystatus();
+			oService.insertOrder(order);
 			
 			List<Order> memberOrders = oService.findUserId(userid_4order);
 			

@@ -34,7 +34,7 @@ public class DonationController2 {
 	private DonationService dService;
 
 	@Autowired
-//	private CaptchaGenerator captchaGenerator;
+	private CaptchaGenerator captchaGenerator;
 
 	public static AllInOne all;
 
@@ -50,9 +50,9 @@ public class DonationController2 {
 
 		model.addAttribute("donationForm", d1);
 
-//		Captcha captcha = captchaGenerator.createCaptcha(200, 50);
-//		httpSession.setAttribute("captcha", captcha.getAnswer());
-//		model.addAttribute("captchaEncode", CaptchaUtils.encodeBase64(captcha));
+		Captcha captcha = captchaGenerator.createCaptcha(200, 50);
+		httpSession.setAttribute("captcha", captcha.getAnswer());
+		model.addAttribute("captchaEncode", CaptchaUtils.encodeBase64(captcha));
 
 		System.out.println(123);
 		return "donation/donation";
@@ -109,8 +109,8 @@ public class DonationController2 {
 			obj.setTotalAmount(String.valueOf(money));
 			obj.setTradeDesc("test Description");
 			obj.setItemName(name + "的香油錢");
-			obj.setReturnURL("http://localhost:8081/management/donationmanagement");
-			obj.setClientBackURL("http://localhost:8081/my-app/getdonation");
+			obj.setReturnURL("http://localhost:8080/management/donationmanagement");
+			obj.setClientBackURL("http://localhost:8080/my-app/getdonation");
 			obj.setNeedExtraPaidInfo("N");
 			String form = all.aioCheckOut(obj, null);
 

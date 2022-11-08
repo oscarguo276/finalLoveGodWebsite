@@ -9,6 +9,7 @@ let nextStep = document.getElementById("story");
 let count = 0;
 
 
+
 nextStep.addEventListener("click", click)
 
 

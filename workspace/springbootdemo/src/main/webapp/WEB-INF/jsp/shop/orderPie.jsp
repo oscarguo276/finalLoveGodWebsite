@@ -9,7 +9,7 @@
 
 <style>
 .pieM{
-margin-top: 10vh;
+margin-top: 15vh;
 display:flex;
 align-items:center;
 justify-content:center; 
@@ -20,12 +20,17 @@ display:flex;
 align-items:center;
 justify-content:center; 
 }
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
 </style>
 
 </head>
  <body>
-<jsp:include page="../layout/orderNavbar.jsp"></jsp:include>
+<jsp:include page="../management/managerLayout/mnavbar.jsp"></jsp:include>
 <!-- 柱狀圖 -->
 <div class="pieM">
 <canvas id="myChart" style="width:100%;max-width:800px"></canvas>
@@ -35,6 +40,8 @@ justify-content:center;
 <div class="pieM2">
 <canvas id="myChartUser" style="width:100%;max-width:450px"></canvas>
 </div>
+<br>
+<div  class="flex"><a class="btn btn-primary" href="${contextRoot}/product/page" style="text-decoration:none;color:#FFF;">回前頁</a></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script>

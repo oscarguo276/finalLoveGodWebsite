@@ -118,8 +118,18 @@
 			    	</li>
 			  	</ul>
 			</nav>  --%>
-			
-			
+			<div>
+                total:${page.totalPages}
+            </div>
+			<nav aria-label="Page navigation example">
+			  	<ul class="pagination justify-content-center fixed-bottom">
+				    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+				    <li class="page-item"><a class="page-link" >1</a></li>
+				    <li class="page-item"><a class="page-link" href="#">2</a></li>
+				    <li class="page-item"><a class="page-link" href="#">3</a></li>
+				    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+				  </ul>
+			</nav>
 
            
 			
@@ -128,6 +138,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(document).ready(function () {
+	let totalPages=1;
     fetch("http://localhost:8080/my-app/member/API/page").then(function (response) {
         return response.json();
     }).then(function (array) {
@@ -261,71 +272,51 @@ $("#searchName").keyup(function () {
     }
 })
 
+$('li').click(function(){
+  
+    fetch("http://localhost:8080/my-app/member/API/page").then(function (response) {
+        return response.json();
+    }).then(function (array) {
+        $.each(array.content, function (index, value) {
+        	$("#tbody").empty();
+            $("#tbody").append(
+                `<tr>
+                   <td scope="col"> ` + value.id + `</td>
+                   <td scope="col">` + value.memberId + `</td>
+                   <td scope="col">` + value.name + `</td>
+                   <td scope="col">` + value.birthday + `</td>
+                   <td scope="col">` + value.address + `</td>
+                   <td scope="col">` + value.phone + `</td>
+                   <td scope="col">` + value.mail + `</td>
+                   <td scope="col">` + getsex(value.sex) + `</td>
+                   <td scope="col">` + getmach(value.mach)+ `</td>
+                   <td scope="col"><a onclick="return confirm('確定刪除會員?')" href="${contextRoot}/member/deleteMember?id=` + value.id + `"><img src="${contextRoot}/image/management/delete.png" ></img></td>
+               </tr>`)
+        });
+            function getsex(sex){
+            	var mark ='';
+            	if(sex==1){
+            		mark='男'
+            	}else{
+            		mark='女'
+            	}
+            	return mark;
+            };
+            function getmach(mach){
+            	var mark2='';
+                if(mach!=null){
+                    mark2='<img src="${contextRoot}/image/management/check_mark.png"></img>';
+                }else{
+                    mark2='';
+                }
+                return mark2;
+            };
+    })
+})
 
-// function findByName() {
-	
-	
-// 	$("#submitBtn").click(function(){
-// 		var name = $('#searchname').val();
-// 	    $("#tbody").empty();
-// 	    fetch("/member/findByName/{name}").then(function(response) {
-// 	        return response.json();
-// 	    }).then(function(array) {
-// 	    	console.log(kkk+array);
-// 	        $.each(array, function(index, value) {
-// 	            $("#tbody").append(`<tr>
-// 	                   <td scope="col"> ` + value.id+ `</td>
-// 	                   <td scope="col">$` + value.memberId + `</td>
-// 	                   <td scope="col">$` + value.name + `</td>
-// 	                   <td scope="col">$` + value.birthday + `</td>
-// 	                   <td scope="col">$` + value.address + `</td>
-// 	                   <td scope="col">$` + value.phone + `</td>
-// 	                   <td scope="col">$` + value.mail + `</td>
-// 	                   <td scope="col">$` + value.sex + `</td>
-// 	                   <td scope="col">$` + value.mach + `</td>
-// 	               </tr>`);
-// 	        });
-//  	    });
-//    });
-//=====try1============
-// 	$("#submitBtn").click(function(){
-// 		var name = $('#searchname').val();
-// 		console.log(name);
-// 	    $("#tbody").empty();
-// 			$.ajax({
-// 			    headers: {
-// 			        Accept: "application/json; charset=utf-8",
-// 			        "Content-Type": "application/json; charset=utf-8"
-// 					    },
-// 					    type: "GET",
-// 					    dataType : "json",
-// 					    url : "http://localhost:8080//member/findByName/" + name,
-// 					    success: function(data) {
-// 					    	var parsed_data = JSON.parse(data);
-// 					    	console.log(kkk+parsed_data);
-// 					    	$.each(data, function(index, value) {
-// 				 	            $("#tbody").append(`<tr>
-// 				 	                   <td scope="col"> ` + value.id+ `</td>
-// 				 	                   <td scope="col">$` + value.memberId + `</td>
-// 				 	                   <td scope="col">$` + value.name + `</td>
-// 				 	                   <td scope="col">$` + value.birthday + `</td>
-// 				 	                   <td scope="col">$` + value.address + `</td>
-// 				 	                   <td scope="col">$` + value.phone + `</td>
-// 				 	                   <td scope="col">$` + value.mail + `</td>
-// 				 	                   <td scope="col">$` + value.sex + `</td>
-// 				 	                   <td scope="col">$` + value.mach + `</td>
-// 				 	               </tr>`);
-// 				 	        });
-// 				  	    }
-// 				});
-// 	});
-	
-	
-	
-	
-	
-	
-// };
+
+
+
 // =======javascript 搜尋==========
 // const searchName=()=>{
 // 	let filter = document.getElementById('searchname').value.toUpperCase();

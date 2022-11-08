@@ -10,7 +10,15 @@
             <title>姻緣籤詩</title>
             <link href="${contextRoot}/css/index/drawLots.css" rel="stylesheet" />
             <style>
+                .bt2class {
+                    margin-left: 50%;
+                    display: none;
+                }
 
+                .bt2class2 {
+                    margin-left: 50%;
+
+                }
             </style>
         </head>
 
@@ -94,6 +102,9 @@
                                 </div>
                                 <div id="nextimage">
                                     <button id="nextText" class="bubbly-button">下一步</button>
+                                </div>
+                                <div class="bt2class" id='bt2class'>
+                                    <button id="bt2" class="bubbly-button">一鍵聖杯</button>
                                 </div>
 
                             </div>

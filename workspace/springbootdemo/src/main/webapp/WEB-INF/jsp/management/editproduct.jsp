@@ -26,16 +26,16 @@
                 <form action="${contextRoot}/product/postEditProduct" method="post" enctype="multipart/form-data">
                      <input type="hidden" value="${products.prodId}" name="prodId"> <br>
                      商品名稱：<input type="text" value="${products.prodName}" name="productName">
-                     <br>
+                     <br><br>
                      商品價格：<input type="text" value="${products.prodPrice}"name="productPrice">
-                     <br>
+                     <br><br>
                      商品庫存：<input type="text" value="${products.prodStock}" name="productStock">
-                     <br>
+                     <br><br>
                      商品圖片 : <input type="image" src="${pageContext.request.contextPath }/downloadImg/${products.prodId}" height="100px" >
-                     <br>
+                     <br><br>
                      更新商品圖片：<input type="file" name="photo" >
-                     <br>
-                     <input type="submit" name="submit" value="送出">
+                     <br><br>
+                     <input style="margin-left: 5rem;" type="submit" name="submit" value="送出">
 
                  </form>    
 		       </div>

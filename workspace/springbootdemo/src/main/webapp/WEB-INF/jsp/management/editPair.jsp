@@ -17,8 +17,8 @@
 <header class="masthead">
 
 
-<div class="container">
-<h1>修改頁面</h1>
+<div class="container"  style="width: 50%">
+<h1 >修改配對</h1>
 
 <div class="card">
 
@@ -31,7 +31,7 @@
   		</div>
   		
   		
-  		<div class="card-body">
+  		<div class="card-body" style="background-image: url('${contextRoot}/image/management/newpoem.png');">
 	    	<form:form action="${contextRoot}/pair/postEditPair"  method="post" modelAttribute="pairDetail">
 	    	
 				    <form:input type="hidden" path="pairDate" />
@@ -44,9 +44,9 @@
 					 <form:radiobutton path="coupon" value="" />
 					 <label for="get2"> 未領取</label>
 	    			 
-	    			 <br>
-	    		
-					  <input type="submit" name="submit" value="送出">
+	    			 <br><br>
+	    		     <a class="btn btn-secondary" href="http://localhost:8080/my-app/pair/page">取消</a>
+					  <input type="submit" class="btn btn-primary" name="submit" value="送出">
             	</form:form> 
          
 		   </div>

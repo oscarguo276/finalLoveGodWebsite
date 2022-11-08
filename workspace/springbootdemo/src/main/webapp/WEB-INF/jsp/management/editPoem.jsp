@@ -28,15 +28,15 @@
 		       <form:input type="hidden" path="drawId"/>
 		       
 		       詩籤：<form:input type="text" path="drawName"/>
-		       <br/>
+		       <br/><br/>
 		       內文：<form:input type="text" path="drawMean"/>
-		       <br/>
+		       <br/><br/>
 		       
 		       
 		       <div>
 		       <input type="submit" name="submit" value="送出">
 		       </div>
-		     </form:form>     
+		      </form:form>     
 		       </div>
 		 
 	  	

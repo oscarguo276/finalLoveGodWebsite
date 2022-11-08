@@ -119,13 +119,13 @@
 			  	</ul>
 			</nav>  --%>
 			<div>
-                total:${page.totalPages}
+<%--                 total:${page.totalPages} --%>
             </div>
 			<nav aria-label="Page navigation example">
 			  	<ul class="pagination justify-content-center fixed-bottom">
 				    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
 				    <li class="page-item"><a class="page-link" >1</a></li>
-				    <li class="page-item"><a class="page-link" href="#">2</a></li>
+				    <li class="page-item" id="page2"><a class="page-link" href="#">2</a></li>
 				    <li class="page-item"><a class="page-link" href="#">3</a></li>
 				    <li class="page-item"><a class="page-link" href="#">Next</a></li>
 				  </ul>
@@ -272,9 +272,9 @@ $("#searchName").keyup(function () {
     }
 })
 
-$('li').click(function(){
+$('#page2').click(function(){
   
-    fetch("http://localhost:8080/my-app/member/API/page").then(function (response) {
+    fetch("http://localhost:8080/my-app/member/API/page?p="+2).then(function (response) {
         return response.json();
     }).then(function (array) {
         $.each(array.content, function (index, value) {

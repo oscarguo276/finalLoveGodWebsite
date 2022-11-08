@@ -9,6 +9,13 @@
 <head>
 <meta charset="UTF-8">
 <title>修改訂單</title>
+<style>
+.background-image {
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: center;
+ }
+</style>
 </head>
 <body>
 
@@ -18,7 +25,7 @@
 
 
 <div class="container">
-<h1>修改頁面</h1>
+<h1>修改訂單</h1>
 
 	<div class="card">
 
@@ -30,7 +37,7 @@
 	   			訂單總金額:<span>${orders.orderSum}</span>
 	  		</div>
   		
-  			<div class="card-body">
+  			<div class="card-body"  style="background-image:url('${contextRoot}/image/management/newpoem.png'); ">
 	    	<form:form action="${contextRoot}/order/postEditOrder"  method="post" modelAttribute="orders">
 	    	
 				    <form:input type="hidden" path="orderId" />
@@ -40,9 +47,9 @@
 	    			<form:input type="hidden" path="orderDetail" />
 	    			<form:input type="hidden" path="paystatus" />
 	    			<br>
-	    			 收件人姓名：<form:input type="text" path="conName" /> <br>
-		             收件人電話：<form:input type="text" path="conPhone" /><br>
-		             配送地址: <form:input type="text" path="address" /><br>
+	    			 收件人姓名：<form:input type="text" path="conName" /><br><br>
+		             收件人電話：<form:input type="text" path="conPhone" /><br><br>
+		             配送地址: <form:input type="text" path="address" /><br><br>
 		             出貨狀態：
 		             <form:radiobutton path="shipstatus" value="1"/>
 		             <label for="ship1"> 已出貨</label>

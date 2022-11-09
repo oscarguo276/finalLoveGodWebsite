@@ -202,22 +202,4 @@ public class LoginController {
 		}
 	}
 	
-// ===================================== 當Server端程式有錯誤時 =====================================	
-	@GetMapping("/ErrorProneAjax")
-	public String errorProneAjax() {
-		return "login/ErrorProneAjax";
-	}
-	
-	@GetMapping(value="login/withError")
-	public String withError() {
-		try {
-			Connection con = DriverManager.getConnection
-			("jdbc:sqlserver://localhost:1433;databaseName=JSPDB", "AAA", "123");
-			con.close();
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		} 
-		return "/";                            
-	}
-	
 }

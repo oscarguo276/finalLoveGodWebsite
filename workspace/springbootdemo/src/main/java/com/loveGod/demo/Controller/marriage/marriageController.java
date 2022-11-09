@@ -25,7 +25,10 @@ public class marriageController {
 	public String drawlots(Model model,HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String memberId = (String) session.getAttribute("memberId");
-		if (memberId != null) { 	// 如果已有登入未登入
+		String match = (String) session.getAttribute("match");
+		String match1 = "on";
+		if (memberId != null) {// 如果已有登入未登入
+			if(match !=null && match.equals(match1) ) {
 			Calendar cal = Calendar.getInstance();
 			int yearNow = cal.get(Calendar.YEAR);
 			int monthNow = cal.get(Calendar.MONTH)+1;
@@ -64,8 +67,11 @@ public class marriageController {
 				}
 			}
 			}
-			
-			return "marriage/marriage"; 					// 強制給我滾回來
+			return "marriage/marriage";
+			}
+			else {
+				return "redirect:/user";
+			}
 		} else {
 			return "login/login"; 						// 找 /login.jsp 顯示畫面：登入畫面
 		}

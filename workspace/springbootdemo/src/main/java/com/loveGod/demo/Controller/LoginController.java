@@ -109,7 +109,8 @@ public class LoginController {
 				HttpSession session = request.getSession();
 				// 第二步：将想要保存到数据存入session中
 				session.setAttribute("memberId", resultList.get(0).getMemberId()); // 取得那欄位的帳號,從0(陣列)開始,放入session
-				session.setAttribute("password", resultList.get(0).getPassword());		
+				session.setAttribute("password", resultList.get(0).getPassword());
+				session.setAttribute("match", resultList.get(0).getMach());
 				// <c:set scope="session" var="name" value="${sessionScope.name}" /> 呼叫↓
 				session.setAttribute("name", resultList.get(0).getName());		   // 顯示導覽頁的使用者	
 				// 这样就完成了用户名和密码保存到session的操作

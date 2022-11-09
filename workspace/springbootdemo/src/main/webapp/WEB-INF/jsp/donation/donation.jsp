@@ -11,7 +11,6 @@
 <title>香油錢</title>
 
 <link href="${contextRoot}/css/donation/donation.css" rel="stylesheet" />
-<link href="${contextRoot}/css/donation/donationCheck.css" rel="stylesheet" />
 </head>
 <body>
 	<jsp:include page="../layout/navbar.jsp"></jsp:include>

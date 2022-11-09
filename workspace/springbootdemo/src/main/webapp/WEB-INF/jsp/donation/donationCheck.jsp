@@ -13,6 +13,11 @@
 				<link href="${contextRoot}/css/donation/donationCheck.css" rel="stylesheet" />
 				<%-- <link href="${contextRoot}/css/donation/donationCaptcha.css" rel="stylesheet" /> --%>
 				<style>
+					.masthead2 {
+						padding-top: 6.5rem
+					}
+
+
 					.form-folat_mb1 {
 						margin: 10px;
 						background-color: rgba(240, 248, 255, 0.445);
@@ -27,15 +32,12 @@
 					}
 
 
-					.header.masthead {
-						padding-top: 5rem
-					}
 
 					.button1 {
 						font-family: "Helvetica", "Arial", sans-serif;
 						display: inline-block;
 						font-size: 1em;
-						padding: 1em 2em;
+						padding: 0.5em 0.5em;
 						-webkit-appearance: none;
 						appearance: none;
 						background: url(${contextRoot}/image/donation/drawCenter.png);
@@ -47,17 +49,19 @@
 						/* box-shadow: 0 2px 25px rgb(73 61 0); */
 						box-shadow: 5px 5px 2px 1px rgb(0 0 0 / 20%);
 						position: absolute;
-						bottom: 1.5rem;
+						bottom: 0.5rem;
 						transform: translate(-50%, -50%);
 						left: 40%;
 						width: 150px;
+						height: auto;
 					}
 
 					.button2 {
+						height: auto;
 						font-family: "Helvetica", "Arial", sans-serif;
 						display: inline-block;
 						font-size: 1em;
-						padding: 1em 2em;
+						padding: 0.5em 0.5em;
 						-webkit-appearance: none;
 						appearance: none;
 						background: url(${contextRoot}/image/donation/drawCenter.png);
@@ -69,9 +73,13 @@
 						/* box-shadow: 0 2px 25px rgb(73 61 0); */
 						box-shadow: 5px 5px 2px 1px rgb(0 0 0 / 20%);
 						position: absolute;
-						bottom: 1.5rem;
+						bottom: 0.5rem;
 						transform: translate(-50%, -50%);
 						left: 60%;
+					}
+
+					.all_border {
+						height: 75vh;
 					}
 				</style>
 			</head>
@@ -79,13 +87,13 @@
 			<body>
 				<jsp:include page="../layout/navbar.jsp"></jsp:include>
 
-				<header class="masthead">
+				<header class="masthead2">
 					<div class="container px-4 px-lg-5 h-100">
 						<div class="gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
 
 							<div class="all_border" id="all_border">
 								<div class="TitleThank"><br><br>
-									<h3>請確認您的捐款訊息</h3><br><br><br>
+									<h3>請確認您的捐款訊息</h3>
 								</div>
 								<div class="Payment_border">
 									<div>

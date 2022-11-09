@@ -1,4 +1,4 @@
-/* 背景圖片 */
+/* ������ */
 .backgroundImge {
 
     padding-top: 9rem;
@@ -69,7 +69,7 @@
     margin-left: calc(-0.5 * var(--bs-gutter-x));
 }
 
-/* 圖片外框 */
+/* ������ */
 .drawBig {
     width: 60vw;
     height: 60vh;
@@ -78,7 +78,7 @@
 
 }
 
-/* 中央圖片 */
+/* 銝剖亢���� */
 .imgcenter {
     width: 100%;
     height: 100%;
@@ -86,8 +86,8 @@
 
 }
 
-/* 中央圖片出現的文字
-與圖片外框 定位 */
+/* 銝剖亢���������
+������� 摰�� */
 .drawBigText {
     word-wrap: break-word;
     overflow: hidden;
@@ -112,7 +112,7 @@
     padding: 1%;
 }
 
-/* 姻緣籤詩 */
+/* 憪餌楠蝐方帘 */
 h1 {
     margin: 0px;
 }
@@ -124,7 +124,7 @@ h1 {
     margin: 0px auto;
 }
 
-/* 下方小圖 */
+/* 銝撠�� */
 .downimg {
     width: auto;
     height: auto;
@@ -185,7 +185,7 @@ h1 {
     margin: 1rem auto;
 }
 
-/*========籤詩出現========*/
+/*========蝐方帘��========*/
 .remember {
     margin-bottom: 20px;
 }
@@ -211,7 +211,7 @@ h3 {
     padding-right: 8%;
     /* margin: 3rem; */
     border-style: hidden;
-    border-radius: 20%;
+
 }
 
 .modal-body form .btn {
@@ -263,7 +263,7 @@ h1 {
 
 
 
-/* button 設定 */
+/* button 閮剖�� */
 
 
 
@@ -374,7 +374,7 @@ h1 {
     }
 }
 
-/* 文ˋ自漂浮 */
+/* ��瞍筑 */
 :root {
     --duration: 20s;
     --delay: 20s;

@@ -16,13 +16,18 @@
 <header class="masthead">
 
 
-<div class="container">
+<div class="container"  style="width: 50%">
 <h1>修改詩籤</h1>
 
 	<div class="card">
-
+			<div class="card-header">
+	   			詩籤編號:<span>${drawlots.drawId}</span>
+	   			<br>
+	   			
+	  		</div>
   	
-	    <div>
+	    <div class="card-body"  style="background-image:url('${contextRoot}/image/management/newpoem.png'); ">
+	    
 		     <form:form action="${contextRoot}/poem/editPoem" method="post" modelAttribute="drawlots" enctype="multipart/form-data">
 		       
 		       <form:input type="hidden" path="drawId"/>
@@ -33,8 +38,9 @@
 		       <br/><br/>
 		       
 		       
-		       <div>
-		       <input type="submit" name="submit" value="送出">
+		       <div style="text-align: center">
+		        <a class="btn btn-secondary" href="http://localhost:8080/my-app/poem/page">取消</a>
+		       <input type="submit" style="margin-left: 10px"class="btn btn-primary" name="submit" value="送出">
 		       </div>
 		      </form:form>     
 		       </div>

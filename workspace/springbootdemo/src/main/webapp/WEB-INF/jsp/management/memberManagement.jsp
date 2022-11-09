@@ -125,7 +125,7 @@
 			  	<ul class="pagination justify-content-center fixed-bottom">
 				    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
 				    <li class="page-item"><a class="page-link" >1</a></li>
-				    <li class="page-item" id="page2"><a class="page-link" href="#">2</a></li>
+				    <li class="page-item" id="page2"><a class="page-link" href="# ">2</a></li>
 				    <li class="page-item"><a class="page-link" href="#">3</a></li>
 				    <li class="page-item"><a class="page-link" href="#">Next</a></li>
 				  </ul>

@@ -24,7 +24,7 @@
 <header class="masthead">
 
 
-<div class="container">
+<div class="container"  style="width: 50%">
 <h1>修改訂單</h1>
 
 	<div class="card">
@@ -55,8 +55,11 @@
 		             <label for="ship1"> 已出貨</label>
 		             <form:radiobutton path="shipstatus" value="0"/>
 		             <label for="ship2"> 未出貨</label>
-		             <br>
-					  <input type="submit" name="submit" value="送出">
+		             <br><br>
+		             <div style="text-align: center">
+		              <a class="btn btn-secondary" href="http://localhost:8080/my-app/order/page">取消</a>
+					  <input type="submit" style="margin-left: 10px"class="btn btn-primary" name="submit" value="送出">
+					  </div>
             	</form:form> 
          
 		   </div>

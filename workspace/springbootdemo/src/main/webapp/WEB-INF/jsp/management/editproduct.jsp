@@ -16,13 +16,18 @@
 <header class="masthead">
 
 
-<div class="container">
-<h1>修改頁面</h1>
+<div class="container"  style="width: 50%">
+<h1>修改商品</h1>
 
 	<div class="card">
+	
+			    <div class="card-header">
+	   			 商品編號:<span>${products.prodId}</span>
+	   			<br>
+	  			</div>
 
   	
-	    <div>
+	    <div style="background-image:url('${contextRoot}/image/management/newpoem.png'); ">
                 <form action="${contextRoot}/product/postEditProduct" method="post" enctype="multipart/form-data">
                      <input type="hidden" value="${products.prodId}" name="prodId"> <br>
                      商品名稱：<input type="text" value="${products.prodName}" name="productName">
@@ -31,12 +36,15 @@
                      <br><br>
                      商品庫存：<input type="text" value="${products.prodStock}" name="productStock">
                      <br><br>
-                     商品圖片 : <input type="image" src="${pageContext.request.contextPath }/downloadImg/${products.prodId}" height="100px" >
+                     商品原圖片 : <input type="image" src="${pageContext.request.contextPath }/downloadImg/${products.prodId}" height="100px" >
                      <br><br>
                      更新商品圖片：<input type="file" name="photo" >
                      <br><br>
-                     <input style="margin-left: 5rem;" type="submit" name="submit" value="送出">
-
+                     <div style="text-align: center">
+                     <a class="btn btn-secondary" href="http://localhost:8080/my-app/product/page">取消</a>
+                     <input  style="margin-left: 10px"class="btn btn-primary" type="submit" name="submit" value="送出">
+					</div>
+					<br>
                  </form>    
 		       </div>
 		 

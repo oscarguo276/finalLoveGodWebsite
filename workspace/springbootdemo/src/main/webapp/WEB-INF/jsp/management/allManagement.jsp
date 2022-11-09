@@ -22,11 +22,11 @@
      
 
  
- <form action="${contextRoot}/payment" method="post">
+<%--  <form action="${contextRoot}/payment" method="post">
 <input type="text" name="transAmount" placeholder="請輸入捐款金額"value="">
 <input type="submit">
 
-</form> 
+</form>  --%>
   
    
                 

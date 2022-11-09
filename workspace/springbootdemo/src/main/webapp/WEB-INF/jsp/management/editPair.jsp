@@ -45,8 +45,10 @@
 					 <label for="get2"> 未領取</label>
 	    			 
 	    			 <br><br>
+	    			 <div style="text-align: center">
 	    		     <a class="btn btn-secondary" href="http://localhost:8080/my-app/pair/page">取消</a>
-					  <input type="submit" class="btn btn-primary" name="submit" value="送出">
+					  <input type="submit" style="margin-left: 10px" class="btn btn-primary" name="submit" value="送出">
+					  </div>
             	</form:form> 
          
 		   </div>

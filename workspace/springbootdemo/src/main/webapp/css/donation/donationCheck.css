@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.all_border {
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(171, 150, 108);
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+    background-image: url(../../image/donation/temple2_02.jpg);
+    
+}
+
+
+label {
+    font-size: 1rem;
+}
+
+a {
+    color: skyblue;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.all_border {
+/*     position: relative; */
+/*     background: #fff; */
+    border-radius: 10px;
+    /* padding:0.6rem; */
+    width: 50rem;
+    height: 41.5rem;
+/*     overflow: hidden; */
+    max-width: 100vw;
+    max-height: 75vh;
+}
+
+
+#Payment1 {
+    border: 3px solid #01B468;
+    background: #01B468;
+    width: 100%;
+    height: 5vh;
+    text-align: center;
+    line-height: 2.5rem;
+    font-size: 1rem;
+    margin: 3vh;
+}
+
+#Payment2 {
+    border: 1px solid goldenrod;
+    background: goldenrod;
+    width: 100%;
+    height: 5vh;
+    font-size: 1rem;
+    margin: 3vh;
+    outline: none;
+}
+
+
+.Payment_border form {
+    /* background: aquamarine; */
+/*     background-image: url(../../image/donation/temple2_02.jpg); */
+    background-size:cover;
+    /* background-size可以將背景圖片的大小放大至容器大小並填滿 */
+    display: flex;
+    flex-direction: column;
+    padding: 0 5rem;
+    width: auto;
+    height: 100%;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.form-contol {
+    width: 100%;
+    height: 2.2rem;
+    border-radius: 0.2rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    outline: none;
+    margin: 0.6rem;
+}
+
+.form-folat_mb2 {
+    margin: 0.3rem;
+    text-align: center;
+}
+
+button.ghost {
+    background: transparent;
+    /* border-color: #fff; */
+    /* border: 1px solid #fff; */
+    outline: none;
+    width: 5rem;
+    border-radius: 1rem;
+    transition: all 800ms ease-in;
+    /* 轉變 ease-in緩入 */
+    margin: 0.6rem 0;
+    padding: 0.5rem 0;
+    /* color: #fff; */
+    font-size: 0.6rem;
+}
+
+button.ghost:active {
+    transform: scale(0.95, 0.95);
+}
+
+
+.Payment_border {
+/*     position: absolute; */
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    transition: all 0.6s ease-in;
+}
+
+

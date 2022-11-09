@@ -11,7 +11,7 @@
 <title>香油錢</title>
 
 <link href="${contextRoot}/css/donation/donation.css" rel="stylesheet" />
-<link href="${contextRoot}/css/donation/donation2.css" rel="stylesheet" />
+<link href="${contextRoot}/css/donation/donationCheck.css" rel="stylesheet" />
 </head>
 <body>
 	<jsp:include page="../layout/navbar.jsp"></jsp:include>
@@ -90,11 +90,16 @@
 									<img src="data:image/png;base64,${captchaEncode}" />
 								</div>
 							</div>
+							<c:if test="${message ne null}">
+								<div class="form-folat_mb3">
+									${message}
+								</div>
+							</c:if>
 							<div class="form-folat_mb3">
 								<div class="col-md-12">
 									<form:input class="form-control" path="captcha"
 										placeholder="Enter Captcha" required="true" />
-										<input type="submit" name="submit" value="驗證" id="validate">
+										<input type="submit" name="submit" value="確認" id="validate">
 								</div>
 							</div>
 							

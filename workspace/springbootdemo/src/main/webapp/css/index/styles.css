@@ -754,7 +754,7 @@ progress {
   .container-md,
   .container-sm,
   .container {
-    max-width: 1320px;
+    max-width: 1520px;
   }
 }
 
@@ -5614,7 +5614,7 @@ fieldset:disabled .btn {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-/*   border-radius: 0.25rem; */
+  /*   border-radius: 0.25rem; */
 }
 
 .badge:empty {

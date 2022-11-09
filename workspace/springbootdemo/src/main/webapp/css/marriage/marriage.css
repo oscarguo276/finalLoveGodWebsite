@@ -1,4 +1,4 @@
-/* 背景圖片 */
+/* ������ */
 .backgroundImge {
     padding-top: 9rem;
     background: url("../../image/index/bg-masthead2.png");
@@ -28,7 +28,7 @@
     display: none;
 }
 
-/* 淡入淡出淡入淡出 */
+/* 瘛∪瘛∪瘛∪瘛∪ */
 @keyframes fadein {
     0% {
         opacity: 0;
@@ -90,7 +90,7 @@
     font-size: 16px;
 }
 
-/* 突然出現的卡片 */
+/* 蝒������� */
 * {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -141,6 +141,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+   
 }
 
 .cardicon {

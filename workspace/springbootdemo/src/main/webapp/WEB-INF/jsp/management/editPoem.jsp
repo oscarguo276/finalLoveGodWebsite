@@ -8,6 +8,11 @@
 <head>
 <meta charset="UTF-8">
 <title>修改詩籤</title>
+<style>
+.card-body{
+background-size:contain;
+}
+</style>
 </head>
 <body>
 

@@ -63,4 +63,30 @@ public class EmailSenderService {
 		}
 
 	}
+	// html email
+	public void sendEmailHtml(String subject, String message,
+			String toEmailAddresses, boolean isHtmlMail) {
+		try {
+			MimeMessage mimeMessage = mailSender.createMimeMessage();
+			MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+			helper.setFrom("lovegod.ispan@gmail.com");
+			helper.setTo(toEmailAddresses);
+			helper.setSubject(subject);
+
+			if (isHtmlMail) {
+				helper.setText("<html><body>" + message + "</html></body>", true);
+			} else {
+				helper.setText(message);
+			}
+
+			mailSender.send(mimeMessage);
+
+			System.out.println("Email sending complete.");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	
 }

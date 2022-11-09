@@ -9,13 +9,13 @@
 <head>
 <meta charset="UTF-8">
 <title>修改訂單</title>
+
 <style>
-.background-image {
-   background-repeat: no-repeat;
-   background-size: contain;
-   background-position: center;
- }
+.card-body{
+background-size:contain;
+}
 </style>
+
 </head>
 <body>
 

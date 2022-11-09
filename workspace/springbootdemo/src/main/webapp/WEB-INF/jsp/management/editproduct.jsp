@@ -8,6 +8,11 @@
 <head>
 <meta charset="UTF-8">
 <title>修改商品</title>
+<style>
+.card-body{
+background-size:contain;
+}
+</style>
 </head>
 <body>
 
@@ -27,7 +32,7 @@
 	  			</div>
 
   	
-	    <div style="background-image:url('${contextRoot}/image/management/newpoem.png'); ">
+	    <div class="card-body" style="background-image:url('${contextRoot}/image/management/newpoem.png'); ">
                 <form action="${contextRoot}/product/postEditProduct" method="post" enctype="multipart/form-data">
                      <input type="hidden" value="${products.prodId}" name="prodId"> <br>
                      商品名稱：<input type="text" value="${products.prodName}" name="productName">

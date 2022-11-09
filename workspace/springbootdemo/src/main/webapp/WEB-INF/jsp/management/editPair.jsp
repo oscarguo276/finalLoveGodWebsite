@@ -9,6 +9,11 @@
 <head>
 <meta charset="UTF-8">
 <title>修改配對</title>
+<style>
+.card-body{
+background-size:contain;
+}
+</style>
 </head>
 <body>
 

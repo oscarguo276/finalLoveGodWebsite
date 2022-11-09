@@ -41,6 +41,7 @@
                     <th scope="col">金額</th>
                     <th scope="col">捐款狀態</th>
                     <th scope="col">收據</th>
+                    <th scope="col">寄送收據</th>
                     <th scope="col">刪除</th>
 
                 </tr>
@@ -59,9 +60,9 @@
                 <td>${DonationModel.donationStatus==1?"已完成":"未完成"}</td>
                 <td>${DonationModel.receipt}</td>
 
-<!--                 <td> -->
-<%--                     <a href="${contextRoot}/member/editMember?id=${RegisterModel.id}"><img src="${contextRoot}/image/management/edit.png"></a> --%>
-<!--                 </td> -->
+                <td>  
+                    <a href="${contextRoot}/donation/editDonation?id=${DonationModel.id}">${DonationModel.sendReceipt==1?"已寄送":"未寄送"}</a>
+                </td> 
                 <td>
                     <a onclick="return confirm('確定刪除捐款?')" href="${contextRoot}/donation/deleteDonation?id=${DonationModel.id}"><img src="${contextRoot}/image/management/delete.png"></a>
                 </td>

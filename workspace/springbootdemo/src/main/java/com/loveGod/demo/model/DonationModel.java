@@ -36,6 +36,16 @@ public class DonationModel {
 	private Date time;
 	
 	private Integer donationStatus;
+	private Integer sendReceipt;
+	
+	public Integer getSendReceipt() {
+		return sendReceipt;
+	}
+
+	public void setSendReceipt(Integer sendReceipt) {
+		this.sendReceipt = sendReceipt;
+	}
+
 	@PrePersist
 	public void onCreate() {
 		if (time == null) {

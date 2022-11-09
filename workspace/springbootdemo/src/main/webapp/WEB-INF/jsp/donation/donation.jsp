@@ -44,27 +44,32 @@
 						<form
 						class="donation_dataform_m1 sign-up-container" name="dataform"  onsubmit="return checkForm(false);">
 							<!-- <span class="title">請填寫以下資訊，以利寄發感謝狀!</span> -->
-							<div class="form-folat_mb1">
-								<input  type="text" class="form-contol" name="name" id="name"
-									maxlength="100" placeholder="請輸入捐款人姓名" >
+							<div class="form-floating ">
+								<input  type="text" class="form-control" name="name" id="name"
+									maxlength="100" style="height: 50px" placeholder="請輸入捐款人姓名" >
+									<label for="name">請輸入捐款人姓名</label>
 							</div>
-							<div class="form-folat_mb1">
-								<input  type="text" class="form-contol" name="phone" id="phone"
-									maxlength="100" placeholder="連絡電話" >
+							<div class="form-floating ">
+								<input  type="text" class="form-control" name="phone" id="phone"
+									maxlength="100" style="height: 50px" placeholder="連絡電話" >
+									<label for="name">連絡電話</label>
 							</div>
-							<div class="form-folat_mb1">
-								<input   type="text" class="form-contol" name="mail" id="mail"
-									maxlength="100" placeholder="電子郵件" >
+							<div class="form-floating ">
+								<input   type="text" class="form-control" name="mail" id="mail"
+									maxlength="100" style="height: 50px" placeholder="電子郵件" >
+									<label for="name">電子郵件</label>
 							</div>
-							<div class="form-folat_mb1">
-								<input  type="text" class="form-contol" name="address" id="address"
-									maxlength="100" placeholder="收件地址" >
+							<div class="form-floating ">
+								<input  type="text" class="form-control" name="address" id="address"
+									maxlength="100" style="height: 50px" placeholder="收件地址" >
+									<label for="name">收件地址</label>
 							</div>
-							<div class="form-folat_mb1">
-								<input  type="text" class="form-contol" name="money" id="money"
-									maxlength="100" placeholder="捐款金額" >
+							<div class="form-floating ">
+								<input  type="text" class="form-control" name="money" id="money"
+									maxlength="100" style="height: 50px" placeholder="捐款金額" >
+									<label for="name">捐款金額</label>
 							</div>
-							<div class="form-folat_mb2">
+							<div class="form-folat_mb2 ">
 								<div class="form check">
 									<input  class="form-check-input" type="radio" name="receipt"
 										id="receipt2" value="N"> <label>無需捐款收據</label>

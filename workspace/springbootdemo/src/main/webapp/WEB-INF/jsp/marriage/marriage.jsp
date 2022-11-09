@@ -70,6 +70,11 @@
             .marriage {
                 background: url("${contextRoot}/image/marriage/story/white.png");
             }
+
+            #centerP {
+                margin-top: 18%;
+                padding: 2%;
+            }
         </style>
 
         <body class="marriage">

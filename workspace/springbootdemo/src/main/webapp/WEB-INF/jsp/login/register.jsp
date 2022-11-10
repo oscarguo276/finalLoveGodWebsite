@@ -267,9 +267,9 @@ by 清樺
 																			<div class="form-group col-lg-12"
 																				style="font-size: 1.5rem; margin-top: 0.1em; text-align: left;">
 																				<div class="form-check">
-																					<input class="form-check-input"
-																						type="radio" name="Line"
-																						id="contactRadio2" value="Line">
+<!-- 																					<input class="form-check-input" -->
+<!-- 																						type="radio" name="Line" -->
+<!-- 																						id="contactRadio2" value="Line"> -->
 																					<label class="form-check-label"
 																						for="contactRadio2">
 																						Line： </label>
@@ -285,9 +285,9 @@ by 清樺
 																			<div class="form-group col-lg-12"
 																				style="font-size: 1.5rem; margin-top: 0.1em; text-align: left;">
 																				<div class="form-check">
-																					<input class="form-check-input"
-																						type="radio" name="IG"
-																						id="contactRadio3" value="IG">
+<!-- 																					<input class="form-check-input" -->
+<!-- 																						type="radio" name="IG" -->
+<!-- 																						id="contactRadio3" value="IG"> -->
 																					<label class="form-check-label"
 																						for="contactRadio3">
 																						IG： </label>

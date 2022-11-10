@@ -51,14 +51,15 @@
       <div class="modal-body">
 		  <div class="form-group">
 		    <label for="">籤詩內文:</label>
-		    <input type="text" name="drawName" placeholder="請輸入籤詩..."class="form-control mx-sm-1">
+		    <input id="drawName" type="text" name="drawName" placeholder="請輸入籤詩..."class="form-control mx-sm-1">
 		  </div>
 		   <div class="form-group">
 		    <label for="">解籤內容:</label>
-		    <input type="text" name="drawMean" placeholder="請輸入解籤內容..."class="form-control mx-sm-1">
+		    <input  id="drawMean" type="text" name="drawMean" placeholder="請輸入解籤內容..."class="form-control mx-sm-1">
 		  </div>
 		
 		<div class="modal-footer">
+			<div  class="btn btn-secondary" id="poem">一鍵輸入</div>
 	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
 	        <button name="submit" value="submit" class="btn btn-primary" data-bs-dismiss="modal">送出</button>
 <!-- 	        <input type="submit" name="submit" class="btn btn-primary" value="送出"> -->
@@ -139,7 +140,19 @@
 			  	</ul>
 			</nav>
     </header>
+    
+				<script>
+							let poembtn = document.getElementById("poem");
+							poembtn.addEventListener("click", poem)
+							function poem() {
+								console.log("123")
+								document.getElementById("drawName").value = "望渠消息向長安，常把菱花仔細看， 見說文書將入境，今朝喜色上眉端。"
+								document.getElementById("drawMean").value = "望穿秋水，等待長安帝畿的好消息到來，常常對著菱花鏡仔細看，聽說有信來了，今早不覺喜上眉梢。 這首籤詩，表示期待已久的事情，將有眉目了。好比等待很久的信息，忽然有佳音來報。"
+							
 
+
+							}
+				</script>				
 
 
 </body>

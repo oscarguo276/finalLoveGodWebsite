@@ -158,13 +158,13 @@
 						<div class="form-check col-lg-10 h2 text-gray-900 mb-4">
 							<label class="form-check-label" for="flexCheckDefault">
 								開啟姻緣功能： </label> <input class="form-check-input" type="checkbox"
-								name="mach"
+								name="mach" checked
 								style="float: none; margin-left: 0.1em; margin-top: 0.1em;"
 								value="${Mach}"
 								onclick="openShutManager(this,'extraData',false,'内容')" />
 							<div class="form-group col-lg-2"></div>
 
-							<div id="extraData" style="display: none;">
+							<div id="extraData" style="display: block;">
 								<!-- <span>我是隐藏的内容</span> -->
 								<div class="form-group col-lg-12">
 									<label for="exampleFormControlTextarea1"

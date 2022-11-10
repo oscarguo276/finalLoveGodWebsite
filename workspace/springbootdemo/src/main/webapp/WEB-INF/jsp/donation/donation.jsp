@@ -46,27 +46,32 @@
 							<!-- <span class="title">請填寫以下資訊，以利寄發感謝狀!</span> -->
 							<div class="form-floating ">
 								<input  type="text" class="form-control" name="name" id="name"
-									maxlength="100" style="height: 50px" placeholder="請輸入捐款人姓名" >
+									maxlength="100" style="height: 50px" placeholder="請輸入捐款人姓名" required>
 									<label for="name">請輸入捐款人姓名</label>
 							</div>
 							<div class="form-floating ">
 								<input  type="text" class="form-control" name="phone" id="phone"
-									maxlength="100" style="height: 50px" placeholder="連絡電話" >
+									maxlength="100" style="height: 50px" placeholder="連絡電話" 
+									pattern="09\d{2}(\d{6}|-\d{3}-\d{3})"	title="(請輸入09開頭的電話號碼)" required>
 									<label for="name">連絡電話</label>
 							</div>
 							<div class="form-floating ">
 								<input   type="text" class="form-control" name="mail" id="mail"
-									maxlength="100" style="height: 50px" placeholder="電子郵件" >
+									maxlength="100" style="height: 50px" placeholder="電子郵件" 
+									pattern="^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$"
+									title="(請確認電子郵件格式)" required>
 									<label for="name">電子郵件</label>
 							</div>
 							<div class="form-floating ">
 								<input  type="text" class="form-control" name="address" id="address"
-									maxlength="100" style="height: 50px" placeholder="收件地址" >
+									maxlength="100" style="height: 50px" placeholder="收件地址" 
+									pattern="^[\u4e00-\u9fa5_a-zA-Z0-9-,.]+$"
+									title="(請確認地址是否正確且不可有間隔)" required>
 									<label for="name">收件地址</label>
 							</div>
 							<div class="form-floating ">
 								<input  type="text" class="form-control" name="money" id="money"
-									maxlength="100" style="height: 50px" placeholder="捐款金額" >
+									maxlength="100" style="height: 50px" placeholder="捐款金額" required>
 									<label for="name">捐款金額</label>
 							</div>
 							<div class="form-folat_mb2 ">

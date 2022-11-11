@@ -143,14 +143,14 @@
 						<div class="form-group col-lg-12">
 							<input type="tel" class="form-control form-control-lg"
 								placeholder="請輸入您的手機號碼..." name="phone" value="${Phone}"
-								pattern=".{6,12}">
+								pattern=".{10,10}">
 							<!-- minlength="10" maxlength="11" -->
 						</div>
 
 						<!-- 註冊信箱 -->
 						<div class="form-group col-lg-12">
 							<input type="tel" class="form-control form-control-lg"
-								pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+								pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 								placeholder="請輸入您的E-mail..." value="${Mail}" name="mail">
 						</div>
 

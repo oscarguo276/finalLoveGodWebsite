@@ -94,14 +94,15 @@
            checkoutString += ("\n " + this.id + " \t " + this.name + " \t " + this.summary + " \t " + this.price + " \t " + this.quantity + " \t " + this.image);
           });
 //           alert(checkoutString)
-          console.log("checking out", products, totalPrice, totalQuantity);
+          console.log("checking out", products, totalPrice, totalQuantity,name);
           
 
 //        ---------------1015---------- 網址列傳值
    	
    		var totalitem = ""; 
     		$.each(products, function () {
-    			totalitem += ("i" + this.id + "p" + this.price*this.quantity + "q" + this.quantity + "&");
+    			totalitem += ("i" + this.id + "p" + this.price*this.quantity + "q" + this.quantity + "n" + this.name +"&");
+    			console.log(totalitem)
          	});
        	var order_herf1 = "${pageContext.request.contextPath}/shop/newOrder?" + totalitem;
        	var order_herf = order_herf1.substring(0,order_herf1.length - 1);
@@ -344,7 +345,7 @@
       $('body').append(
         '<div class="modal fade" id="' + idCartModal + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
         '<div class="modal-dialog" role="document">' +
-        '<div class="modal-content" style="padding-right: 0%;">' +
+        '<div class="modal-content" style="padding-right: 0%;border-radius: 3%;">' +
         '<div class="modal-header">' +
         '<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
         '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span> </h4>' +

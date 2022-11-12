@@ -11,7 +11,9 @@
 <title>寄送收據</title>
 
 <style>
+.container{
 
+}
 </style>
 
 </head>
@@ -21,22 +23,28 @@
 
 <header class="masthead">
 
-
-<div class="container"  style="width: 50%">
-<h1>寄送收據</h1>
-
-	<div class="card">
+<div class="justify-content-center align-items-center text-center">
+<h1 font-size=300px>寄送收據</h1>
+</div>
+<div class="container"  style="border:1px solid red ; background-image: url('${contextRoot}/image/management/thankful_receipt-nobg.png'); width:650px;height:375px;">
 
 		    <div >
-	   			捐款人:<span>${donationModel.name}</span>
-	   			<br>
-	   			捐款金額：<span>${donationModel.money}</span>
-	   			<br>
-	   			時間:<span>${donationModel.time}</span>
+				<br><br><br><br><br>
+				<span style="margin-left: 250px;">${donationModel.name}</span>
+				<br>
+	   			<span style="margin-left: 200px; margin-top: 500px;">${donationModel.address}</span>
+	   			<br><br>
+	   			<span style="margin-left: 300px">${donationModel.money}</span>
+				<br><br><br><br><br>
+				<span style="margin-left: 300px">${donationModel.time}</span>
 	   			
 	  		</div>
   		
-  			<div>
+ </div> 			
+
+
+
+<div>
 	    	<form:form action="${contextRoot}/donation/postEditDonation"  method="post" modelAttribute="donationModel">
 	    	
 				    <form:input type="hidden" path="id" />
@@ -49,8 +57,10 @@
 	    			<form:input type="hidden" path="captcha" />
 	    			<form:input type="hidden" path="time" />
 	    			<form:input type="hidden" path="donationStatus" />
-<%-- 	    			<form:input type="hidden" path="sendReceipt" /> --%>
+
 	    			
+			
+				
 		             <form:radiobutton path="sendReceipt" value="1"/>
 		             <label for="ship1"> 已出貨</label>
 		             <form:radiobutton path="sendReceipt" value="0"/>
@@ -61,11 +71,12 @@
 					  <input type="submit" style="margin-left: 10px"class="btn btn-primary" name="submit" value="送出">
 					  </div>
             	</form:form> 
+			</div>				
          
-		   </div>
+		
   		
-	  	</div>
-</div>
+	  	
+
 
 
 </header>

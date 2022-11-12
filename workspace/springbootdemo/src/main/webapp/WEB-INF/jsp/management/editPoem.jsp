@@ -37,9 +37,9 @@ background-size:contain;
 		       
 		       <form:input type="hidden" path="drawId"/>
 		       
-		       詩籤：<form:input type="text" path="drawName"/>
+		       詩籤：<form:textarea type="text" path="drawName" style="width:200px height:50px;"/>
 		       <br/><br/>
-		       內文：<form:input type="text" path="drawMean"/>
+		       內文：<form:textarea type="text" path="drawMean"/>
 		       <br/><br/>
 		       
 		       

@@ -10,10 +10,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.loveGod.demo.model.DrawlotsModel;
 import com.loveGod.demo.model.RegisterModel;
+import com.loveGod.demo.service.DrawService;
 import com.loveGod.demo.service.MemberManagementService;
 
 @RestController
@@ -31,6 +35,9 @@ public class managementControllerAPI {
 	@Autowired
     MemberManagementService memberManagementService;
 	
+	@Autowired
+	DrawService drawService;
+	
 	
 
     public managementControllerAPI(MemberManagementService memberManagementService) {
@@ -44,6 +51,9 @@ public class managementControllerAPI {
 //    	model.addAttribute("keyword", listrm);
 //        return listrm;
 //    }
+    
+    
+    //會員 ajax搜尋
     
     @GetMapping("/member/findByName/{name}")
     public ArrayList<RegisterModel> findMemberByName(@PathVariable("name") String name) {
@@ -60,9 +70,6 @@ public class managementControllerAPI {
     
     }
     
-    
-    
-    
     @GetMapping("member/all")
     public ResponseEntity<List<RegisterModel>> findAllMember() {
         List<RegisterModel> allMember = memberManagementService.findAllMember();
@@ -75,6 +82,52 @@ public class managementControllerAPI {
 		
 		return page;
 	}
+	
+	
+	//詩籤 ajax搜尋
+    @GetMapping("/poem/findByPoemname/{drawName}")
+    public ArrayList<DrawlotsModel> findbyPoemname(@PathVariable("drawName") String drawName) {
+    	ArrayList<DrawlotsModel> drawlotsModel = new ArrayList<>(drawService.findByPoemname(drawName));
+    	System.out.println("kkkkkkk"+drawlotsModel);
+    	if(drawlotsModel != null) {
+    			return drawlotsModel;
+    	}
+    	DrawlotsModel emptyrm = new DrawlotsModel();
+    	emptyrm.setDrawName("can not found");
+    	return null;
+   
+    }
+    
+    @GetMapping("poem/all")
+    public ResponseEntity<List<DrawlotsModel>> findAllPoem() {
+        List<DrawlotsModel> allPoem = drawService.findAllPoem();
+        return ResponseEntity.status(HttpStatus.OK).body(allPoem);
+    }
+    
+    @GetMapping("/poem/findByPoemId/{drawId}")
+    public ArrayList<DrawlotsModel> findbyPoemId(@PathVariable("drawId") String drawId) {
+    	ArrayList<DrawlotsModel> drawlotsModel = new ArrayList<>(drawService.findByPoemId(drawId));
+    	System.out.println("sssss"+drawlotsModel);
+    	if(drawlotsModel != null) {
+    			return drawlotsModel;
+    	}
+    	DrawlotsModel emptyrm = new DrawlotsModel();
+    	emptyrm.setDrawName("can not found");
+    	return null;
+   
+    }
+    
+    //詩籤ajax insert
+    
+    @PostMapping("/poem/insertPoem")
+    public String savePoem(@RequestParam("poemName") String poemName,
+    						@RequestParam("poenMean") String poemMean) {
+    	System.out.println("ajax poem saving......");
+    	DrawlotsModel drawlots = drawService.insertlots(null);
+    	JSONPObject resobj = new JSONPObject(poemName, poemMean);
+    	return resobj.toString();
+    }
+	
     
     
     

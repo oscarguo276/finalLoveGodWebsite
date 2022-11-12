@@ -54,7 +54,7 @@ public class DrawLotsController {
 	}
 	//刪除資料
 	@GetMapping("/poem/deleteMember")
-	public String deleteMember(@RequestParam("id") Integer id) {
+	public String deletePoem(@RequestParam("id") Integer id) {
 		dService.deleteById(id);
 		return "redirect:/poem/page";
 	}

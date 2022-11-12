@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import com.loveGod.demo.model.DrawlotsDao;
@@ -32,7 +33,7 @@ import com.loveGod.demo.model.DrawlotsModel;
 			return dDao.findById(rM.getDrawId());
 		}
 		//查全部
-		public List<DrawlotsModel> findAllMember() {
+		public List<DrawlotsModel> findAllPoem() {
 			return dDao.findAll();
 		}
 		public Page<DrawlotsModel> findByPage(Integer pageNumber){
@@ -57,6 +58,14 @@ import com.loveGod.demo.model.DrawlotsModel;
 			return null;
 		}
 	
+		
+		public List<DrawlotsModel> findByPoemname(@Param("drawName") String drawName){
+			return dDao.findByPoemnameContainingIgnoreCase(drawName);
+		}
+		
+		public List<DrawlotsModel> findByPoemId(@Param("drawId") String drawId){
+			return dDao.findByPoemIdContainingIgnoreCase(drawId);
+		}
 		
 		
 		

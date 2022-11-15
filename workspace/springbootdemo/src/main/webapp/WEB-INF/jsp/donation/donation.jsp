@@ -46,7 +46,8 @@
 							<!-- <span class="title">請填寫以下資訊，以利寄發感謝狀!</span> -->
 							<div class="form-floating ">
 								<input  type="text" class="form-control" name="name" id="name"
-									maxlength="100" style="height: 50px" placeholder="請輸入捐款人姓名" required>
+									maxlength="100" style="height: 50px" placeholder="請輸入捐款人姓名" 
+									pattern="^[\u4e00-\u9fa5_a-zA-Z]+$"	title="(請輸入正確性名)" required>
 									<label for="name">請輸入捐款人姓名</label>
 							</div>
 							<div class="form-floating ">
@@ -71,7 +72,8 @@
 							</div>
 							<div class="form-floating ">
 								<input  type="text" class="form-control" name="money" id="money"
-									maxlength="100" style="height: 50px" placeholder="捐款金額" required>
+									maxlength="100" style="height: 50px" placeholder="捐款金額" 
+									pattern="^[0-9]+$"	title="(請輸入數字)" required>
 									<label for="name">捐款金額</label>
 							</div>
 							<div class="form-folat_mb2 ">

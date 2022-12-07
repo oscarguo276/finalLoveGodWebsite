@@ -74,7 +74,8 @@
 <!-- 					<li class="nav-item"><a class="nav-link" -->
 <%-- 						href="${contextRoot}/newProducts">訂單資訊</a></li> --%>
 					<!--       -------------------------------------------------------------------------- -->
-					<li class="nav-item"><c:choose>
+					<li class="nav-item">
+					<c:choose>
 							<c:when test="${empty memberId}">
 								<li class="nav-item"><a class="nav-link"
 									href="${contextRoot}/login"> 訪客 </a></li>

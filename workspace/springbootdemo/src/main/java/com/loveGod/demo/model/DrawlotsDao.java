@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
+
 public interface DrawlotsDao extends JpaRepository<DrawlotsModel, Integer> {
 
 	@Transactional
@@ -37,6 +39,9 @@ public interface DrawlotsDao extends JpaRepository<DrawlotsModel, Integer> {
 	
 	@Query(value = "SELECT * from drawlots d WHERE d.drawId LIKE %:drawId%",nativeQuery = true)
 	public List<DrawlotsModel> findByPoemIdContainingIgnoreCase(@Param("drawId")String drawId);
+
+
+
 
 	
 }

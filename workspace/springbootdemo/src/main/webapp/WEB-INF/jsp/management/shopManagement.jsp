@@ -45,7 +45,7 @@
        <form class="form-inline" action="fileUpload" method="post" enctype="multipart/form-data">
 		  <div class="form-group">
 		    <label for="">商品名稱:</label>
-		    <input id="proName" type="text" name="pName"  class="form-control mx-sm-1">
+		    <input type="text" name="pName" class="form-control mx-sm-1">
 		  </div>
 		  <div class="form-group">
 		    <label for="">商品照片:</label>
@@ -53,14 +53,13 @@
 		  </div>
 		  <div class="form-group">
 		    <label for="">商品價格:</label>
-		    <input type="text" name="pPrice" id="proPrice" class="form-control mx-sm-1">
+		    <input type="text" name="pPrice" class="form-control mx-sm-1">
 		  </div>
 		  <div class="form-group">
 		    <label for="">商品庫存:</label>
-		    <input type="text" name="pStock" id="proStock" class="form-control mx-sm-1">
+		    <input type="text" name="pStock" class="form-control mx-sm-1">
 		  </div>
 		<div class="modal-footer">
-			<div class="btn btn-secondary" id="addProduct">一鍵輸入</div>
 	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
 	        <input type="submit" class="btn btn-primary" value="送出">
       	</div>
@@ -140,22 +139,6 @@
           
 
     </header>
-    
-    <script>
-    let addProductbtn = document.getElementById("addProduct");
-    addProductbtn.addEventListener("click", addProduct)
-	function addProduct() {
-		console.log("123")
-		document.getElementById("proName").value = "追分成功吊飾"
-		document.getElementById("proPrice").value = "200"
-		document.getElementById("proStock").value = "50"
-		
-
-	}
-
-    
-    
-    </script>
 
 
 

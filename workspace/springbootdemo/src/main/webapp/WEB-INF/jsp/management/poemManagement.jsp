@@ -38,8 +38,8 @@
 								<button type="button" class="btn btn-primary" data-bs-toggle="modal"
 									data-bs-target="#exampleModal" data-bs-whatever="@mdo"> + 新增籤詩</button>
 							</div>
-						</div>
 
+						</div>
 
 
 						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -49,37 +49,35 @@
 
 
 
-									<form:form class="form-inline" action="drawlotssubmit" method="post"
-										modelAttribute="drawlotssubmit">
 
-										<div class="modal-header">
-											<h2 class="modal-title" id="exampleModalLabel">新增籤詩</h2>
-											<button type="button" class="btn-close" data-bs-dismiss="modal"
-												aria-label="Close"></button>
+									<div class="modal-header">
+										<h2 class="modal-title" id="exampleModalLabel">新增籤詩</h2>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"
+											aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<div class="form-group">
+											<label for="">籤詩內文:</label>
+											<input id="poemName" type="text" name="drawName" placeholder="請輸入籤詩..."
+												class="form-control mx-sm-1">
 										</div>
-										<div class="modal-body">
-											<div class="form-group">
-												<label for="">籤詩內文:</label>
-												<input id="drawName" type="text" name="drawName" placeholder="請輸入籤詩..."
-													class="form-control mx-sm-1" id="poemName">
-											</div>
-											<div class="form-group">
-												<label for="">解籤內容:</label>
-												<input id="drawMean" type="text" name="drawMean"
-													placeholder="請輸入解籤內容..." class="form-control mx-sm-1" id="poemMean">
-											</div>
-
-											<div class="modal-footer">
-												<div class="btn btn-secondary" id="poem">一鍵輸入</div>
-												<button type="button" class="btn btn-secondary"
-													data-bs-dismiss="modal">取消</button>
-												<button name="submit" value="submit" class="btn btn-primary"
-													data-bs-dismiss="modal" onclick="savePoem()">送出</button>
-												<!-- 	        <input type="submit" name="submit" class="btn btn-primary" value="送出"> -->
-											</div>
+										<div class="form-group">
+											<label for="">解籤內容:</label>
+											<input id="poemMean" type="text" name="drawMean" placeholder="請輸入解籤內容..."
+												class="form-control mx-sm-1">
 										</div>
 
-									</form:form>
+										<div class="modal-footer">
+											<div class="btn btn-secondary" id="poem">一鍵輸入</div>
+											<button type="button" class="btn btn-secondary"
+												data-bs-dismiss="modal">取消</button>
+											<button name="submit" value="submit" class="btn btn-primary"
+												data-bs-dismiss="modal" id="savePoemBtn">送出</button>
+											<!-- 	        <input type="submit" name="submit" class="btn btn-primary" value="送出"> -->
+										</div>
+									</div>
+
+
 
 
 
@@ -164,24 +162,25 @@
 
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 					<script>
-						$(function () {
-							$("#selectChange").change(function () {
 
-								let ddlValue = $(this).val();
-								console.log(ddlValue);
 
-								if (ddlValue == "1") {
-									$("#submit").click(function () {
 
-										let name = $("#search").val().trim();
-										if (name.length < 1) {
-											$("#tbody").empty();
-											fetch("http://localhost:8080/my-app/poem/all").then(function (response) {
-												return response.json();
-											}).then(function (array) {
-												$.each(array.content, function (index, value) {
-													$("#tbody").append(
-														`<tr>
+						$("#selectChange").on('change', function () {
+							let ddlValue = $(this).val();
+							console.log(ddlValue);
+
+							if (ddlValue === "1") {
+								$("#submit").click(function id() {
+
+									let name = $("#search").val().trim();
+									if (name.length < 1) {
+										$("#tbody").empty();
+										fetch("http://localhost:8080/my-app/poem/all").then(function (response) {
+											return response.json();
+										}).then(function (array) {
+											$.each(array.content, function (index, value) {
+												$("#tbody").append(
+													`<tr>
 														<td scope="col"> ` + value.drawId + `</td>
 														<td scope="col">` + value.drawName + `</td>
 														<td scope="col">` + value.drawMean + `</td>
@@ -190,17 +189,17 @@
 															</td>
 														<td scope="col"><a onclick="return confirm('確定刪除詩籤?')" href="${contextRoot}/poem/deletePoem?id=` + value.drawId + `"><img src="${contextRoot}/image/management/delete.png" ></img></td>
 															</tr>`
-													)
-												})
+												)
 											})
-										} else {
-											$("#tbody").empty();
-											fetch("http://localhost:8080/my-app/poem/findByPoemId/" + name).then(function (response) {
-												return response.json();
-											}).then(function (array) {
-												$.each(array, function (index, value) {
-													$("#tbody").append(
-														`<tr>
+										})
+									} else {
+										$("#tbody").empty();
+										fetch("http://localhost:8080/my-app/poem/findByPoemId/" + name).then(function (response) {
+											return response.json();
+										}).then(function (array) {
+											$.each(array, function (index, value) {
+												$("#tbody").append(
+													`<tr>
 														<td scope="col"> ` + value.drawId + `</td>
 														<td scope="col">` + value.drawName + `</td>
 														<td scope="col">` + value.drawMean + `</td>
@@ -209,26 +208,25 @@
 														</td>
 														<td scope="col"><a onclick="return confirm('確定刪除詩籤?')" href="${contextRoot}/poem/deletePoem?id=` + value.drawId + `"><img src="${contextRoot}/image/management/delete.png" ></img></td>
 													</tr>`
-													)
-												})
+												)
 											})
-										}
-									})
-								}
+										})
+									}
+								})
+							}
 
+							if (ddlValue === "2") {
+								$("#submit").click(function name() {
 
-								if (ddlValue == "2") {
-
-									$("#submit").click(function () {
-										let name = $("#search").val().trim();
-										if (name.length < 1) {
-											$("#tbody").empty();
-											fetch("http://localhost:8080/my-app/poem/all").then(function (response) {
-												return response.json();
-											}).then(function (array) {
-												$.each(array.content, function (index, value) {
-													$("#tbody").append(
-														`<tr>
+									let name = $("#search").val().trim();
+									if (name.length < 1) {
+										$("#tbody").empty();
+										fetch("http://localhost:8080/my-app/poem/all").then(function (response) {
+											return response.json();
+										}).then(function (array) {
+											$.each(array.content, function (index, value) {
+												$("#tbody").append(
+													`<tr>
 														<td scope="col"> ` + value.drawId + `</td>
 														<td scope="col">` + value.drawName + `</td>
 														<td scope="col">` + value.drawMean + `</td>
@@ -237,17 +235,17 @@
 															</td>
 														<td scope="col"><a onclick="return confirm('確定刪除詩籤?')" href="${contextRoot}/poem/deletePoem?id=` + value.drawId + `"><img src="${contextRoot}/image/management/delete.png" ></img></td>
 															</tr>`
-													)
-												})
+												)
 											})
-										} else {
-											$("#tbody").empty();
-											fetch("http://localhost:8080/my-app/poem/findByPoemname/" + name).then(function (response) {
-												return response.json();
-											}).then(function (array) {
-												$.each(array, function (index, value) {
-													$("#tbody").append(
-														`<tr>
+										})
+									} else {
+										$("#tbody").empty();
+										fetch("http://localhost:8080/my-app/poem/findByPoemname/" + name).then(function (response) {
+											return response.json();
+										}).then(function (array) {
+											$.each(array, function (index, value) {
+												$("#tbody").append(
+													`<tr>
 														<td scope="col"> ` + value.drawId + `</td>
 														<td scope="col">` + value.drawName + `</td>
 														<td scope="col">` + value.drawMean + `</td>
@@ -256,23 +254,14 @@
 														</td>
 														<td scope="col"><a onclick="return confirm('確定刪除詩籤?')" href="${contextRoot}/poem/deletePoem?id=` + value.drawId + `"><img src="${contextRoot}/image/management/delete.png" ></img></td>
 														</tr>`
-													)
-													console.log("aaa" + value.drawName);
-												})
+												)
+												console.log("aaa" + value.drawName);
 											})
-										}
-									})
-								}
-
-
-
-
-							})
-
-
-
+										})
+									}
+								})
+							}
 						})
-
 
 
 
@@ -280,38 +269,46 @@
 						poembtn.addEventListener("click", poem)
 						function poem() {
 							console.log("123")
-							document.getElementById("drawName").value = "望渠消息向長安，常把菱花仔細看， 見說文書將入境，今朝喜色上眉端。"
-							document.getElementById("drawMean").value = "望穿秋水，等待長安帝畿的好消息到來，常常對著菱花鏡仔細看，聽說有信來了，今早不覺喜上眉梢。 這首籤詩，表示期待已久的事情，將有眉目了。好比等待很久的信息，忽然有佳音來報。"
+							document.getElementById("poemName").value = "望渠消息向長安，常把菱花仔細看， 見說文書將入境，今朝喜色上眉端。"
+							document.getElementById("poemMean").value = "望穿秋水，等待長安帝畿的好消息到來，常常對著菱花鏡仔細看，聽說有信來了，今早不覺喜上眉梢。 這首籤詩，表示期待已久的事情，將有眉目了。好比等待很久的信息，忽然有佳音來報。"
 						}
 
-						function savePoem() {
-							var poemName = $("#poemName").val();
-							var poemMean = $("#poemMean").val();
+						$("#savePoemBtn").click(function () {
+
+							var poemName = document.getElementById('poemName').value;
+							var poemMean = document.getElementById('poemMean').value;
+							var dtoObj = { "poemName": poemName, "poemMean": poemMean }
+							var dtoJsonString = JSON.stringify(dtoObj);
 
 							$.ajax({
-								type: "POST",
-								url: "/poem/insertPoem",
+								url: "http://localhost:8080/my-app/api/insertPoem",
+								type: "post",
 								dataType: "json",
-								data: { poemName: poemName, poemMean: poemMean },
+								contentType: "application/json",
+								data: dtoJsonString,
 								success: function (response) {
-									alert("新增成功");
 
-									var finalResponse = JSON.stringify(response);
 									$("#tbody").append(
 										`<tr>
-											<td scope="col"> ` + finalResponse.drawId + `</td>
-											<td scope="col"> ` + finalResponse.poemName + `</td>
-											<td scope="col"> ` + finalResponse.poemMean + `</td>
+											<td scope="col"> ` + response.drawId + `</td>
+											<td scope="col"> ` + response.drawName + `</td>
+											<td scope="col"> ` + response.drawMean + `</td>
 											<td >
-												<a href="${contextRoot}/poem/editPoem?id=` + value.drawId + `"><img src="${contextRoot}/image/management/edit.png"></a>
+												<a href="${contextRoot}/poem/editPoem?id=` + response.drawId + `"><img src="${contextRoot}/image/management/edit.png"></a>
 												</td>
-											<td scope="col"><a onclick="return confirm('確定刪除詩籤?')" href="${contextRoot}/poem/deletePoem?id=` + value.drawId + `"><img src="${contextRoot}/image/management/delete.png" ></img></td>
+											<td scope="col"><a onclick="return confirm('確定刪除詩籤?')" href="${contextRoot}/poem/deletePoem?id=` + response.drawId + `"><img src="${contextRoot}/image/management/delete.png" ></img></td>
 										</tr>`
-
 									)
+
+
+								}, error: function (err) {
+									alert(err);
 								}
+
 							})
-						}
+
+						})
+
 
 						$(document).ready(function () {
 							fetch("http://localhost:8080/my-app/poem/all").then(function (response) {

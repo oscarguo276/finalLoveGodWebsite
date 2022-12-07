@@ -46,8 +46,7 @@
 							<!-- <span class="title">請填寫以下資訊，以利寄發感謝狀!</span> -->
 							<div class="form-floating ">
 								<input  type="text" class="form-control" name="name" id="name"
-									maxlength="100" style="height: 50px" placeholder="請輸入捐款人姓名" 
-									pattern="^[\u4e00-\u9fa5_a-zA-Z]+$"	title="(請輸入正確性名)" required>
+									maxlength="100" style="height: 50px" placeholder="請輸入捐款人姓名" required>
 									<label for="name">請輸入捐款人姓名</label>
 							</div>
 							<div class="form-floating ">
@@ -72,8 +71,7 @@
 							</div>
 							<div class="form-floating ">
 								<input  type="text" class="form-control" name="money" id="money"
-									maxlength="100" style="height: 50px" placeholder="捐款金額" 
-									pattern="^[0-9]+$"	title="(請輸入數字)" required>
+									maxlength="100" style="height: 50px" placeholder="捐款金額" required>
 									<label for="name">捐款金額</label>
 							</div>
 							<div class="form-folat_mb2 ">
@@ -121,7 +119,7 @@
 					<div class="overlay_border">
 						<div class="overlay">
 							<div class="overlay_pannel overlay_left">
-								<p class="ps">請在右方填寫聯絡資訊，以利寄發感謝狀!</p>
+								<p class="ps" id="autofill">請在右方填寫聯絡資訊，以利寄發感謝狀!</p>
 								<p class="ps">重新選擇付款方式請點選下方返回鍵</p>
 								<button class="ghost" id="signIn">
 									<img src="${contextRoot}/image/donation/turn-back2.png" width="30%" alt="">
@@ -167,5 +165,20 @@
 <%-- 	<jsp:include page="../layout/footer.jsp"></jsp:include> --%>
 	<script src="${contextRoot}/js/index/donation/Choose_to_pay.js"></script>
 	<script src="${contextRoot}/js/index/donation/verification_code.js"></script>
+	
+	<script>
+	let autoregbtn = document.getElementById("autofill");
+	autoregbtn.addEventListener("click", autofill)
+		function autofill() {
+			console.log("123")
+			document.getElementById("name").value = "王曉明"
+			document.getElementById("phone").value = "0916342424"
+			document.getElementById("mail").value = "test.mg@gmail.com"
+			document.getElementById("address").value = "台南市小惠因區水蠟樹街4號"
+			document.getElementById("money").value = "100"
+				
+		}
+	</script>
+	
 </body>
 </html>

@@ -51,7 +51,7 @@ public class DonationController2 {
 
 		model.addAttribute("donationForm", d1);
 		model.addAttribute("message",message);
-		Captcha captcha = captchaGenerator.createCaptcha(150, 50);
+		Captcha captcha = captchaGenerator.createCaptcha(200, 50);
 		httpSession.setAttribute("captcha", captcha.getAnswer());
 		model.addAttribute("captchaEncode", CaptchaUtils.encodeBase64(captcha));
 		message = null;

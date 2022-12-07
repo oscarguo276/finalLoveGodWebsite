@@ -66,6 +66,8 @@
 								是否寄送獎狀:
 								<form:input type="hidden" path="receipt"/>
 								<input value="${receipt==1?'否':'是'}">
+								
+								
 							</div>
 
 							<button class="button1" type="button"

@@ -11,11 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.loveGod.demo.model.DrawlotsModel;
+import com.loveGod.demo.model.PoemDto;
 import com.loveGod.demo.model.RegisterModel;
 import com.loveGod.demo.service.DrawService;
 import com.loveGod.demo.service.MemberManagementService;
@@ -119,13 +120,18 @@ public class managementControllerAPI {
     
     //詩籤ajax insert
     
-    @PostMapping("/poem/insertPoem")
-    public String savePoem(@RequestParam("poemName") String poemName,
-    						@RequestParam("poenMean") String poemMean) {
+    @PostMapping("/api/insertPoem")
+    public DrawlotsModel savePoem(@RequestBody PoemDto dto) {
     	System.out.println("ajax poem saving......");
-    	DrawlotsModel drawlots = drawService.insertlots(null);
-    	JSONPObject resobj = new JSONPObject(poemName, poemMean);
-    	return resobj.toString();
+    	String name=dto.getPoemName();
+    	String mean =dto.getPoemMean();
+    	DrawlotsModel newPoem = new DrawlotsModel();
+    	newPoem .setDrawName(name);
+    	newPoem .setDrawMean(mean);
+    	drawService.insertlots(newPoem);
+    	
+		return newPoem;
+
     }
 	
     

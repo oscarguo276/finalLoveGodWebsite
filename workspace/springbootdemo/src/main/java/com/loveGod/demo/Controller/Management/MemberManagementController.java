@@ -1,5 +1,8 @@
 package com.loveGod.demo.Controller.Management;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -54,6 +57,16 @@ public class MemberManagementController {
 //		return "management/memberManagement";
 //	}
 	
+	
+	@GetMapping("management/logout")
+	public String logout(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		session.removeAttribute("memberId");
+		session.removeAttribute("password");
+		String url= "http://localhost:8080/my-app/index";
+		return "redirect:"+url;
+		
+	}
 
 	
 }

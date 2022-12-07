@@ -64,12 +64,38 @@
                                         href="${contextRoot}/poem/page">詩籤管理</a></li>
                                 <li class="nav-item" id="barname"><a class="nav-link"
                                         href="${contextRoot}/donation/page">香油錢管理</a></li>
-                                <li class="nav-item" id="barname"><a class="nav-link" href="#about">登出</a></li>
+                                <li class="nav-item" id="barname" onclick="logout()"><a class="nav-link" href="${contextRoot}/management/logout">登出</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#"
+									data-toggle="modal" data-target="#logoutModal"> <i
+										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+								</a></li>
                             </ul>
                         </div>
                     </div>
                 </nav>
             </header>
+            
+            	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">確定要登出?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">如果確定請選擇"登出"</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">取消</button>
+					<a class="btn btn-primary" href="logout">登出</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 
@@ -84,7 +110,11 @@
                 <script src="${contextRoot}/js/index/scripts.js"></script>
                 <script src="${contextRoot}/js/jquery-3.6.1.min.js" type="text/javascript"></script>
                 <script src="${contextRoot}/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-
+<script>
+function logout(){
+	alert("確定登出？")
+}
+</script>
 
         </body>
 
